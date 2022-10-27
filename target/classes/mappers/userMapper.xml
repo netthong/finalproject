@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="user">
+	<!-- 로그인 체크 -->
+	<select id="login_check" resultType="String">
+	select name from user_list
+	where userid=#{userid} 
+	and password=#{password}
+	and out='Y'
+	and stop='Y'
+	</select>
+	
+	<!-- userid 정보 가져오기 -->
+	<select id="viewUser"
+	resultType="com.project.dragonball.model.user.dto.UserListDTO">
+	select * from user_list
+	where userid = #{userid}
+	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="writeUser">
+	insert into user_list (userid, password, name, tel, email)
+	values (#{userid}, #{password}, #{name}, #{tel}, #{email})
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
