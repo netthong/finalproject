@@ -15,4 +15,8 @@ public interface UserListService {
 	public void updateUser(UserListDTO dto);
 	public void deleteUser(String userid);
 	public void logout(HttpSession session);
+	public int idCheck(String userid);
+	public String findId(String name, String email);
+	public String findPw(String userid, String email);
+	public void updatePass(String userid, String pw);
 }

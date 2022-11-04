@@ -4,8 +4,12 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.dragonball.model.user.dto.UserListDTO;
@@ -57,4 +61,31 @@ public class UserController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "idCheck.do", method = RequestMethod.POST)
+	@ResponseBody
+	public int idCheck(@RequestParam("userid") String userid) {
+		int cnt = userService.idCheck(userid);
+		return cnt;
+	}
+	
+	@RequestMapping(value = "findId.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String findId(@RequestParam("name") String name, @RequestParam("email") String email) {
+		String data = userService.findId(name,email);
+		return data;
+	}
+	
+	@RequestMapping(value = "findPw.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String findPw(@RequestParam("userid") String userid, @RequestParam("email") String email) {
+		String pass = userService.findPw(userid,email);
+		String pw = "";
+		if(pass != null) {
+			for (int i = 0; i < 9; i++) {
+				pw += (char) ((Math.random() * 26) + 97);
+			}
+			userService.updatePass(userid, pw);
+		}		
+		return pw;
+	}
 }

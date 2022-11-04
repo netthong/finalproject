@@ -25,7 +25,7 @@
 	<div class="nav-container px-3">
 		<!-- 홈버튼 -->
 		<a class="navbar-brand" href="#">
-			<img src="resources/images/dragonball_logo1.png" alt="" width="70" height="50">
+			<img src="${path}/resources/images/dragonball_logo1.png" alt="" width="70" height="50">
 		</a>
 		<ul class="navbar-nav">			
 			<div class="container-fluid position-relative" style="width:700px;height:auto">

@@ -99,9 +99,9 @@
       <span id="slide-2"></span>
       <span id="slide-3"></span>
       <div class="image-container">
-        <img src="resources/images/dragonball_logo1.png" class="slide" width="500" height="300" />
-        <img src="resources/images/dragonball_logo2.png" class="slide" width="500" height="300" />
-        <img src="resources/images/i0076.jpg" class="slide" width="500" height="300" />
+        <img src="${path}/resources/images/dragonball_logo1.png" class="slide" width="500" height="300" />
+        <img src="${path}/resources/images/dragonball_logo2.png" class="slide" width="500" height="300" />
+        <img src="${path}/resources/images/i0076.jpg" class="slide" width="500" height="300" />
       </div>
       <div class="buttons">
         <a href="#slide-1"></a>
@@ -112,19 +112,19 @@
 		<div class="d-flex flex-wrap justify-content-evenly" style="min-height: 350px;">
 			<!-- 숙소유형별 조회 -->
 				<div class="text-center my-auto">
-					<a href="#"><img class="img-fluid" src="resources/images/homeicons/TYPE_001.png" style="width:100px;height:auto;"></a><br/>
+					<a href="#"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_001.png" style="width:100px;height:auto;"></a><br/>
 			    <a href="#" class="text-decoration-none text-dark fw-light">모텔</a>
 				</div>
 				<div class="text-center my-auto">
-					<a href="#"><img class="img-fluid" src="resources/images/homeicons/TYPE_002.png" style="width:100px;height:auto;"></a><br/>
+					<a href="#"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_002.png" style="width:100px;height:auto;"></a><br/>
 			    <a href="#" class="text-decoration-none text-dark fw-light">호텔 리조트</a>
 				</div>
 				<div class="text-center my-auto">
-					<a href="#"><img class="img-fluid" src="resources/images/homeicons/TYPE_003.png" style="width:100px;height:auto;"></a><br/>
+					<a href="#"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_003.png" style="width:100px;height:auto;"></a><br/>
 			    <a href="#" class="text-decoration-none text-dark fw-light">펜션</a>
 				</div>
 				<div class="text-center my-auto">
-					<a href="#"><img class="img-fluid" src="resources/images/homeicons/TYPE_004.png" style="width:100px;height:auto;"></a><br/>
+					<a href="#"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_004.png" style="width:100px;height:auto;"></a><br/>
 			    <a href="#" class="text-decoration-none text-dark fw-light">게스트하우스</a>
 				</div>
 		</div>
@@ -134,7 +134,7 @@
 				<div class="card flex-fill p-1 mb-3 me-3">
 					<div class="row g-0">
 			  			<div class="col-md-4">
-			    			<img src="/resources/images/logo.png" style="width:170px;" class="img-fluid rounded-start" alt="...">
+			    			<img src="${path}/resources/images/logo.png" style="width:170px;" class="img-fluid rounded-start" alt="...">
 			  			</div>
 			  			<div class="col-md-8">
 			    			<div class="card-body">
@@ -147,7 +147,7 @@
 				<div class="card flex-fill p-1 mb-3">
 					<div class="row g-0">
 						<div class="col-md-4">
-				    		<img src="/resources/images/logo.png" style="width:170px;" class="img-fluid rounded-start" alt="...">
+				    		<img src="${path}/resources/images/logo.png" style="width:170px;" class="img-fluid rounded-start" alt="...">
 				  		</div>
 				  		<div class="col-md-8">
 				    		<div class="card-body">

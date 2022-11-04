@@ -1,6 +1,8 @@
 package com.project.dragonball.model.user.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -54,6 +56,35 @@ public class UserListDAOImpl implements UserListDAO {
 	public void deleteUser(String userid) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int idCheck(String userid) {
+		return sqlSession.selectOne("user.idCheck", userid);
+	}
+
+	@Override
+	public String findId(String name, String email) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("name", name);
+		map.put("email", email);
+		return sqlSession.selectOne("user.findId", map);
+	}
+
+	@Override
+	public String findPw(String userid, String email) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("userid", userid);
+		map.put("email", email);
+		return sqlSession.selectOne("user.findPw", map);
+	}
+
+	@Override
+	public void updatePass(String userid, String pw) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("userid", userid);
+		map.put("password", pw);
+		sqlSession.update("user.updatePass", map);
 	}
 
 	

@@ -68,4 +68,24 @@ public class UserListServiceImpl implements UserListService {
 		
 	}
 
+	@Override
+	public int idCheck(String userid) {
+		return userListdao.idCheck(userid);
+	}
+
+	@Override
+	public String findId(String name, String email) {
+		return userListdao.findId(name,email);
+	}
+
+	@Override
+	public String findPw(String userid, String email) {
+		return userListdao.findPw(userid,email);
+	}
+
+	@Override
+	public void updatePass(String userid, String pw) {
+		userListdao.updatePass(userid, pw);
+	}
+
 }

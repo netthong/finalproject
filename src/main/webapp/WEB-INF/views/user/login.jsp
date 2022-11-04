@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ include file="../include/header.jsp" %>
-<%@ include file="../common/tags.jsp" %>
+
 
 <!doctype html>
 <html lang="ko">
@@ -8,6 +7,8 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<%@ include file="../include/header.jsp" %>
+	<%@ include file="../common/tags.jsp" %>
 <style type="text/css">
 .login #content {
     width: 336px;
@@ -60,7 +61,7 @@ li {
     				</div>
     			</c:if>
     			<c:if test="${message == 'logout'}">
-    				<div class="alert alert-danger">
+    				<div class="alert alert-info">
     					로그아웃 되었습니다.
     				</div>
     			</c:if>
@@ -124,11 +125,11 @@ li {
 						<table class="table findPw">
 							<tr>
                             	<td><label>아이디</label></td>
-								<td><input type="text" class="form-control" id="id" name="id" placeholder="아이디를 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '이름을 입력해주세요.'"></td>
+								<td><input type="text" class="form-control" id="userid2" name="userid2" placeholder="아이디를 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '이름을 입력해주세요.'"></td>
 							</tr>
 							<tr>
 								<td><label>이메일</label></td>
-								<td><input type="text" class="form-control" id="email2" name="email" placeholder="이메일을 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '이메일을 입력해주세요.'"></td>
+								<td><input type="text" class="form-control" id="email2" name="email2" placeholder="이메일을 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '이메일을 입력해주세요.'"></td>
 							</tr>
 						</table>
 						<div class="showPw"></div>
@@ -147,11 +148,11 @@ li {
 <%-- 아이디 찾기 --%>
 <script type="text/javascript">
 function findId() {
-   var name = document.getElementById('name').value;
-   var email = document.getElementById('email').value;
+   var name = $('#name').val();
+   var email = $('#email').val();
    
    $.ajax({
-      url: '/findId.do',
+      url: '${path}/user/findId.do',
       type: 'post',
       data: {"name":name, "email":email},
       success:function(data){
@@ -160,7 +161,7 @@ function findId() {
          } else {
             $(".findId").css('display','none');
             $(".btnConfirm").css('display','none');
-            let content = '<p class="text-center">아이디는 <strong>'+data+'</strong> 입니다.</p>';
+            var content = '<p class="text-center">아이디는 <strong>'+data+'</strong> 입니다.</p>';
             $(".showId").append(content);
          }
       }, 
@@ -172,22 +173,22 @@ function findId() {
 
 <%-- 비밀번호 찾기 --%>
 function findPw() {
-   var id = document.getElementById('id').value;
-   var email = document.getElementById('email2').value;
+   var userid = $("#userid2").val();
+   var email = $("#email2").val();
    
    $.ajax({
-      url: '/findPw',
+      url: '${path}/user/findPw.do',
       type: 'post',
-      data: {"id":id, "email":email},
-      success:function(data){
-         if(data == "success") {
+      data: {"userid":userid, "email":email},
+      success:function(pw){
+    	   if(pw == ""){
+              alert("아이디 혹은 이메일이 잘못되었습니다.");
+           }else {
             $(".findPw").css('display','none');
             $(".btnConfirm2").css('display','none');
-            var content = '<p class="text-center">임시 비밀번호를 '+email+'로 보냈습니다.</p>';
+            var content = '<p class="text-center">임시 비밀번호는 <strong>'+pw+'</strong> 입니다.</p>';
             $(".showPw").append(content);
-         } else if (data =="fail"){
-            alert("아이디 혹은 이메일이 잘못되었습니다.");
-         }
+       	 } 
       }, 
       error:function(){
          alert("에러입니다.");

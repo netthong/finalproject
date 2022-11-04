@@ -23,9 +23,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 회원가입 -->
 	<insert id="writeUser">
-	insert into user_list (userid, password, name, tel, email)
-	values (#{userid}, #{password}, #{name}, #{tel}, #{email})
+	insert into user_list (userid, password, name, tel, email, category)
+	values (#{userid}, #{password}, #{name}, #{tel}, #{email}, #{category})
 	</insert>
+	
+	<!-- id중복확인 -->
+	<select id="idCheck" resultType="int">
+	select count(userid) 
+	from user_list 
+	where userid = #{userid}
+	</select>
+	
+	<!-- 아이디 찾기 -->
+	<select id="findId" resultType="String">
+	select userid 
+	from user_list
+	where name = #{name}
+	and email = #{email}
+	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="findPw" resultType="String">
+	select password 
+	from user_list
+	where userid = #{userid}
+	and email = #{email}
+	</select>
+	
+	<!-- 임시비밀번호 부여 -->
+	<update id="updatePass">
+	update user_list set password = #{password}
+	where userid = #{userid}
+	</update>
 </mapper>
 
 
