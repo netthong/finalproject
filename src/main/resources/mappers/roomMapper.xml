@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="room">
+
+ <select id="room_list" resultType="com.project.dragonball.model.room.dto.RoomDTO">
+  select * from room_list
+  order by room_name
+ </select>
+ 
+ <insert id="insert">
+  insert into room_list (room_no,room_name,room_amount,room_price,room_size,picture_url)
+   values
+   (#{room_no},#{room_name},#{room_amount},#{room_price},#{room_size},#{picture_url})
+ </insert>
+ 
+ <select id="detail_room" resultType="com.project.dragonball.model.room.dto.RoomDTO">
+  select * from room_list
+  where room_no=#{room_no}
+ </select>
+ 
+ <update id="update">
+  update room_list
+  set 
+  room_name=#{room_name}, room_no=#{room_no}, room_price=#{room_price}, 
+  room_amount=#{room_amount}, room_size=#{room_size}, picture_url=#{picture_url}
+  where room_no=#{room_no}
+ </update>
+ 
+ <select id="fileInfo" resultType="String">
+  select picture_url from room_list
+  where room_no=#{room_no}
+ </select>
+
+ <delete id="delete">
+  delete from room_list
+  where room_no=#{room_no}
+ </delete>
+ 
+ 
+ 
+ 
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

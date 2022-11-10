@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="owner">
+ 
+ <select id="building_list" resultType="com.project.dragonball.model.owner.dto.OwnerListDTO">
+  select * from owner_list
+  order by building_code
+ </select>
+ 
+ <select id="detail_building" resultType="com.project.dragonball.model.owner.dto.OwnerListDTO">
+  select * from owner_list
+  where building_code=#{building_code}
+  </select>
+  
+ <insert id="insert">
+   insert into owner_list (building_code,building_name,building_type,address1,address2,zipcode,owner_comment,accomodation,picture_url,userid)
+   values
+  (BUILDING_CODE_SEQ.nextval,#{building_name,jdbcType=VARCHAR},#{building_type,jdbcType=VARCHAR},
+  #{address1,jdbcType=VARCHAR},#{address2,jdbcType=VARCHAR},#{zipcode,jdbcType=VARCHAR},
+  #{owner_comment,jdbcType=VARCHAR},#{accomodation,jdbcType=VARCHAR},
+  #{picture_url,jdbcType=VARCHAR},#{userid,jdbcType=VARCHAR})
+ </insert>
+ 
+ <update id="update_building">
+  update owner_list
+  set
+  building_name=#{building_name}, building_type=#{building_type}, owner_comment=#{owner_comment},
+  accomodation=#{accomodation}, address1=#{address1}, address2=#{address2}, zipcode=#{zipcode},
+  picture_url=#{picture_url}
+  where building_code=#{building_code}
+ </update>
+ 
+ <select id="fileInfo1" resultType="String">
+  select picture_url from owner_list
+  where building_code=#{building_code}
+ </select>
+
+ <delete id="building_delete">
+  delete from owner_list
+  where building_code=#{building_code}
+ </delete>
+ 
+ 
+ 
+ 
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
