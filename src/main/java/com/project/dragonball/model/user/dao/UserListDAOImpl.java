@@ -41,9 +41,12 @@ public class UserListDAOImpl implements UserListDAO {
 	}
 
 	@Override
-	public boolean checkPw(String userid, String passwd) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean checkPw(String userid, String password) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("userid", userid);
+		map.put("password", password);
+		String check = sqlSession.selectOne("user.checkPw", map);
+		return (check==null) ? false : true;
 	}
 
 	@Override
@@ -87,7 +90,30 @@ public class UserListDAOImpl implements UserListDAO {
 		sqlSession.update("user.updatePass", map);
 	}
 
-	
+	@Override
+	public void updateName(String userid, String name) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("userid", userid);
+		map.put("name", name);
+		sqlSession.update("user.updateName", map);
+	}
+
+	@Override
+	public void updateTel(String userid, String tel) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("userid", userid);
+		map.put("tel", tel);
+		sqlSession.update("user.updateTel", map);
+	}
+
+	@Override
+	public void updateEmail(String userid, String email) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("userid", userid);
+		map.put("email", email);
+		sqlSession.update("user.updateEmail", map);
+	}
+
 
 	
 

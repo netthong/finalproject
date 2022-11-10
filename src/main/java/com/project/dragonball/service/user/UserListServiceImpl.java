@@ -44,9 +44,8 @@ public class UserListServiceImpl implements UserListService {
 	}
 
 	@Override
-	public boolean checkPw(String userid, String passwd) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean checkPw(String userid, String password) {
+		return userListdao.checkPw(userid, password);
 	}
 
 	
@@ -86,6 +85,21 @@ public class UserListServiceImpl implements UserListService {
 	@Override
 	public void updatePass(String userid, String pw) {
 		userListdao.updatePass(userid, pw);
+	}
+
+	@Override
+	public void updateName(String userid, String name) {
+		userListdao.updateName(userid, name);
+	}
+
+	@Override
+	public void updateTel(String userid, String tel) {
+		userListdao.updateTel(userid, tel);
+	}
+
+	@Override
+	public void updateEmail(String userid, String email) {
+		userListdao.updateEmail(userid,email);
 	}
 
 }

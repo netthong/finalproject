@@ -50,9 +50,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	and email = #{email}
 	</select>
 	
-	<!-- 임시비밀번호 부여 -->
+	<!-- 비밀번호 바꾸기 -->
 	<update id="updatePass">
 	update user_list set password = #{password}
+	where userid = #{userid}
+	</update>
+	
+	<!-- 비밀번호 체크 -->
+	<select id="checkPw" resultType="String">
+	select count(userid) 
+	from user_list
+	where userid = #{userid}
+	and password = #{password}
+	</select>
+	
+	<!-- 이름수정 -->
+	<update id="updateName">
+	update user_list set name = #{name}
+	where userid = #{userid}
+	</update>
+	
+	<!-- 전화번호 수정 -->
+	<update id="updateTel">
+	update user_list set tel = #{tel}
+	where userid = #{userid}
+	</update>
+	
+	<update id="updateEmail">
+	update user_list set email = #{email}
 	where userid = #{userid}
 	</update>
 </mapper>

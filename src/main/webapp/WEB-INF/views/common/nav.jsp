@@ -24,7 +24,7 @@
 <nav class="navbar navbar-expand-md sticky-top bg-secondary navbar-dark">
 	<div class="nav-container px-3">
 		<!-- 홈버튼 -->
-		<a class="navbar-brand" href="#">
+		<a class="navbar-brand" href="${path}">
 			<img src="${path}/resources/images/dragonball_logo1.png" alt="" width="70" height="50">
 		</a>
 		<ul class="navbar-nav">			
@@ -54,8 +54,7 @@
    				<ul class="dropdown-menu">
     				<li><a class="dropdown-item" href="#">찜목록</a></li>
      				<li><a class="dropdown-item" href="#">예약내역</a></li>
-     				<li><a class="dropdown-item" href="#">쿠폰함</a></li>
-     				<li><a class="dropdown-item" href="#">회원정보</a></li>
+     				<li><a class="dropdown-item" href="userInfo.do">회원정보</a></li>
    				</ul>
 			</li>
 			

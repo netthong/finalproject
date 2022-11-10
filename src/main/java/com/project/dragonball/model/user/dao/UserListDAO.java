@@ -10,11 +10,14 @@ public interface UserListDAO {
 	public UserListDTO viewUser(String userid);
 	public List<UserListDTO> list();
 	public void writeUser(UserListDTO dto);
-	public boolean checkPw(String userid, String passwd);
+	public boolean checkPw(String userid, String password);
 	public void updateUser(UserListDTO dto);
 	public void deleteUser(String userid);
 	public int idCheck(String userid);
 	public String findId(String name, String email);
 	public String findPw(String userid, String email);
 	public void updatePass(String userid, String pw);
+	public void updateName(String userid, String name);
+	public void updateTel(String userid, String tel);
+	public void updateEmail(String userid, String email);
 }

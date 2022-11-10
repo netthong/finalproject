@@ -32,8 +32,15 @@ public class UserController {
 		//로그인 성공 true,실패 false
 		boolean result=userService.loginCheck(dto, session);
 		ModelAndView mav = new ModelAndView();//성공실패결과값에따라 들어가는 값이 달라서 따로처리
+		UserListDTO dto2 = userService.viewUser(dto.getUserid());
 		if(result) {
-			mav.setViewName("home");
+			if(dto2.getCategory() == 'c') {
+				mav.setViewName("home");				
+			}else if(dto2.getCategory() == 'b') {
+				mav.setViewName("owner/owner_write");
+			}else if(dto2.getCategory() == 'a') {
+				mav.setViewName("admin/admin_home");
+			}
 		} else {//로그인실패
 			mav.setViewName("user/login");
 			//전달할값
@@ -87,5 +94,66 @@ public class UserController {
 			userService.updatePass(userid, pw);
 		}		
 		return pw;
+	}
+	
+	@RequestMapping("userInfo.do")
+	public ModelAndView userView(HttpSession session, ModelAndView mav) {
+		String userid = (String)session.getAttribute("userid");
+		mav.setViewName("user/viewUser");
+		mav.addObject("dto", userService.viewUser(userid));
+		return mav;
+	}
+	
+	@RequestMapping("changePassword.do")
+	public String changePw() {
+		return "user/changePassword";
+	}
+	
+	@RequestMapping("changePw.do")
+	@ResponseBody
+	public ModelAndView changePw(HttpSession session, @RequestParam("pw") String password, 
+			@RequestParam("pw1") String nPassword, ModelAndView mav) {
+		String userid = (String)session.getAttribute("userid");
+		boolean check = userService.checkPw(userid, password);
+		if(!check) {
+			mav.setViewName("user/changePassword");
+			mav.addObject("massage", "error");
+		}else {
+			userService.updatePass(userid, nPassword);
+			mav.setViewName("user/viewUser");
+			mav.addObject("dto", userService.viewUser(userid));
+			mav.addObject("message", "success");
+		}
+		return mav;
+	}
+	
+	@RequestMapping("updateName.do")
+	@ResponseBody
+	public ModelAndView updateName(HttpSession session, @RequestParam("name") String name, ModelAndView mav) {
+		String userid = (String)session.getAttribute("userid");
+		userService.updateName(userid,name);
+		mav.addObject("dto", userService.viewUser(userid));
+		mav.setViewName("user/viewUser");
+		return mav;
+	}
+	
+	@RequestMapping("updateTel.do")
+	@ResponseBody
+	public ModelAndView updateTel(HttpSession session, @RequestParam("tel") String tel, ModelAndView mav) {
+		String userid = (String)session.getAttribute("userid");
+		userService.updateTel(userid,tel);
+		mav.addObject("dto", userService.viewUser(userid));
+		mav.setViewName("user/viewUser");
+		return mav;
+	}
+	
+	@RequestMapping("updateEmail.do")
+	@ResponseBody
+	public ModelAndView updateEmail(HttpSession session, @RequestParam("email") String email, ModelAndView mav) {
+		String userid = (String)session.getAttribute("userid");
+		userService.updateEmail(userid,email);
+		mav.addObject("dto", userService.viewUser(userid));
+		mav.setViewName("user/viewUser");
+		return mav;
 	}
 }
