@@ -50,7 +50,7 @@ display: none;
 	<div id="content">
 		<!-- 로고 -->
         <div id="logo">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="${path}">
       			<img src="../resources/images/dragonball_logo1.png" alt="거기어때" width="80" height="auto">
     		</a>
         </div>

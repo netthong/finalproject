@@ -60,6 +60,11 @@ li {
     					아이디 혹은 비밀번호가 틀렸습니다.
     				</div>
     			</c:if>
+    			<c:if test="${message == 'stop'}">
+    				<div class="alert alert-danger">
+    					아이디가 정지되었습니다.
+    				</div>
+    			</c:if>
     			<c:if test="${message == 'logout'}">
     				<div class="alert alert-info">
     					로그아웃 되었습니다.
@@ -78,7 +83,7 @@ li {
     				<div class="finish">
 						<a href="join.do" class="btn btn-light mb-2" style="padding-left: 33px; padding-right:33px;height: 42px;">회원가입</a>
 						<button class="btn btn-light mb-2" type="button" data-bs-toggle="modal" data-bs-target="#findId" style="padding-left: 33px; padding-right:33px;width: 190px;height: 42px;">아이디 찾기</button>
-            			<button class="btn btn-light" type="button" data-bs-toggle="modal" data-bs-target="#findPw" style="padding-left: 33px; padding-right:33px;height: 45px;">비밀번호 찾기</button>
+            <button class="btn btn-light" type="button" data-bs-toggle="modal" data-bs-target="#findPw" style="padding-left: 33px; padding-right:33px;height: 45px;">비밀번호 찾기</button>
     				</div>
     			</form>
     		</div>
@@ -135,7 +140,7 @@ li {
 						<div class="showPw"></div>
 					</div>
 					<div class="modal-footer">
-                        <button type="button" class="btn btn-primary btnConfirm2" onclick="findPw()">확인</button>
+            <button type="button" class="btn btn-primary btnConfirm2" onclick="findPw()">확인</button>
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
 					</div>
 				</div>

@@ -7,33 +7,33 @@ span.sub { color:#C0C0C0; font-size:14px; }
 	<div class="list-unstyled" id="collapse-content">
 		<ul class="list-unstyled">
 			<li class="mb-4">
+				<a href="${path}/admin/userList.do" class="text-decoration-none"><span class="main">회원 목록</span></a>
+			</li>
+			
+			<li class="mb-4">
+				<a href="${path}/admin/admission.do" class="text-decoration-none"><span class="main">건물 승인</span></a>
+			</li>
+			
+			<li class="mb-4">
 				<button class="btn nav-link border-0"><span class="main" data-bs-toggle="collapse" data-bs-target="#cat01" onclick="hideOthers(event)">숙소</span></button>
 				<div class="collapse" id="cat01">
 					<ul class="btn-toggle-nav list-unstyled">
-						<li><a href="/admin/accommodation" class="text-decoration-none"><span class="sub">등록</span></a></li>
-						<li><a href="/admin/accosearch" class="text-decoration-none"><span class="sub">관리</span></a></li>
+						<li><a href="${path}/admin/admission.do" class="text-decoration-none"><span class="sub">등록</span></a></li>
+						<li><a href="${path}/admin/admission.do" class="text-decoration-none"><span class="sub">관리</span></a></li>
 					</ul>
 				</div>
 			</li>
-		
+			
 			<li class="mb-4">
-				<button class="btn nav-link border-0"><span class="main" data-bs-toggle="collapse" data-bs-target="#cat02" onclick="hideOthers(event)">음식점</span></button>
+				<button class="btn nav-link border-0"><span class="main" data-bs-toggle="collapse" data-bs-target="#cat02" onclick="hideOthers(event)">베너 등록</span></button>
 				<div class="collapse" id="cat02">
 					<ul class="list-unstyled">
-						<li><a href="/admin/restaurant" class="text-decoration-none"><span class="sub">등록</span></a></li>
-						<li><a href="/admin/restausearch" class="text-decoration-none"><span class="sub">관리</span></a></li>
+						<li><a href="${path}/admin/bannerUp.do" class="text-decoration-none"><span class="sub">등록</span></a></li>
+						<li><a href="${path}/admin/bannerList.do" class="text-decoration-none"><span class="sub">관리</span></a></li>
 					</ul>
 				</div>
 			</li>
-		
-			<li class="mb-4">
-				<a href="/admin/saleschart" class="text-decoration-none"><span class="main">매출 차트</span></a>
-			</li>
-			<!-- 
-			<li class="mb-4">
-				<button type="button" onclick="location.href='#'" class="btn nav-link border-0 text-decoration-none"><span class="main">문의</span></button>
-			</li>
-			 -->
+			
 		</ul>
 	</div>
 </div>

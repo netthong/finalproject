@@ -1,4 +1,4 @@
-package com.project.dragonball.controller;
+package com.project.dragonball.controller.user;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -40,11 +40,17 @@ public class UserController {
 				mav.setViewName("owner/owner_write");
 			}else if(dto2.getCategory() == 'a') {
 				mav.setViewName("admin/admin_home");
+				mav.addObject("message", "search");
 			}
 		} else {//로그인실패
-			mav.setViewName("user/login");
-			//전달할값
-			mav.addObject("message", "error");
+			if(dto2.getStop() == 'Y') {
+				mav.setViewName("user/login");
+				mav.addObject("message", "error");
+			}else if(dto2.getStop() == 'N') {
+				mav.setViewName("user/login");
+				mav.addObject("message", "stop");
+			}
+			
 		}
 		return mav;
 	}

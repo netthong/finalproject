@@ -41,74 +41,46 @@
 	
 	.slider {
         width: 500px;
-        height: 300px;
-        background-color: yellow;
+        height: 500px;
         margin-left: auto;
         margin-right: auto;
         margin-top: 0px;
         text-align: center;
         overflow: hidden;
       }
-      .image-container {
-        width: 1500px;
-        background-color: pink;
-        height: 300px;
-        clear: both;
-        position: relative;
-        -webkit-transition: left 2s;
-        -moz-transition: left 2s;
-        -o-transition: left 2s;
-        transition: left 2s;
-        animation-duration: 5s;
-      }
-      .slide {
-        float: left;
-        margin: 0px;
-        padding: 0px;
-        position: relative;
-      }
-      #slide-1:target ~ .image-container {
-        left: 0px;
-      }
-      #slide-2:target ~ .image-container {
-        left: -500px;
-      }
-      #slide-3:target ~ .image-container {
-        left: -1000px;
-      }
-      .buttons {
-        position: relative;
-        top: -20px;
-      }
-      .buttons a {
-        display: inline-block;
-        height: 15px;
-        width: 15px;
-        border-radius: 50px;
-        background-color: lightgreen;
-      }
-	
+      
 </style>
+<script type="text/javascript"></script>
 </head>
 <body>
 <%@ include file="common/nav.jsp" %>
 <div class="home" >
 <div class="container">
-		<div class="slider">
-      <span id="slide-1"></span>
-      <span id="slide-2"></span>
-      <span id="slide-3"></span>
-      <div class="image-container">
-        <img src="${path}/resources/images/dragonball_logo1.png" class="slide" width="500" height="300" />
-        <img src="${path}/resources/images/dragonball_logo2.png" class="slide" width="500" height="300" />
-        <img src="${path}/resources/images/i0076.jpg" class="slide" width="500" height="300" />
-      </div>
-      <div class="buttons">
-        <a href="#slide-1"></a>
-        <a href="#slide-2"></a>
-        <a href="#slide-3"></a>
-      </div>
-    </div>
+    <div class="slider">
+	    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+			  <div class="carousel-inner">
+			  <c:forEach var="dto" items="${list}" varStatus="status">
+			  	<c:if test="${status.count != 1}"></c:if>
+				  	<div class="carousel-item">
+				      <img src="${path}/resources/images/${dto.event_mainphoto}" width="500" height="500">
+				    </div>
+			    <c:if test="${status.count == 1}">
+			    	<div class="carousel-item active">
+			      <img src="${path}/resources/images/${dto.event_mainphoto}" width="500" height="500">
+			    </div>
+			    </c:if>
+			  </c:forEach>
+			  </div>
+			   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Previous</span>
+			  </button>
+			  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Next</span>
+			  </button>
+			</div>
+		</div>
 		<div class="d-flex flex-wrap justify-content-evenly" style="min-height: 350px;">
 			<!-- 숙소유형별 조회 -->
 				<div class="text-center my-auto">
