@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.dragonball.model.roomPhoto.dto.RoomPhotoDTO;
-import com.project.dragonball.model.roomdetail.dto.OwnerListDTO;
+import com.project.dragonball.model.owner.dto.OwnerListDTO;
 import com.project.dragonball.model.roominfo.dto.RoomListDTO;
 import com.project.dragonball.model.roomreview.dto.RoomReviewDTO;
 import com.project.dragonball.service.roomPhoto.RoomPhotoService;
@@ -69,7 +69,7 @@ public class RoomDetailController {
 		}
 		mav.addObject("roomPhoto", roomPhotoList);//해당 방에 해당하는 사진 하나를 가져옴
 		
-		String roomAcco = dto.getACCOMODATION();
+		String roomAcco = dto.getAccomodation();
 		String[] roomAcco1 = roomAcco.split(",");//업소의 편의기능(ACCOMODATION)을 ,이 있는 구간마다 나누어 배열로 변경
 		logger.info(roomAcco);
 		mav.addObject("roomAcco", roomAcco1);

@@ -4,7 +4,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class RoomDTO {
 	private int room_no;
-	private String building_name; 
+	private String building_name;
+	private int building_code;
 	private String room_name;
 	private int room_amount; 
 	private int room_price; 
@@ -12,8 +13,15 @@ public class RoomDTO {
 	private MultipartFile file1;
 	private String picture_url;
 	//getter, setter, toString(), 생성자
+	
 	public String getPicture_url() {
 		return picture_url;
+	}
+	public int getBuilding_code() {
+		return building_code;
+	}
+	public void setBuilding_code(int building_code) {
+		this.building_code = building_code;
 	}
 	public void setPicture_url(String picture_url) {
 		this.picture_url = picture_url;
@@ -61,24 +69,27 @@ public class RoomDTO {
 	public void setFile1(MultipartFile file1) {
 		this.file1 = file1;
 	}
-	@Override
-	public String toString() {
-		return "RoomDTO [room_no=" + room_no + ", building_name=" + building_name + ", room_name=" + room_name
-				+ ", room_amount=" + room_amount + ", room_price=" + room_price + ", room_size=" + room_size
-				+ ", file1=" + file1 + "]";
-	}
-	public RoomDTO(int room_no, String building_name, String room_name, int room_amount, int room_price,
-			String room_size, MultipartFile file1) {
+	
+	
+	public RoomDTO(int room_no, String building_name, int building_code, String room_name, int room_amount,
+			int room_price, String room_size, MultipartFile file1, String picture_url) {
 		super();
 		this.room_no = room_no;
 		this.building_name = building_name;
+		this.building_code = building_code;
 		this.room_name = room_name;
 		this.room_amount = room_amount;
 		this.room_price = room_price;
 		this.room_size = room_size;
 		this.file1 = file1;
+		this.picture_url = picture_url;
 	}
-	
+	@Override
+	public String toString() {
+		return "RoomDTO [room_no=" + room_no + ", building_name=" + building_name + ", building_code=" + building_code
+				+ ", room_name=" + room_name + ", room_amount=" + room_amount + ", room_price=" + room_price
+				+ ", room_size=" + room_size + ", file1=" + file1 + ", picture_url=" + picture_url + "]";
+	}
 	public RoomDTO() {
 		}
 	}

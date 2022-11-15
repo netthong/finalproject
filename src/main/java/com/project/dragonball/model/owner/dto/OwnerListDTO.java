@@ -8,8 +8,6 @@ public class OwnerListDTO {
 	private String building_type;
 	private String address1;
 	private String address2;
-	private String building_longitude;
-	private String building_latitude;
 	private String zipcode;
 	private String bulding_longitude;
 	private String bulding_latitude;
@@ -77,18 +75,6 @@ public class OwnerListDTO {
 	public void setAddress2(String address2) {
 		this.address2 = address2;
 	}
-	public String getBuilding_longitude() {
-		return building_longitude;
-	}
-	public void setBuilding_longitude(String building_longitude) {
-		this.building_longitude = building_longitude;
-	}
-	public String getBuilding_latitude() {
-		return building_latitude;
-	}
-	public void setBuilding_latitude(String building_latitude) {
-		this.building_latitude = building_latitude;
-	}
 	public char getPermission() {
 		return permission;
 	}
@@ -125,28 +111,16 @@ public class OwnerListDTO {
 	public void setPicture_url(String picture_url) {
 		this.picture_url = picture_url;
 	}
-	@Override
-	public String toString() {
-		return "OwnerListDTO [building_code=" + building_code + ", building_name=" + building_name + ", building_type="
-				+ building_type + ", address1=" + address1 + ", address2=" + address2 + ", building_longitude="
-				+ building_longitude + ", building_latitude=" + building_latitude + ", zipcode=" + zipcode
-				+ ", bulding_longitude=" + bulding_longitude + ", bulding_latitude=" + bulding_latitude
-				+ ", permission=" + permission + ", owner_comment=" + owner_comment + ", accomodation=" + accomodation
-				+ ", owner_id=" + userid + ", photo=" + photo + ", picture_url=" + picture_url + ", file1=" + file1
-				+ "]";
-	}
+
 	public OwnerListDTO(int building_code, String building_name, String building_type, String address1, String address2,
-			String building_longitude, String building_latitude, String zipcode, String bulding_longitude,
-			String bulding_latitude, char permission, String owner_comment, String accomodation, String userid,
-			String photo, String picture_url, MultipartFile file1) {
+			String zipcode, String bulding_longitude, String bulding_latitude, char permission, String owner_comment,
+			String accomodation, String userid, String photo, String picture_url, MultipartFile file1) {
 		super();
 		this.building_code = building_code;
 		this.building_name = building_name;
 		this.building_type = building_type;
 		this.address1 = address1;
 		this.address2 = address2;
-		this.building_longitude = building_longitude;
-		this.building_latitude = building_latitude;
 		this.zipcode = zipcode;
 		this.bulding_longitude = bulding_longitude;
 		this.bulding_latitude = bulding_latitude;
@@ -157,6 +131,14 @@ public class OwnerListDTO {
 		this.photo = photo;
 		this.picture_url = picture_url;
 		this.file1 = file1;
+	}
+	@Override
+	public String toString() {
+		return "OwnerListDTO [building_code=" + building_code + ", building_name=" + building_name + ", building_type="
+				+ building_type + ", address1=" + address1 + ", address2=" + address2 + ", zipcode=" + zipcode
+				+ ", bulding_longitude=" + bulding_longitude + ", bulding_latitude=" + bulding_latitude
+				+ ", permission=" + permission + ", owner_comment=" + owner_comment + ", accomodation=" + accomodation
+				+ ", userid=" + userid + ", photo=" + photo + ", picture_url=" + picture_url + ", file1=" + file1 + "]";
 	}
 	public OwnerListDTO() {
 

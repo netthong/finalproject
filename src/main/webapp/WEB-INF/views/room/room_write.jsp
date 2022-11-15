@@ -37,12 +37,12 @@ function room_write(){
 <style type="text/css">
 
 .tb-container {
- display: flex;
+	
+	 display: flex;
 	flex-wrap: inherit;
 	align-items: center;
 	justify-content: space-between;
-	width: 58%;
-	margin-top : 230px;
+	width: 30%;
 	margin-right: auto;
 	margin-left: auto;
 	-bs-gutter-x: 1.5rem; -
@@ -50,6 +50,8 @@ function room_write(){
 	padding: var(- -bs-navbar-padding-y) var(- -bs-navbar-padding-x);
 	text-decoration: none;
 }
+
+
 
 .navbar-a:link {
 	color: white;
@@ -83,6 +85,17 @@ function room_write(){
 	font: bold;
 }
 
+.aside {
+	display: flex;
+	flex-wrap: inherit;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: auto;
+	
+}
+
 </style>
 
 </head>
@@ -92,6 +105,10 @@ function room_write(){
 
 <nav class="navbar navbar-expand-md bg-secondary">&nbsp;</nav>
 <nav class="navbar navbar-expand-md bg-secondary"><a class="navbar-a">&nbsp;방 등록</a></nav>
+
+<aside class="aside">
+			<jsp:include page="../common/ownersidebar.jsp" />
+	</aside>
 
 <div class="tb-container">
 <form name="form1" method="post" enctype="multipart/form-data">

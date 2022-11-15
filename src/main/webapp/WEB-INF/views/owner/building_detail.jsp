@@ -44,7 +44,9 @@
 					<td>${dto.address2}</td>
 					<td>${dto.zipcode}</td> 
 				</tr>
-				
+				<tr>
+				 <td><input type="text" name="building_code" value="${dto.building_code}"> </td>
+				</tr>
 			</table>
 		</td>
 	</tr>

@@ -138,26 +138,32 @@ $(function(){
 <div class="tb-container">
 <table border="1" style="width: 100%;">
 	<tr>
-		<th>건물등록번호</th>
+		<th>건물번호</th>
 		<th>건물명</th>
 		<th>건물종류</th>
 		<th>건물사진<th>
-		<th>건물주소</th>
-		<th>사장님한마디</th>
-		<th>편의기능</th>
-		<th>빈공간<th>
+		<th style="width: 20%;">건물주소</th>
+		<th style="width: 15%;">사장님한마디</th>
+		<th style="width: 15%;">편의기능</th>
+		<th>&nbsp<th>
 	</tr>
 <c:forEach var="row" items="${list}">
 	<tr>
 		<td>${row.building_code}</td>
 		
-		<td><a>${row.building_name}</a> <br>
-		  <a href="${path}/room/write.do">[방 등록]</a>
+	 
+		<td>
+	 	 <form name="form1" method="post" action="${path}/room/write.do">
+	 	 <input type="hidden" name="building_code" value="${building_code}">
+	 	 <a>${row.building_name}</a> <br>
+		 <input type="submit" value="방 등록">		  
+		 </form>
 		</td>
-		
+	 
+	 
 		<td>${row.building_type }</td>
 		
-		<td><img src="${path}/images/${row.picture_url}"
+		<td><img src="${path}/resources/images/${row.picture_url}"
 					width="100px" height="100px"></td>
 					
 		<td>&nbsp;</td>
@@ -170,6 +176,7 @@ $(function(){
 		<td>${row.accomodation}</td>
 		
 		<td><a href="${path}/owner/edit/${row.building_code}">[수정]</a></td>
+		
 		
 	</tr>
 </c:forEach>	

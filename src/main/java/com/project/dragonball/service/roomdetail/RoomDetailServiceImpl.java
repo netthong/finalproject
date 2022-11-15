@@ -6,8 +6,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import com.project.dragonball.model.roomdetail.dao.OwnerListDAO;
-import com.project.dragonball.model.roomdetail.dto.OwnerListDTO;
+import com.project.dragonball.model.owner.dao.OwnerListDAO;
+import com.project.dragonball.model.owner.dto.OwnerListDTO;
 
 @Service
 public class RoomDetailServiceImpl implements RoomDetailService {

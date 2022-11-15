@@ -2,7 +2,7 @@ package com.project.dragonball.service.roomdetail;
 
 import java.util.List;
 
-import com.project.dragonball.model.roomdetail.dto.OwnerListDTO;
+import com.project.dragonball.model.owner.dto.OwnerListDTO;
 
 public interface RoomDetailService {
 
