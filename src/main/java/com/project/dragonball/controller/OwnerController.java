@@ -10,14 +10,10 @@ import javax.servlet.http.HttpSession;
 
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.dragonball.model.owner.dto.OwnerListDTO;
@@ -161,6 +157,12 @@ public class OwnerController {
 		ownerListService.deleteBuilding(building_code);
 		//화면 이동
 		return "redirect:/owner/list.do";
+		
+	}
+	
+	@RequestMapping("review.do")
+	public String review() {
+		return "owner/review_management";
 		
 	}
 	

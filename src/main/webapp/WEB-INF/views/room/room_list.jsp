@@ -152,7 +152,7 @@ $(function(){
 	<tr>
 	  <td>${row.room_no}</td>
 		<td>${row.room_name}</td>
-		<td><img src="${path}/images/${row.picture_url}"
+		<td><img src="${path}/resources/images/${row.picture_url}"
 					width="100px" height="100px"></td>	
 		<td>${row.room_amount}</td>
 		<td>&nbsp; ${row.room_size}</td>
@@ -161,6 +161,7 @@ $(function(){
 		  <br>
 		  <a href="${path}/room/edit/${row.room_no}">[수정]</a>
 		</td>
+				
 	</tr>
 </c:forEach>	
 </table>

@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
  <select id="room_list" resultType="com.project.dragonball.model.room.dto.RoomDTO">
   select * from room_list
-  order by room_name
+  order by room_no
  </select>
  
  <insert id="insert">

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.project.dragonball.model.owner.dto.OwnerListDTO;
 import com.project.dragonball.model.room.dto.RoomDTO;
 import com.project.dragonball.service.room.RoomService;
 
@@ -47,6 +46,9 @@ public class RoomController {
 	
 	@RequestMapping("write.do")
 	public String write() {
+		
+		
+		
 		return "room/room_write";
 	}
 	
