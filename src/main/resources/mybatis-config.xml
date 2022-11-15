@@ -5,6 +5,10 @@
 <configuration>
 
 	<typeAliases>
+		<typeAlias type="com.project.dragonball.model.roomdetail.dto.OwnerListDTO" alias="ownerListDTO"/>
+		<typeAlias type="com.project.dragonball.model.roominfo.dto.RoomListDTO" alias="roomListDTO"/>
+		<typeAlias type="com.project.dragonball.model.roomreview.dto.RoomReviewDTO" alias="roomReviewDTO"/>
+		<typeAlias type="com.project.dragonball.model.roomPhoto.dto.RoomPhotoDTO" alias="roomPhotoDTO"/>
 	</typeAliases>
 
 </configuration>

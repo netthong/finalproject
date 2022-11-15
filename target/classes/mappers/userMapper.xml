@@ -80,6 +80,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	update user_list set email = #{email}
 	where userid = #{userid}
 	</update>
+	
+	<select id="userList" resultType="com.project.dragonball.model.user.dto.UserListDTO">
+	select userid, password, name, email, tel, category, stop
+	from user_list
+	<choose>
+  	<when test="search_option != 'all'">
+  	where ${search_option} like #{keyword}
+  	</when>
+  	<otherwise>
+  	where (userid like #{keyword} or name like #{keyword})
+  	</otherwise>
+  </choose>
+	</select>
+	
+	<update id="userStop">
+	update user_list
+	<choose>
+		<when test="stop == 'Y'">
+			set stop = 'N'
+		</when>
+		<otherwise>
+			set stop = 'Y'
+		</otherwise>
+	</choose>
+	where userid = #{userid}
+	</update>
 </mapper>
 
 

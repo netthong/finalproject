@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="roomlist">
+	<select id="list" resultType="roomListDTO"><!-- roomInfoList -->
+		SELECT L.BUILDING_CODE BUILDING_CODE, L.ROOM_NAME ROOM_NAME, L.ROOM_AMOUNT ROOM_AMOUNT, L.ROOM_PRICE ROOM_PRICE, L.ROOM_SIZE ROOM_SIZE, P.PHOTO1 PHOTO1
+		FROM ROOM_LIST L, ROOM_PHOTO P
+		WHERE P.BUILDING_CODE=#{building_code} AND L.ROOM_NAME=P.ROOM_NAME
+	</select>
+	
+	<select id="replylist" resultType="roomlistDTO">
+		SELECT L.BUILDING_CODE BUILDING_CODE, L.ROOM_NAME ROOM_NAME, L.ROOM_AMOUNT ROOM_AMOUNT, L.ROOM_PRICE ROOM_PRICE, L.ROOM_SIZE ROOM_SIZE, P.PHOTO1 PHOTO1
+		FROM ROOM_LIST L, ROOM_PHOTO P
+		WHERE P.BUILDING_CODE=#{building_code} AND L.ROOM_NAME=P.ROOM_NAME AND L.ROOM_NAME=#{room_name}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

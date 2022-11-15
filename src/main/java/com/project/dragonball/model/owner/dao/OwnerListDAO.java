@@ -11,5 +11,9 @@ public interface OwnerListDAO {
 	public void deleteBuilding(int building_code);//삭제
 	public void insertBuilding(OwnerListDTO dto);//입력
 	public String fileInfo1(int building_code);//첨부파일정보
+	
+	public OwnerListDTO roomDetailList(int building_code); //업소 상세보기 리스트
+
+	public List<OwnerListDTO> roomInfo(String buildingName); //업소 하나의 방의 정보를 확인
 
 }
