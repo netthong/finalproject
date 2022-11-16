@@ -133,12 +133,11 @@
 		<div id="content">
 			<!-- CAT_001 내 정보 수정 -->
 				<strong><h3>예약 정보</h3></strong>
-				<div class="col-2 mt-5" id="name"><h3>예약자 이름</h3></div>
-				<c:forEach var="dto" items="list">
+				<c:forEach var="dto" items="${list}">
 				<div class="col-10">
 				<table class="table table-striped table-hover">
 					<tr>
-					<td><img> </td>
+					<td><img src="${path}/resources/images/${dto.picture_url}"></td>
 					</tr>
 					<tr>
 						<td>예약번호</td>
@@ -163,7 +162,14 @@
 				</table>
 				</div>
 				<div class="row mb-3" id="box-roomReview-btn">
-					<div class="col-2"><button class="btn btn-outline-secondary" id="btn-show-roomReview-form">리뷰 쓰기</button></div>
+					<div class="col-2">
+					<c:if test="${fn:contains(dto.reply, 'Y')}"> 
+					리뷰작성완료!
+					</c:if>
+					<c:if test="${fn:contains(dto.reply, 'N')}">
+					<button class="btn btn-outline-secondary" id="btn-show-roomReview-form">리뷰 쓰기</button>
+					</c:if>
+					</div>
 				</div>
 				<div class="row mb-3 d-none" id="box-roomReview-update">
 					<div class="col-8">
@@ -185,8 +191,8 @@
 								<textarea class="col-auto form-control" name="#" id="reviewContents"
 										  placeholder="내용을 입력해주세요."></textarea>
 							</div>
-							<button type="submit" class="btn btn-primary" id="complete">수정완료 </button>
-							<button type="button" class="btn btn-secondary" id="btn-hide-roomReview-form">수정취소 </button> 
+							<button type="submit" class="btn btn-primary" id="complete">리뷰남기기 </button>
+							<button type="button" class="btn btn-secondary" id="btn-hide-roomReview-form">취소 </button> 
 						</form>
 					</div>
 				</div>
