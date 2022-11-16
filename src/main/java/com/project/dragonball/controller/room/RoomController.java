@@ -1,10 +1,7 @@
 package com.project.dragonball.controller.room;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -16,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.project.dragonball.model.owner.dto.OwnerListDTO;
 import com.project.dragonball.model.room.dto.RoomDTO;
 import com.project.dragonball.service.room.RoomService;
 
@@ -28,6 +24,7 @@ public class RoomController {
 	RoomService roomService;
 	
 	@RequestMapping("list.do")
+	@ResponseBody
 	public ModelAndView list(HttpSession session, ModelAndView mav, @RequestParam("building_code") int building_code) {
 		
 		List<RoomDTO> list=roomService.listRoom(building_code);
@@ -63,10 +60,15 @@ public class RoomController {
 			}
 		}
 		
-		mav.setViewName("/room/room_list");
-		mav.addObject("list", roomService.listRoom(dto.getBuilding_code()));
+		
+		
 		dto.setPicture_url(filename);
 		roomService.insertRoom(dto); //F4
+		
+		List<RoomDTO> list=roomService.listRoom(dto.getBuilding_code());
+		mav.setViewName("/room/room_list");
+		mav.addObject("list", list);
+		mav.addObject("count", list.size());
 		return mav;
 	}
 	
@@ -88,7 +90,7 @@ public class RoomController {
 	
 	
 	@RequestMapping("update.do")
-	public String update(RoomDTO dto, @RequestParam("room_no") int room_no ) {
+	public String update(@RequestParam int building_code, RoomDTO dto, @RequestParam("room_no") int room_no ) {
 		String filename="-";
 		//첨부 파일이 있으면
 		if(!dto.getFile1().isEmpty()) {
@@ -110,12 +112,12 @@ public class RoomController {
 		}
 		//상품정보 수정
 		roomService.updateRoom(dto); //F4
-		return "redirect:/room/list.do";
+		return "redirect:/room/list.do?building_code=" + building_code;
 	}
 	
 	//상품 삭제
 	@RequestMapping("delete.do")
-	public String delete(@RequestParam int room_no) {
+	public String delete(@RequestParam int building_code, @RequestParam int room_no) {
 		//첨부 파일 삭제
 		String filename=roomService.fileInfo(room_no); //F4
 		System.out.println("첨부파일 이름 : "+filename);
@@ -132,7 +134,7 @@ public class RoomController {
 		//레코드 삭제
 		roomService.deleteRoom(room_no);
 		//화면 이동
-		return "redirect:/room/list.do";
+		return "redirect:/room/list.do?building_code=" + building_code;
 		
 	}
 	

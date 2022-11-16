@@ -104,12 +104,7 @@
 
 <script type="text/javascript">
 
-$(function(){
-	$("#btnwrite").click(function(){
-		//등록으로 이동
-		location.href="${path}/room/write.do?building_code=${row.building_code}";
-	});
-});
+
 
 $(function(){
 	$("#btnwrite2").click(function(){
@@ -175,8 +170,6 @@ $(function(){
 </c:forEach>	
 </table>
 </div>
-<div class="move"><a href="${path}/room/write.do?building_code=${row.building_code}"><input type="submit" value="방 추가"></a> </div>
-<button class="move" type="button" id="btnwrite">방 추가</button>
 <button class="move" type="button" id="btnwrite2">건물 목록</button>
 <%@ include file="../common/footer.jsp" %>
 </body>

@@ -2,12 +2,13 @@ package com.project.dragonball.model.roominfo.dto;
 
 public class RoomListDTO {
 	private int BUILDING_CODE; //건물번호
+	private int ROOM_NO; //방번호
 	private String ROOM_NAME; //방이름 
 	private int ROOM_AMOUNT; //갯수 
 	private int ROOM_PRICE; //가격
 	private String ROOM_SIZE; //인실
 	
-	private String PHOTO1; //ROOM_PHOTO의 사진 하나
+	private String PICTURE_URL; //ROOM_PHOTO의 사진 하나
 	
 	//getter, setter, toString
 	public int getBUILDING_CODE() {
@@ -40,15 +41,30 @@ public class RoomListDTO {
 	public void setROOM_SIZE(String rOOM_SIZE) {
 		ROOM_SIZE = rOOM_SIZE;
 	}
-	@Override
-	public String toString() {
-		return "RoomListDTO [BUILDING_CODE=" + BUILDING_CODE + ", ROOM_NAME=" + ROOM_NAME + ", ROOM_AMOUNT="
-				+ ROOM_AMOUNT + ", ROOM_PRICE=" + ROOM_PRICE + ", ROOM_SIZE=" + ROOM_SIZE + "]";
+	
+	
+	public String getPICTURE_URL() {
+		return PICTURE_URL;
 	}
-	public String getPHOTO1() {
-		return PHOTO1;
+	public void setPICTURE_URL(String pICTURE_URL) {
+		PICTURE_URL = pICTURE_URL;
 	}
-	public void setPHOTO1(String pHOTO1) {
-		PHOTO1 = pHOTO1;
+	public int getROOM_NO() {
+		return ROOM_NO;
 	}
+	public void setROOM_NO(int rOOM_NO) {
+		ROOM_NO = rOOM_NO;
+	}
+	public RoomListDTO() {
+
+	}
+	
+	
+	
+	
 }
+
+
+	
+	
+

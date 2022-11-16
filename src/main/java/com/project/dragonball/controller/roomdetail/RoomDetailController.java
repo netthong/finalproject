@@ -61,14 +61,6 @@ public class RoomDetailController {
 		List<RoomListDTO> list = roomInfoService.roomInfoList(building_code);//가져온 업소에 해당하는 방의 정보(ROOM_LIST)를가져옴
 		mav.addObject("roomInfo", list);
 		
-		Map<String, Object> roomPhotoList = new HashMap<>();
-		for (int i = 1; i<=list.size(); i++) {
-			String roomname = list.get(i-1).getROOM_NAME();
-			logger.info("방이름 : @@@" + roomname);
-			roomPhotoList.put("roomPhoto"+i,roomPhotoService.photoOneList(building_code, roomname));
-		}
-		mav.addObject("roomPhoto", roomPhotoList);//해당 방에 해당하는 사진 하나를 가져옴
-		
 		String roomAcco = dto.getAccomodation();
 		String[] roomAcco1 = roomAcco.split(",");//업소의 편의기능(ACCOMODATION)을 ,이 있는 구간마다 나누어 배열로 변경
 		logger.info(roomAcco);
@@ -104,9 +96,6 @@ public class RoomDetailController {
 		
 		List<RoomReviewDTO> newRoomReview = roomReviewService.newRoomReviewList(building_code); //업소에 해당하는 최근 리뷰 3개를 가져옴
 		mav.addObject("newReview", newRoomReview);
-		
-		List<RoomPhotoDTO> roomPhoto = roomPhotoService.photoList(building_code);
-		mav.addObject("photolist", roomPhoto);
 		
 		mav.setViewName("roomdetail/roomdetail");
 		//OWNER_LIST : dto

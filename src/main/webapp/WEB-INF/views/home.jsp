@@ -93,7 +93,10 @@
 				</div>
 				<div class="text-center my-auto">
 					<a href="${path}/building/search.do?buildingtype=p"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_003.png" style="width:100px;height:auto;"></a><br/>
+
 			    <a href="#" class="text-decoration-none text-dark fw-light">펜션</a>
+
+			    <a href="${path}/building/search.do?buildingtype=p" class="text-decoration-none text-dark fw-light">펜션</a>
 				</div>
 				<div class="text-center my-auto">
 					<a href="${path}/building/search.do?buildingtype=g"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_004.png" style="width:100px;height:auto;"></a><br/>

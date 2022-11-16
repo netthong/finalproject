@@ -73,6 +73,8 @@
 	}
 
 </style>
+
+
 <title>거기어때</title>
 </head>
 <!-- 받아오는 것 -->
@@ -144,7 +146,7 @@
 		<div class="tab-content" id="myTabContent">
 			<!-- 객실안내/예약 -->
 			<div class="tab-pane fade show active" id="room-tab-pane" role="tabpanel" aria-labelledby="room-tab" tabindex="0">
-				<form name="roomDetailSearch" id="roomDetailSearch">
+				
 				<div class="my-3">
 					<!-- 숙박 일정 선택 : 기본적으로 검색페이지에서 선택한 날짜를 출력, 이 페이지에서 일정을 변경하면 로컬스토리지에 저장돼서 검색 페이지에도 반영된다. -->
 					<div class="col">
@@ -217,7 +219,8 @@
 						<div class="card-room-info card mb-3">
 							<div class="card-body row">
 								<div class="position-relative">
-									${ roomd.PHOTO1 } <%-- <img src="../images/${ roomd.PHOTO1 }"> --%>
+									 ${ roomd.PICTURE_URL } <%-- <img src="../images/${ roomd.PHOTO1 }"> --%>
+									 <img src="${path}/resources/images/${roomd.PICTURE_URL}" width="100px" height="100px">
 									<div class="card-img-overlay overlay-room-thumbnail">
 										<i class="bi bi-images fs-3 text-white position-absolute bottom-0 end-0 p-3"></i>
 									</div>
@@ -228,14 +231,12 @@
 								<div class="pb-3 border-bottom text-dark fw-lighter">
 									가격<span class="float-end">1박 <span class="fw-bold text-dark">${roomd.ROOM_PRICE } 원</span></span>
 								</div>
-							</div>
-							<button type="button" class="btn-room-reserve btn btn-danger w-100" data-room-no="${ roomd.BUILDING_CODE }">예약</button>
+							</div>						
+							  <a href="${path}/pay/pay.do?ROOM_NO=${roomd.ROOM_NO}" class="btn-room-reserve btn btn-danger w-100">예약</a>						 
 						</div>
 					</div>
-					<input type="hidden" name="roomdcode" id="roomdcode" value="${ roomd.BUILDING_CODE }">
-					<input type="hidden" name="roomdroomname" id="roomdroomname" value="${ roomd.ROOM_NAME }">
 				</c:forEach>
-				</form>
+				
 				
 				<script type="text/javascript">
 					

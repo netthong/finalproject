@@ -21,7 +21,6 @@
     		var room_name=$("#room_name").val();
     		var room_no=$("#room_no").val();
     		var room_pirce=$("#room_price").val();
-    		var 
     		if(room_name==""){
     			alert("방 이름을 입력하세요");
     			$("#room_name").focus();
@@ -37,14 +36,14 @@
     			$("#room_price").focus();
     			return;
     		}
-    		document.form1.action="${path}/room/update.do";
+    		document.form1.action="${path}/room/update.do?roon_no=${dto.room_no}";
     		document.form1.submit();
     	}
     
     
     function room_delete(){
      	if(confirm("삭제 하시겠습니까?")){
-    		document.form1.action="${path}/room/delete.do";
+    		document.form1.action="${path}/room/delete.do?roon_no=${dto.room_no}";
     		document.form1.submit();
     	}
     }
@@ -178,9 +177,10 @@
  <tr>
   <td colspan="2" align="center">
    <input type="hidden" name="room_no" value="${dto.room_no}">
+   <input type="hidden" name="building_code" value="${dto.building_code}">
    <input type="button" value="수정" onclick="room_update()">
 	 <input type="button" value="삭제" onclick="room_delete()">
-   <input type="button" value="목록" onclick="location.href='${path}/room/list.do'">
+   <input type="button" value="목록" onclick="location.href='${path}/room/list.do?building_code=${dto.building_code}'">
   </td>
  </tr>
 </table>

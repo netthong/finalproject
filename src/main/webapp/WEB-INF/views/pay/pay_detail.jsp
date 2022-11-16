@@ -16,6 +16,15 @@
 <%@ include file="../include/header.jsp" %>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
+<script type="text/javascript">
+$(function(){
+	$("#btncomplete").click(function(){
+		//등록으로 이동
+		location.href="${path}/dragonball/pay/complete.do";
+	});
+});
+
+</script>
 
 </head>
 <body>
@@ -59,13 +68,13 @@
 				<div class="form-check mb-2">
 					<input class="form-check-input" type="checkbox" value="" id="checkboxInfo1provision" name=checkbox>
 					<label class="form-text" for="checkboxInfo1"><a onclick="openinfo1Modal()" style="text-decoration: underline; color: gray">
-					  개인정보 수집 및 이용 동의</a><strong class="text-secondary">(필수)</strong>
+					  개인정보 수집 및 이용 동의</a><strong class="text-danger">(필수)</strong>
 					</label>
 				</div>
 				<div class="form-check mb-2">
 					<input class="form-check-input" type="checkbox" value="" id="checkboxInfo2provision" name=checkbox >
 					<label class="form-text" for="checkboxInfo2"><a onclick="openinfo2Modal()"  style="text-decoration: underline; color: gray">
-					  개인정보 제 3자 제공 동의</a> <strong class="text-secondary">(필수)</strong>
+					  개인정보 제 3자 제공 동의</a> <strong class="text-danger">(필수)</strong>
 					</label>
 				</div>
 			</div>
@@ -75,25 +84,15 @@
 					<div class="col mx-2">
 						<div class="my-5 mx-3">
 							<dl>
-								<dt id="accoName">${acco.name }
-								<dd id="accoType">${room.name } / <span id="days">${param.duration }박</span>
+								<dt id="building_name">${dto.building_name}
+								<dd id="room_name">${dto.room_name } / <span id="days">${sessionScope.section }박</span>
 								<dt class="col-3 form-text">체크인</dt>
-								<dd id="checkIn" >${param.checkin } 15:00</dd>
+								<dd id="checkIn" > 15:00</dd>
 								<dd class="form-text">체크아웃</dd>
-								<dd id="checkOut">${param.checkout } 12:00</dd>
+								<dd id="checkOut"> 12:00</dd>
+								<dd></dd>
 							</dl>
-							
-							<!-- 변경해야함 -->
-							<input type="hidden" id="accoId" name="impUid">
-							<input type="hidden" id="accoId" name="merchantUid" >
-							
-							<input type="hidden" id="userId" name="userId" value="${param.id }">
-							<input type="hidden" id="roomNo" name="room_No" value="${param.room_no }">
-							<input type="hidden" id="checkIn" name="checkIn" value="${param.checkin }">
-							<input type="hidden" id="checkOut" name="checkOut" value="${param.checkout } ">
-							<input type="hidden" id="amount" name="amount" value="${room.room_price }">
-						</div>
-						
+						</div>						
 					<hr>
 					</div>
 					<div class="my-3 mx-3">
@@ -101,12 +100,12 @@
 						<h4><strong class="text-secondaryr" id="dayPrice"><fmt:formatNumber> ${room.room_price * param.duration}</fmt:formatNumber>원</strong></h4>
 						<label><small>
 							<li class="mx-2">해당 객실가는세금, 봉사료가 포함된 금액입니다.</li>
-							<li class="mx-2">결제완료 후 <span class="text-secondary">예약자</span> 이름으로 바로 <span class="text-secondary">체크인</span> 하시면 됩니다.</li>
+							<li class="mx-2">결제완료 후 <span class="text-danger">예약자</span> 이름으로 바로 <span class="text-secondary">체크인</span> 하시면 됩니다.</li>
 						</smail></label>
 					</div>						
 				</div>
 				<div class="row">
-					<button type="button" id="modal-button" class="btn btn-secondary"> 결제하기</button>
+					<a href="${path}/pay/complete.do?ROOM_NO=${roomd.ROOM_NO}" class="btn-room-reserve btn btn-danger w-100">결제하기</a>
 				</div>
 			</div>
 			</form>
@@ -122,7 +121,7 @@
 				<!-- 필수입력값 미 입력이 항목이 바뀌어야함. -->
 				<p class="text-center" id="modal-message-box">미 입력.</p>
 				<div class="d-grid gap-2 col-6 mx-auto">
-					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">확인</button>
+					<button  type="button" class="btn btn-danger" data-bs-dismiss="modal">확인</button>
 				</div>
 			</div>
 		</div>
@@ -131,7 +130,7 @@
 
 
 
-<%@ include file="../common/footer.jsp" %>
 </body>
 
+<%@ include file="../common/footer.jsp" %>
 </html>
