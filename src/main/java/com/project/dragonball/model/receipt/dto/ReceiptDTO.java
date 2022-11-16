@@ -13,6 +13,7 @@ public class ReceiptDTO {
 	private Date date_end;
 	private int price;
 	private char reply;
+	private String picture_url;
 	//getter setter
 	public int getReceipt_no() {
 		return receipt_no;
@@ -74,6 +75,12 @@ public class ReceiptDTO {
 	}
 	public void setPrice(int price) {
 		this.price = price;
+	}
+	public String getPicture_url() {
+		return picture_url;
+	}
+	public void setPicture_url(String picture_url) {
+		this.picture_url = picture_url;
 	}
 	//contructor
 	public ReceiptDTO() {
