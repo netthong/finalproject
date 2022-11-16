@@ -18,9 +18,10 @@
     
     function room_update(){
     	
-    		var building_name=$("#room_name").val();
-    		var building_type=$("#room_no").val();
-    		var zipcode=$("#room_price").val();
+    		var room_name=$("#room_name").val();
+    		var room_no=$("#room_no").val();
+    		var room_pirce=$("#room_price").val();
+    		var 
     		if(room_name==""){
     			alert("방 이름을 입력하세요");
     			$("#room_name").focus();

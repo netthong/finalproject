@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class RoomReviewDTO {
 	private int REPLYNO; //리뷰번호
-	private String ID; //아이디
+	private String USERID; //아이디
 	private Date REG_DATE_REVIEW; //등록일 
 	private int COMMENTNO; //답글번호 
 	private int POINT; //평점
@@ -22,11 +22,12 @@ public class RoomReviewDTO {
 	public void setREPLYNO(int rEPLYNO) {
 		REPLYNO = rEPLYNO;
 	}
-	public String getID() {
-		return ID;
+
+	public String getUSERID() {
+		return USERID;
 	}
-	public void setID(String iD) {
-		ID = iD;
+	public void setUSERID(String uSERID) {
+		USERID = uSERID;
 	}
 	public Date getREG_DATE_REVIEW() {
 		return REG_DATE_REVIEW;
@@ -70,11 +71,20 @@ public class RoomReviewDTO {
 	public void setSHOW(char sHOW) {
 		SHOW = sHOW;
 	}
-	@Override
-	public String toString() {
-		return "RoomReviewDTO [REPLYNO=" + REPLYNO + ", ID=" + ID + ", REG_DATE_REVIEW=" + REG_DATE_REVIEW
-				+ ", COMMENTNO=" + COMMENTNO + ", POINT=" + POINT + ", CONTENT=" + CONTENT + ", ROOM_NAME=" + ROOM_NAME
-				+ ", BUILDING_CODE=" + BUILDING_CODE + ", SHOW=" + SHOW + "]";
+
+	public RoomReviewDTO(int rEPLYNO, String uSERID, Date rEG_DATE_REVIEW, int cOMMENTNO, int pOINT, String cONTENT,
+			String rOOM_NAME, int bUILDING_CODE, char sHOW, int rANK) {
+		super();
+		REPLYNO = rEPLYNO;
+		USERID = uSERID;
+		REG_DATE_REVIEW = rEG_DATE_REVIEW;
+		COMMENTNO = cOMMENTNO;
+		POINT = pOINT;
+		CONTENT = cONTENT;
+		ROOM_NAME = rOOM_NAME;
+		BUILDING_CODE = bUILDING_CODE;
+		SHOW = sHOW;
+		RANK = rANK;
 	}
 	public int getRANK() {
 		return RANK;
@@ -82,4 +92,9 @@ public class RoomReviewDTO {
 	public void setRANK(int rANK) {
 		RANK = rANK;
 	}
+	
+
+	
+	
+	
 }

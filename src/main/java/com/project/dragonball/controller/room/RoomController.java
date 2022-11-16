@@ -88,7 +88,7 @@ public class RoomController {
 	
 	
 	@RequestMapping("update.do")
-	public String update(RoomDTO dto) {
+	public String update(RoomDTO dto, @RequestParam("room_no") int room_no ) {
 		String filename="-";
 		//첨부 파일이 있으면
 		if(!dto.getFile1().isEmpty()) {

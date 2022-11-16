@@ -21,6 +21,10 @@ public class RoomReviewServiceImpl implements RoomReviewService {
 		int nullcount = 0;
 		List<RoomReviewDTO> point = roomReviewDao.reviewList(building_code);
 		
+		if (point.size() == 0) {
+            return 0;
+        }
+		
 		for (int i=0; i<point.size(); i++) {
 			System.out.println(i + "번째 평점 : " + point.get(i).getPOINT());
 			total += point.get(i).getPOINT(); //총 점수를 구함
