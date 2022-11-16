@@ -43,6 +43,8 @@ public class PayController {
 		Date enddate=(Date)session.getAttribute("enddate");
 		Date section=(Date)session.getAttribute("section");
 		
+		logger.info("section : " + section);
+		
 		mav.addObject("startdate", startdate);
 		mav.addObject("enddate", enddate);
 		mav.addObject("section", section);

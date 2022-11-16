@@ -48,6 +48,16 @@ public class OwnerListServiceImpl implements OwnerListService {
 		return ownerListDao.fileInfo1(building_code);
 	}
 
+	@Override
+	public List<OwnerListDTO> admissionBuilding() {
+		return ownerListDao.admissionBuilding();
+	}
+
+	@Override
+	public void permission(int building_code) {
+		ownerListDao.permission(building_code);
+	}
+
 
 
 }

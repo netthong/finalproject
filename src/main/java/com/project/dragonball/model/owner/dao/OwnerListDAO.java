@@ -15,8 +15,13 @@ public interface OwnerListDAO {
 	public OwnerListDTO roomDetailList(int building_code); //업소 상세보기 리스트
 
 	public List<OwnerListDTO> roomInfo(String buildingName); //업소 하나의 방의 정보를 확인
+
+	public List<OwnerListDTO> admissionBuilding();
+	public void permission(int building_code);
+
 	
 	public List<OwnerListDTO> getAllType(); //존재하는 모든 타입을 가져옴
+
 
 	public List<OwnerListDTO> getAllBuilding(String type); //타입에 해당되는 모든 업소를 가져옴
 

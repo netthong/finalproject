@@ -47,6 +47,7 @@
 				<li class="nav-item" style="font-family: Cafe24Ssurround; font-size: 22px;"><a class="nav-link" href="${path}/admin/userList.do">회원 목록</a></li>
 				<li class="nav-item" style="font-family: Cafe24Ssurround; font-size: 22px;"><a class="nav-link" href="${path}/admin/admission.do">건물승인</a></li>
 				<li class="nav-item" style="font-family: Cafe24Ssurround; font-size: 22px;"><a class="nav-link" href="${path}/admin/bannerUp.do">베너 등록</a></li>
+				<li class="nav-item" style="font-family: Cafe24Ssurround; font-size: 22px;"><a class="nav-link" href="${path}/user/logout.do">로그아웃</a></li>
 		</ul>
 	</div>
 </nav>

@@ -15,16 +15,6 @@ span.sub { color:#C0C0C0; font-size:14px; }
 			</li>
 			
 			<li class="mb-4">
-				<button class="btn nav-link border-0"><span class="main" data-bs-toggle="collapse" data-bs-target="#cat01" onclick="hideOthers(event)">숙소</span></button>
-				<div class="collapse" id="cat01">
-					<ul class="btn-toggle-nav list-unstyled">
-						<li><a href="${path}/admin/admission.do" class="text-decoration-none"><span class="sub">등록</span></a></li>
-						<li><a href="${path}/admin/admission.do" class="text-decoration-none"><span class="sub">관리</span></a></li>
-					</ul>
-				</div>
-			</li>
-			
-			<li class="mb-4">
 				<button class="btn nav-link border-0"><span class="main" data-bs-toggle="collapse" data-bs-target="#cat02" onclick="hideOthers(event)">베너 등록</span></button>
 				<div class="collapse" id="cat02">
 					<ul class="list-unstyled">

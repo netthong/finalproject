@@ -218,8 +218,7 @@
 					<div id="room-list-wraper" class="mx-0"><!-- 객실 정보 출력 -->
 						<div class="card-room-info card mb-3">
 							<div class="card-body row">
-								<div class="position-relative">
-									 ${ roomd.PICTURE_URL } <%-- <img src="../images/${ roomd.PHOTO1 }"> --%>
+								<div class="position-relative">				
 									 <img src="${path}/resources/images/${roomd.PICTURE_URL}" width="100px" height="100px">
 									<div class="card-img-overlay overlay-room-thumbnail">
 										<i class="bi bi-images fs-3 text-white position-absolute bottom-0 end-0 p-3"></i>

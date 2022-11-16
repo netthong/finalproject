@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
+import com.project.dragonball.model.receipt.dao.ReceiptDAO;
+import com.project.dragonball.model.receipt.dto.ReceiptDTO;
 import com.project.dragonball.model.user.dao.UserListDAO;
 import com.project.dragonball.model.user.dto.UserListDTO;
 
@@ -15,6 +17,9 @@ public class UserListServiceImpl implements UserListService {
 
 	@Inject
 	UserListDAO userListdao;
+	
+	@Inject
+	ReceiptDAO receiptDao;
 	
 	@Override
 	public boolean loginCheck(UserListDTO dto, HttpSession session) {
@@ -100,6 +105,11 @@ public class UserListServiceImpl implements UserListService {
 	@Override
 	public void updateEmail(String userid, String email) {
 		userListdao.updateEmail(userid,email);
+	}
+
+	@Override
+	public List<ReceiptDTO> reservationList(String userid) {
+		return receiptDao.reservationList(userid);
 	}
 
 }

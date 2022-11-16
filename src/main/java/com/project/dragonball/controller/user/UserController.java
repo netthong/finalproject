@@ -34,7 +34,7 @@ public class UserController {
 		UserListDTO dto2 = userService.viewUser(dto.getUserid());
 		if(result) {
 			if(dto2.getCategory() == 'c') {
-				mav.setViewName("home");				
+				mav.setViewName("redirect:/");				
 			}else if(dto2.getCategory() == 'b') {
 				mav.setViewName("owner/owner_write");
 			}else if(dto2.getCategory() == 'a') {
@@ -70,7 +70,7 @@ public class UserController {
 	@RequestMapping("write.do")
 	public String write(@ModelAttribute UserListDTO dto) {
 		userService.writeUser(dto);
-		return "home";
+		return "redirect:/user/login.do";
 	}
 	
 	@RequestMapping(value = "idCheck.do", method = RequestMethod.POST)
@@ -159,6 +159,14 @@ public class UserController {
 		userService.updateEmail(userid,email);
 		mav.addObject("dto", userService.viewUser(userid));
 		mav.setViewName("user/viewUser");
+		return mav;
+	}
+	
+	@RequestMapping("reservationList.do")
+	public ModelAndView reservationList(HttpSession session, ModelAndView mav) {
+		String userid = (String)session.getAttribute("userid");
+		mav.addObject("list", userService.reservationList(userid));
+		mav.setViewName("user/reservationList");
 		return mav;
 	}
 }

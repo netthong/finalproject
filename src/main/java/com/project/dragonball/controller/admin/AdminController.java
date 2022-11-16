@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.dragonball.model.banner.dto.BannerDTO;
 import com.project.dragonball.service.Banner.BannerService;
+import com.project.dragonball.service.owner.OwnerListService;
 import com.project.dragonball.service.user.AdminService;
 
 @Controller
@@ -24,6 +25,9 @@ public class AdminController {
 	
 	@Inject
 	BannerService bannerService;
+	
+	@Inject
+	OwnerListService ownerListService;
 	
 	@RequestMapping("userList.do")
 	@ResponseBody
@@ -102,5 +106,25 @@ public class AdminController {
 	public String deleteBanner(@RequestParam("banner_num") int banner_num) {
 		bannerService.deleteBanner(banner_num);
 		return "redirect:/admin/bannerList.do";
+	}
+	
+	@RequestMapping("admission.do")
+	public ModelAndView admission(ModelAndView mav) {
+		mav.addObject("list", ownerListService.admissionBuilding());
+		mav.setViewName("/admin/admission");
+		return mav;
+	}
+	
+	@RequestMapping("goPermission.do")
+	public ModelAndView goPermission(ModelAndView mav, @RequestParam("building_code") int building_code) {
+		mav.addObject("dto", ownerListService.detailBuilding(building_code));
+		mav.setViewName("/admin/goPermission");
+		return mav;
+	}
+	
+	@RequestMapping("permission.do")
+	public String permission(@RequestParam("building_code") int building_code) {
+		ownerListService.permission(building_code);
+		return "redirect:/admin/admission.do";
 	}
 }
