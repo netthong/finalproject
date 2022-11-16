@@ -166,6 +166,7 @@ public class UserController {
 	@RequestMapping("reservationList.do")
 	public ModelAndView reservationList(HttpSession session, ModelAndView mav) {
 		String userid = (String)session.getAttribute("userid");
+		mav.addObject("list", userService.reservationList(userid));
 		mav.setViewName("user/reservationList");
 		return mav;
 	}

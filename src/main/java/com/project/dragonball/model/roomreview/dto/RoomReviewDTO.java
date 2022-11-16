@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class RoomReviewDTO {
 	private int REPLYNO; //리뷰번호
-	private String ID; //아이디
+	private String userid; //아이디
 	private Date REG_DATE_REVIEW; //등록일 
 	private int COMMENTNO; //답글번호 
 	private int POINT; //평점
@@ -23,10 +23,10 @@ public class RoomReviewDTO {
 		REPLYNO = rEPLYNO;
 	}
 	public String getID() {
-		return ID;
+		return userid;
 	}
 	public void setID(String iD) {
-		ID = iD;
+		userid = iD;
 	}
 	public Date getREG_DATE_REVIEW() {
 		return REG_DATE_REVIEW;
@@ -72,7 +72,7 @@ public class RoomReviewDTO {
 	}
 	@Override
 	public String toString() {
-		return "RoomReviewDTO [REPLYNO=" + REPLYNO + ", ID=" + ID + ", REG_DATE_REVIEW=" + REG_DATE_REVIEW
+		return "RoomReviewDTO [REPLYNO=" + REPLYNO + ", ID=" + userid + ", REG_DATE_REVIEW=" + REG_DATE_REVIEW
 				+ ", COMMENTNO=" + COMMENTNO + ", POINT=" + POINT + ", CONTENT=" + CONTENT + ", ROOM_NAME=" + ROOM_NAME
 				+ ", BUILDING_CODE=" + BUILDING_CODE + ", SHOW=" + SHOW + "]";
 	}

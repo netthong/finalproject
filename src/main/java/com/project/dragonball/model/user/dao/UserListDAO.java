@@ -2,7 +2,6 @@ package com.project.dragonball.model.user.dao;
 
 import java.util.List;
 
-
 import com.project.dragonball.model.user.dto.UserListDTO;
 
 public interface UserListDAO {

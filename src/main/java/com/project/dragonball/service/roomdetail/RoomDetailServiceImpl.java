@@ -25,4 +25,29 @@ public class RoomDetailServiceImpl implements RoomDetailService {
 		return ownerListDao.roomInfo(buildingName);
 	}
 
+	@Override
+	public List<OwnerListDTO> getAllType() {
+		return ownerListDao.getAllType();
+	}
+
+	@Override
+	public List<OwnerListDTO> getAllBuilding(String type) {
+		return ownerListDao.getAllBuilding(type);
+	}
+
+	@Override
+	public List<OwnerListDTO> getAllBuilding(String type1, String type2) {
+		return ownerListDao.getAllBuilding(type1, type2);
+	}
+
+	@Override
+	public List<OwnerListDTO> getAllBuildingKeyword(String type, String keyword) {
+		return ownerListDao.getAllBuildingKeyword(type, keyword);
+	}
+
+	@Override
+	public List<OwnerListDTO> getAllBuildingKeyword(String type1, String type2, String keyword) {
+		return ownerListDao.getAllBuildingKeyword(type1, type2, keyword);
+	}
+
 }
