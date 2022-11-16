@@ -110,14 +110,14 @@
 			</div>
 		<div class="col-6">
 			<div class="d-flex justify-content-between">
-				<h4 id="acco-name" class="fw-semibold text-dark p-1 me-3" style="word-break: keep-all;">${ detail.BUILDING_NAME }</h4>
+				<h4 id="acco-name" class="fw-semibold text-dark p-1 me-3" style="word-break: keep-all;">${ detail.building_name }</h4>
 			</div>
 			
-			<p>${ detail.ADDRESS1 } ${ detail.ADDRESS2 }</p>
+			<p>${ detail.address1 } ${ detail.address2 }</p>
 			<div class="bg-light p-3">
 				<div class="fw-bold text-dark mb-3">사장님 한마디</div>
 				<p>
-					${ detail.OWNER_COMMENT }
+					${ detail.owner_comment }
 				</p>
 			</div>
 		</div>
@@ -193,13 +193,19 @@
 							        ],
 							        "firstDay": 7
 							    },
+							    "minDate": moment(date),
 							    "startDate": moment(date),
 							    "endDate": moment(date).add(1,'days')
 							}, function(start, end, label) {
 							  console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
 							  sessionStorage.setItem("startdate", start);
 							  sessionStorage.setItem("enddate", end);
+							  var newstart = new Date(start);
+							  var newend = new Date(end);
+							  var section = newend.getDate() - newstart.getDate();
+							  sessionStorage.setItem("section", section);
 							  console.log(start + " + " + end);
+							  console.log(section);
 							});
 						});
 						</script>
@@ -253,7 +259,7 @@
 						<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordion-acco-info">
 							<div class="accordion-body bg-light text-muted p-5 m-3 small">
 								<div id="acco-info-detail">
-									${ detail.ACCOMODATION }
+									${ detail.accomodation }
 								</div>
 							</div>
 						</div>
@@ -293,7 +299,7 @@
 						<i class="bi ${ avgPointStar.star5 }"></i>
 						<span class="text-muted mx-1">${ roomAvgPoint }</span>
 					</div>
-					<p style="text-align: right;"><a href="reviews/listall/${ detail.BUILDING_CODE }">전체 리뷰 보기</a></p>
+					<p style="text-align: right;"></p>
 					<c:forEach var="rep" items="${ newReview }">
 						<div class="row p-5 border-bottom" style="text-align: left;">
 							<c:if test="${ rep.COMMENTNO == 1 }">
@@ -395,7 +401,6 @@ $(function () {
 	});
 });
 
-//////////////////////////////////////////// DOM 생성 전에 정의되는 내용
 /**
  * 페이징 버튼을 누르면 객실정보를 갱신하면서 currentPage의 값을 바꾸고, active 클래스의 상태를 변경시키는 함수 
  */
@@ -406,28 +411,6 @@ function changeCurrentPage(num) {
 	searchRooms(num);
 	// 페이지 버튼 상태 갱신
 	refreshPaginationButton(num);
-}
-
-/*
- * 객실 카드 엘리먼트에 대한 사용자 상호작용 이벤트 관련 함수
- */
-// 객실 이미지 썸네일을 클릭하면 상세이미지 swiper가 출력되고, swiper의 닫기 아이콘을 클릭하면 지워지는 함수
-// * ajax로 객실 정보 조회 시 실행된다.
-function addRoomCardEventListener() {
-	$(".overlay-room-thumbnail").click(function() {
-		$(this).parents(".card-room-info").find(".box-room-detail-img").removeClass("d-none");
-	});
-	$(".icon-close-room-detail-img").click(function() {
-		$(this).parents(".box-room-detail-img").addClass("d-none");
-	});
-}
-
-// 객실 예약 버튼을 누르면 숙소아이디, 객실번호, 체크인/체크아웃 날짜를 파라미터로 하는 예약페이지 GET 요청을 보낸다.
-function addReserveBtnEventListener() {
-	$(".btn-room-reserve").click(function() {
-		let roomNo = $(this).attr("data-room-no");
-		location.href="../reservation?id=" + ${param.id} + "&roomno=" + roomNo + "&checkin=" + $(":hidden[name=startDate]").val() + "&checkout=" +$(":hidden[name=endDate]").val()+ "&duration="+$(":hidden[name=duration]").val();
-	});
 }
 </script>
 </body>

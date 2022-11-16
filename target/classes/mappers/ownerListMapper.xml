@@ -10,6 +10,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM OWNER_LIST
 		WHERE BUILDING_CODE=#{building_code}
 	</select>
+	
+	<select id="getAllType" resultType="ownerListDTO">
+		SELECT DISTINCT BUILDING_TYPE
+		FROM OWNER_LIST
+		ORDER BY BUILDING_TYPE
+	</select>
+	
+	<select id="getBuilding" resultType="ownerListDTO">
+		SELECT *
+		FROM OWNER_LIST
+		WHERE BUILDING_TYPE=#{type}
+	</select>
+	
+	<select id="getBuildingtwo" resultType="ownerListDTO">
+		SELECT *
+		FROM OWNER_LIST
+		WHERE BUILDING_TYPE=#{type1} OR BUILDING_TYPE=#{type2}
+	</select>
+	
+	<select id="getBuildingkeyword" resultType="ownerListDTO">
+		SELECT *
+		FROM OWNER_LIST
+		WHERE BUILDING_TYPE=#{type} AND (ADDRESS1 LIKE '%'||#{keyword}||'%' OR ADDRESS2 LIKE '%'||#{keyword}||'%')
+	</select>
+	
+	<select id="getBuildingtwoKeyword" resultType="ownerListDTO">
+		SELECT * 
+		FROM OWNER_LIST
+		WHERE (BUILDING_TYPE=#{type1} OR BUILDING_TYPE=#{type2}) AND (ADDRESS1 LIKE '%'||#{keyword}||'%' OR ADDRESS2 LIKE '%'||#{keyword}||'%')
+	</select>
 </mapper>
 
 
