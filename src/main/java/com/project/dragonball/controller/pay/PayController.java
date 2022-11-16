@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.dragonball.controller.roomdetail.RoomDetailController;
 import com.project.dragonball.model.room.dto.RoomDTO;
+import com.project.dragonball.service.receipt.ReceiptService;
 import com.project.dragonball.service.room.RoomService;
 import com.project.dragonball.service.roomdetail.RoomDetailService;
 import com.project.dragonball.service.roominfo.RoomInfoService;
@@ -26,13 +27,7 @@ public class PayController {
 	private static final Logger logger = LoggerFactory.getLogger(RoomDetailController.class);
 	
 	@Inject
-	RoomDetailService roomDetailService;
-	
-	@Inject
-	RoomInfoService roomInfoService;
-	
-	@Inject
-	RoomService roomService;
+	ReceiptService receiptService;
 	
 	@RequestMapping("pay.do")
 	@ResponseBody
@@ -44,6 +39,7 @@ public class PayController {
 		Date section=(Date)session.getAttribute("section");
 		
 		logger.info("section : " + section);
+		logger.info("ROOM_NO : " + ROOM_NO);
 		
 		mav.addObject("startdate", startdate);
 		mav.addObject("enddate", enddate);
@@ -51,7 +47,7 @@ public class PayController {
 		
 		
 		
-		mav.addObject("list", roomService.listRoom(ROOM_NO));
+		mav.addObject("list", receiptService.listRoom(ROOM_NO));
 		mav.setViewName("/pay/pay_detail");
 		return mav;
 		

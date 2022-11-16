@@ -33,7 +33,7 @@ $(function(){
 <div class="container my-3" style="min-width:992px; max-width:992px;">
 	<div class="row mb-3">
 		   <div class="col-8">
-	    	<form action="pay/complete" method="post" id="form-reserv">
+	    	
 				<div class="my-3">
 					<p><strong>예약자 정보</strong></p>
 					<label class="form-label" name="reserName">예약자 이름</label>
@@ -43,7 +43,7 @@ $(function(){
 					<p class="form-label">휴대폰 번호</p>
 					<p class="form-text">개인 정보 보호를 위해 안심번호로 숙소에 전송됩니다.</p>
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="체크인시 필요한 정보입니다." name="reserTel" id="reserTel">
+						<input type="text" class="form-control" placeholder="010-XXXX-XXXX" name="reserTel" id="reserTel">
 						<span class="input-group-btn">
 						
 						</span>
@@ -61,31 +61,33 @@ $(function(){
 				
 				<div class="form-check mb-2">
 					<input class="form-check-input" type="checkbox" value="" id="checkboxRefundprovision" name=checkbox>
-					<label class="form-text" for="checkboxRefund" ><a onclick="openRefundModal()" style="text-decoration: underline; color: gray">
+					<label class="form-text" for="checkboxRefund" ><a style="text-decoration: underline; color: gray">
 					  숙소이용규칙 및 취소/환불규정 동의</a><strong class="text-secondary">(필수)</strong>
 					</label>
 				</div>
 				<div class="form-check mb-2">
 					<input class="form-check-input" type="checkbox" value="" id="checkboxInfo1provision" name=checkbox>
-					<label class="form-text" for="checkboxInfo1"><a onclick="openinfo1Modal()" style="text-decoration: underline; color: gray">
+					<label class="form-text" for="checkboxInfo1"><a style="text-decoration: underline; color: gray">
 					  개인정보 수집 및 이용 동의</a><strong class="text-danger">(필수)</strong>
 					</label>
 				</div>
 				<div class="form-check mb-2">
 					<input class="form-check-input" type="checkbox" value="" id="checkboxInfo2provision" name=checkbox >
-					<label class="form-text" for="checkboxInfo2"><a onclick="openinfo2Modal()"  style="text-decoration: underline; color: gray">
+					<label class="form-text" for="checkboxInfo2"><a style="text-decoration: underline; color: gray">
 					  개인정보 제 3자 제공 동의</a> <strong class="text-danger">(필수)</strong>
 					</label>
 				</div>
 			</div>
 			
+<form action="pay/complete" method="post" id="form-reserv">
+<c:forEach var="row" items="${ list }">
 			<div class="col-4 my-3 ">
 				<div class="row bg-light">
 					<div class="col mx-2">
 						<div class="my-5 mx-3">
 							<dl>
-								<dt id="building_name">${dto.building_name}
-								<dd id="room_name">${dto.room_name } / <span id="days">${sessionScope.section }박</span>
+								<dt id="building_name">${row.building_name}
+								<dd id="room_name">${row.room_name } / <span id="days">${sessionScope.section}박</span>
 								<dt class="col-3 form-text">체크인</dt>
 								<dd id="checkIn" > 15:00</dd>
 								<dd class="form-text">체크아웃</dd>
@@ -97,7 +99,7 @@ $(function(){
 					</div>
 					<div class="my-3 mx-3">
 						<p><strong>총 결제 금액</strong><small>(VAT포함)</small></p>
-						<h4><strong class="text-secondaryr" id="dayPrice"><fmt:formatNumber> ${room.room_price * param.duration}</fmt:formatNumber>원</strong></h4>
+						<h4><strong class="text-secondaryr" id="dayPrice"><fmt:formatNumber> ${room.room_price}, {sessionScope.section}</fmt:formatNumber>원</strong></h4>
 						<label><small>
 							<li class="mx-2">해당 객실가는세금, 봉사료가 포함된 금액입니다.</li>
 							<li class="mx-2">결제완료 후 <span class="text-danger">예약자</span> 이름으로 바로 <span class="text-secondary">체크인</span> 하시면 됩니다.</li>
@@ -108,6 +110,7 @@ $(function(){
 					<a href="${path}/pay/complete.do?ROOM_NO=${roomd.ROOM_NO}" class="btn-room-reserve btn btn-danger w-100">결제하기</a>
 				</div>
 			</div>
+		</c:forEach>
 			</form>
 	</div>
 </div>

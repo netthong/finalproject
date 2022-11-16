@@ -11,6 +11,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	from receipt
 	where userid = #{userid}
 	</select>
+	
+	<select id="roomlist" resultType="com.project.dragonball.model.receipt.dto.ReceiptDTO">
+	 select building_code, room_no, room_name, room_price, room_size, picture_url
+	 from room_list
+	 where room_no=#{room_no}
+	</select>
 </mapper>
 
 
