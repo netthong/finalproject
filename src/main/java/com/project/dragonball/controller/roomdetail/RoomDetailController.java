@@ -75,7 +75,7 @@ public class RoomDetailController {
 		mav.addObject("roomAcco", roomAcco1);
 		
 		
-		double roomAvgPoint = roomReviewService.roomAvgPoint(21); //업소에 해당되는 모든 평점의 평균을 계산
+		double roomAvgPoint = roomReviewService.roomAvgPoint(building_code); //업소에 해당되는 모든 평점의 평균을 계산
 		System.out.println("평균평점 : " + roomAvgPoint);
 		mav.addObject("roomAvgPoint", roomAvgPoint);
 		

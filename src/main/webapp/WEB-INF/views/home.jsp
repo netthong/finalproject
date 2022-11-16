@@ -84,20 +84,20 @@
 		<div class="d-flex flex-wrap justify-content-evenly" style="min-height: 350px;">
 			<!-- 숙소유형별 조회 -->
 				<div class="text-center my-auto">
-					<a href="building/search.do?buildingtype=m"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_001.png" style="width:100px;height:auto;"></a><br/>
-			    <a href="building/search.do?buildingtype=m" class="text-decoration-none text-dark fw-light">모텔</a>
+					<a href="${path}/building/search.do?buildingtype=m"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_001.png" style="width:100px;height:auto;"></a><br/>
+			    <a href="${path}/building/search.do?buildingtype=m" class="text-decoration-none text-dark fw-light">모텔</a>
 				</div>
 				<div class="text-center my-auto">
-					<a href="building/search.do?buildingtype=h"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_002.png" style="width:100px;height:auto;"></a><br/>
-			    <a href="building/search.do?buildingtype=h" class="text-decoration-none text-dark fw-light">호텔 리조트</a>
+					<a href="${path}/building/search.do?buildingtype=h"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_002.png" style="width:100px;height:auto;"></a><br/>
+			    <a href="${path}/building/search.do?buildingtype=h" class="text-decoration-none text-dark fw-light">호텔 리조트</a>
 				</div>
 				<div class="text-center my-auto">
-					<a href="building/search.do?buildingtype=p"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_003.png" style="width:100px;height:auto;"></a><br/>
-			    <a href="#" class="text-decoration-none text-dark fw-light">펜션</a>
+					<a href="${path}/building/search.do?buildingtype=p"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_003.png" style="width:100px;height:auto;"></a><br/>
+			    <a href="${path}/building/search.do?buildingtype=p" class="text-decoration-none text-dark fw-light">펜션</a>
 				</div>
 				<div class="text-center my-auto">
-					<a href="building/search.do?buildingtype=g"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_004.png" style="width:100px;height:auto;"></a><br/>
-			    <a href="building/search.do?buildingtype=g" class="text-decoration-none text-dark fw-light">게스트하우스</a>
+					<a href="${path}/building/search.do?buildingtype=g"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_004.png" style="width:100px;height:auto;"></a><br/>
+			    <a href="${path}/building/search.do?buildingtype=g" class="text-decoration-none text-dark fw-light">게스트하우스</a>
 				</div>
 		</div>
 		<div class="row my-5 mx-auto" style="max-width: 950px;">
