@@ -23,8 +23,8 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 	@Override
-	public List<RoomDTO> listRoom(String building_name) {
-		return roomDao.listRoom(building_name);
+	public List<RoomDTO> listRoom(int building_code) {
+		return roomDao.listRoom(building_code);
 	}
 
 	@Override

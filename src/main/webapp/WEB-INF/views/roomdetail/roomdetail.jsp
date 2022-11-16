@@ -230,6 +230,7 @@
 					<input type="hidden" name="roomdroomname" id="roomdroomname" value="${ roomd.ROOM_NAME }">
 				</c:forEach>
 				</form>
+				
 				<script type="text/javascript">
 					
 				</script>

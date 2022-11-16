@@ -23,8 +23,8 @@ public class RoomDAOImpl implements RoomDAO {
 	}
 
 	@Override
-	public List<RoomDTO> listRoom(String building_name) {
-		return sqlSession.selectList("room.room_list", building_name);
+	public List<RoomDTO> listRoom(int building_code) {
+		return sqlSession.selectList("room.room_list", building_code);
 	}
 
 	@Override

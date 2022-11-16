@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.dragonball.model.owner.dto.OwnerListDTO;
 import com.project.dragonball.model.room.dto.RoomDTO;
 import com.project.dragonball.service.room.RoomService;
 
@@ -26,40 +28,33 @@ public class RoomController {
 	RoomService roomService;
 	
 	@RequestMapping("list.do")
-	public ModelAndView list(HttpSession session, ModelAndView mav) {
+	public ModelAndView list(HttpSession session, ModelAndView mav, @RequestParam("building_code") int building_code) {
 		
-		Map<String,Object> map=new HashMap<>();
-		String building_name=(String)session.getAttribute("building_name");
-		//포워딩 할 뷰
+		List<RoomDTO> list=roomService.listRoom(building_code);
 		mav.setViewName("/room/room_list");
-		//전달 할 데이터
-		mav.addObject("list", roomService.listRoom(building_name));
-		
-		List<RoomDTO> list=roomService.listRoom(building_name);
-		map.put("list", list); 
-		map.put("count", list.size());
-		mav.setViewName("/room/room_list");
-		mav.addObject("map", map); //전달 할 데이터
+		mav.addObject("list", list);
+		mav.addObject("count", list.size());
 		return mav;
 		
 	}
 	
 	@RequestMapping("write.do")
-	public String write() {
-		
-		
-		
-		return "room/room_write";
+	public ModelAndView write(ModelAndView mav, @RequestParam("building_code") int building_code) {
+		mav.addObject("building_code", building_code);
+		mav.setViewName("/room/room_write");
+		return mav;
 	}
 	
 	@RequestMapping("insert.do")
-	public String insert(@ModelAttribute RoomDTO dto) {
+	@ResponseBody
+	public ModelAndView insert(@ModelAttribute RoomDTO dto, ModelAndView mav) {
+		
 		String filename="-";
 		if(!dto.getFile1().isEmpty()) {
 			filename=dto.getFile1().getOriginalFilename();
 			try {
 				String path="C:\\work\\.metadata\\.plugins\\org.eclipse.wst.server.core"
-						+ "\\tmp0\\wtpwebapps\\finalproject\\WEB-INF\\views\\images";
+						+ "\\tmp0\\wtpwebapps\\finalproject\\resources\\images\\";
 				//디렉토리가 존재하지 않으면 생성
 				new File(path).mkdir();
 				dto.getFile1().transferTo(new File(path+filename));
@@ -68,9 +63,11 @@ public class RoomController {
 			}
 		}
 		
+		mav.setViewName("/room/room_list");
+		mav.addObject("list", roomService.listRoom(dto.getBuilding_code()));
 		dto.setPicture_url(filename);
 		roomService.insertRoom(dto); //F4
-		return "redirect:/room/list.do";
+		return mav;
 	}
 	
 	@RequestMapping("detail/{room_no}")

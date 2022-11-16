@@ -24,7 +24,7 @@ span.sub { color:#C0C0C0; font-size:14px; }
 			</li>
 			
 			<li class="mb-4">
-				<a href="${path}/pay/pay.do" class="text-decoration-none"><span class="main">예약 현황</span></a>
+				<a href="${path}/reservation/list.do" class="text-decoration-none"><span class="main">예약 현황</span></a>
 				<div class="collapse" id="cat01">
 					<ul class="btn-toggle-nav list-unstyled">
 					</ul>
@@ -36,7 +36,7 @@ span.sub { color:#C0C0C0; font-size:14px; }
 			</li>
 
 			<li class="mb-4">
-				<a href="${path}/chat/play.do" class="text-decoration-none"><span class="main">1:1 문의</span></a>
+				<a href="${path}/pay/pay.do" class="text-decoration-none"><span class="main">결제상세</span></a>
 			</li>
 			
 		</ul>

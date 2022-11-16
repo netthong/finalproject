@@ -166,6 +166,10 @@ public class OwnerController {
 		
 	}
 	
+	@RequestMapping("review2.do")
+	public String review2() {
+		return "roomdetail/roomdetail";
+	}
 	
 	
 }

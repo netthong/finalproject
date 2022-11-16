@@ -19,6 +19,8 @@ function room_write(){
 	var price=$("#price").val();
 	var room_amount=$("#room_amount").val();
 	var room_size=$("#room_size").val();
+	var building_code=$("#building_code").val();
+	console.log(building_code);
 	if(room_name==""){
 		alert("방이름을 입력하세요");
 		$("#room_name").focus();
@@ -148,13 +150,14 @@ function room_write(){
  <tr>
   <td>방 사진</td>
   <td>
-   <input type="file" name="file1" id="file1">
+   <input type="file" name="file1" id="file1"> <br>
+   <input type="hidden" id="building_code" name="building_code" value="${building_code}">
   </td>
  </tr>
  <tr>
   <td colspan="2" align="center">
    <input type="button" value="등록" onclick="room_write()">
-   <input type="button" value="목록" onclick="location.href='${path}/room/list.do'">
+   <input type="button" value="목록" onclick="location.href='${path}/room/list.do?building_code=${building_code}'">
   </td>
  </tr>
 </table>

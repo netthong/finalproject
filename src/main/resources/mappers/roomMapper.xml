@@ -8,13 +8,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
  <select id="room_list" resultType="com.project.dragonball.model.room.dto.RoomDTO">
   select * from room_list
+  where building_code=#{building_code}
   order by room_no
  </select>
  
  <insert id="insert">
-  insert into room_list (room_no,room_name,room_amount,room_price,room_size,picture_url)
+  insert into room_list (building_code,room_no,room_name,room_amount,room_price,room_size,picture_url)
    values
-   (#{room_no},#{room_name},#{room_amount},#{room_price},#{room_size},#{picture_url})
+   (#{building_code},#{room_no},#{room_name},#{room_amount},#{room_price},#{room_size},#{picture_url})
  </insert>
  
  <select id="detail_room" resultType="com.project.dragonball.model.room.dto.RoomDTO">

@@ -145,7 +145,7 @@ $(function(){
 		<th style="width: 20%;">건물주소</th>
 		<th style="width: 15%;">사장님한마디</th>
 		<th style="width: 15%;">편의기능</th>
-		<th>&nbsp<th>
+		<th>등록 허가<th>
 	</tr>
 <c:forEach var="row" items="${list}">
 	<tr>
@@ -153,12 +153,11 @@ $(function(){
 		
 	 
 		<td>
-	 	 <form name="form1" method="post" action="${path}/room/write.do">
-	 	 <input type="hidden" name="building_code" value="${building_code}">
 	 	 <a>${row.building_name}</a> <br>
-		 <input type="submit" value="방 등록">		  
-		 </form>
+		 <a href="${path}/room/write.do?building_code=${row.building_code}"><input type="submit" value="방 등록"></a>  
+		 <a href="${path}/room/list.do?building_code=${row.building_code}"><input type="submit" value="방 목록"></a>
 		</td>
+
 	 
 	 
 		<td>${row.building_type }</td>
@@ -175,7 +174,10 @@ $(function(){
 		
 		<td>${row.accomodation}</td>
 		
-		<td><a href="${path}/owner/edit/${row.building_code}">[수정]</a></td>
+		<td>
+		 <a>${row.permission }</a><br>
+		 <a href="${path}/owner/edit/${row.building_code}">[수정]</a>
+		</td>
 		
 		
 	</tr>

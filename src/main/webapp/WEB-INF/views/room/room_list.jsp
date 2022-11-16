@@ -107,7 +107,14 @@
 $(function(){
 	$("#btnwrite").click(function(){
 		//등록으로 이동
-		location.href="${path}/room/write.do";
+		location.href="${path}/room/write.do?building_code=${row.building_code}";
+	});
+});
+
+$(function(){
+	$("#btnwrite2").click(function(){
+		//등록으로 이동
+		location.href="${path}/owner/list.do";
 	});
 });
 
@@ -128,11 +135,11 @@ $(function(){
 	
 <div class="info-1">
 <c:choose>
-	<c:when test="${map.count == 0}">
+	<c:when test="${count == 0}">
 		<p class="content-1">방 목록이 비었습니다.</p>
 	</c:when>
 	<c:otherwise>
-	${map.count}개의 방이 있습니다.
+	${count}개의 방이 있습니다.
 	</c:otherwise>
 </c:choose>
 </div>
@@ -150,7 +157,9 @@ $(function(){
 	</tr>
 <c:forEach var="row" items="${list}">
 	<tr>
-	  <td>${row.room_no}</td>
+	  <td>${row.room_no} <br>
+	   <input type="hidden" value="${row.building_code}">
+	  </td>
 		<td>${row.room_name}</td>
 		<td><img src="${path}/resources/images/${row.picture_url}"
 					width="100px" height="100px"></td>	
@@ -166,7 +175,9 @@ $(function(){
 </c:forEach>	
 </table>
 </div>
-<button class="move" type="button" id="btnwrite">방 추가 등록</button>
+<div class="move"><a href="${path}/room/write.do?building_code=${row.building_code}"><input type="submit" value="방 추가"></a> </div>
+<button class="move" type="button" id="btnwrite">방 추가</button>
+<button class="move" type="button" id="btnwrite2">건물 목록</button>
 <%@ include file="../common/footer.jsp" %>
 </body>
 </html>
