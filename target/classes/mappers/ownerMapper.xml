@@ -44,9 +44,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   where building_code=#{building_code}
  </delete>
  
+ <select id="admissionBuilding" 
+ resultType="com.project.dragonball.model.owner.dto.OwnerListDTO">
+ select * from owner_list
+ where permission = 'N'
+ order by building_code
+ </select>
  
- 
- 
+ <update id="permission">
+ update owner_list
+ set permission = 'Y'
+ where building_code = #{building_code}
+ </update>
 	
 </mapper>
 

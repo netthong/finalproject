@@ -59,4 +59,14 @@ public class OwnerDAOImpl implements OwnerListDAO {
 		return sqlSession.selectList("roomList.list", buildingName);
 	}
 
+	@Override
+	public List<OwnerListDTO> admissionBuilding() {
+		return sqlSession.selectList("owner.admissionBuilding");
+	}
+
+	@Override
+	public void permission(int building_code) {
+		sqlSession.update("owner.permission", building_code);
+	}
+
 }

@@ -12,5 +12,7 @@ public interface OwnerListService {
 	public void insertBuilding(OwnerListDTO dto);//입력
 	public String fileInfo1(int building_code);//첨부파일정보
 	/* public void insertRoom(OwnerListDTO dto); */
+	public List<OwnerListDTO> admissionBuilding();//건물승인
+	public void permission(int building_code);
 
 }

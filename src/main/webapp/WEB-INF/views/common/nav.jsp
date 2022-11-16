@@ -52,9 +52,8 @@
 			<li class="nav-item dropdown" style="width:90px;height:auto">
    			<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">마이페이지</a>
    				<ul class="dropdown-menu">
-    				<li><a class="dropdown-item" href="#">찜목록</a></li>
-     				<li><a class="dropdown-item" href="#">예약내역</a></li>
-     				<li><a class="dropdown-item" href="userInfo.do">회원정보</a></li>
+     				<li><a class="dropdown-item" href="${path}/user/reservationList.do">예약내역</a></li>
+     				<li><a class="dropdown-item" href="${path}/user/userInfo.do">회원정보</a></li>
    				</ul>
 			</li>
 			

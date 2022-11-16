@@ -7,13 +7,10 @@ span.sub { color:#C0C0C0; font-size:14px; }
 	<div class="list-unstyled" id="collapse-content">
 		<ul class="list-unstyled">
 			<li class="mb-4">
-				<a href="#" class="text-decoration-none"><span class="main">찜목록</span></a>
+				<a href="${path}/user/reservationList.do" class="text-decoration-none"><span class="main">예약내역</span></a>
 			</li>
 			<li class="mb-4">
-				<a href="#" class="text-decoration-none"><span class="main">예약내역</span></a>
-			</li>
-			<li class="mb-4">
-				<a href="userInfo.do" class="text-decoration-none"><span class="main">회원정보</span></a>
+				<a href="${path}/user/userInfo.do" class="text-decoration-none"><span class="main">회원정보</span></a>
 			</li>
 		</ul>
 	</div>
