@@ -1,6 +1,8 @@
 package com.project.dragonball.model.owner.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -57,6 +59,41 @@ public class OwnerDAOImpl implements OwnerListDAO {
 	@Override
 	public List<OwnerListDTO> roomInfo(String buildingName) {
 		return sqlSession.selectList("roomList.list", buildingName);
+	}
+
+	@Override
+	public List<OwnerListDTO> getAllType() {
+		return sqlSession.selectList("ownerList.getAllType");
+	}
+
+	@Override
+	public List<OwnerListDTO> getAllBuilding(String type) {
+		return sqlSession.selectList("ownerList.getBuilding", type);
+	}
+
+	@Override
+	public List<OwnerListDTO> getAllBuilding(String type1, String type2) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("type1", type1);
+		map.put("type2", type2);
+		return sqlSession.selectList("ownerList.getBuildingtwo", map);
+	}
+
+	@Override
+	public List<OwnerListDTO> getAllBuildingKeyword(String type, String keyword) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("type", type);
+		map.put("keyword", keyword);
+		return sqlSession.selectList("ownerList.getBuildingkeyword", map);
+	}
+
+	@Override
+	public List<OwnerListDTO> getAllBuildingKeyword(String type1, String type2, String keyword) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("type1", type1);
+		map.put("type2", type2);
+		map.put("keyword", keyword);
+		return sqlSession.selectList("ownerList.getBuildingtwoKeyword", map);
 	}
 
 }
