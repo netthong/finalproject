@@ -134,7 +134,34 @@
 			<!-- CAT_001 내 정보 수정 -->
 				<strong><h3>예약 정보</h3></strong>
 				<div class="col-2 mt-5" id="name"><h3>예약자 이름</h3></div>
-				<div class="col-10">${dto.name}</div>
+				<c:forEach var="dto" items="list">
+				<div class="col-10">
+				<table class="table table-striped table-hover">
+					<tr>
+					<td><img> </td>
+					</tr>
+					<tr>
+						<td>예약번호</td>
+						<td>${dto.receipt_no}</td>
+					</tr>
+					<tr>
+						<td>업소명</td>
+						<td>${dto.building_name}</td>
+					</tr>
+					<tr>
+						<td>방이름</td>
+						<td>${dto.room_name}</td>
+					</tr>
+					<tr>
+						<td>예약일</td>
+						<td>${dto.date_start}~${dto.date_end}</td> 
+					</tr>
+					<tr>
+						<td>결재금액</td>
+						<td>${dto.price}</td> 
+					</tr>
+				</table>
+				</div>
 				<div class="row mb-3" id="box-roomReview-btn">
 					<div class="col-2"><button class="btn btn-outline-secondary" id="btn-show-roomReview-form">리뷰 쓰기</button></div>
 				</div>
@@ -163,6 +190,7 @@
 						</form>
 					</div>
 				</div>
+				</c:forEach>
 	</div>
 </div>
 <%@ include file="../common/footer.jsp" %>
