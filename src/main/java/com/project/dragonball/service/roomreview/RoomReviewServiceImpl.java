@@ -66,5 +66,11 @@ public class RoomReviewServiceImpl implements RoomReviewService {
 	public List<RoomReviewDTO> newRoomReviewList(int building_code) {
 		return roomReviewDao.newRoomReviewList(building_code);
 	}
+
+	@Override
+	public List<RoomReviewDTO> listReview() {
+		return roomReviewDao.listReview();
+	}
+
 	
 }

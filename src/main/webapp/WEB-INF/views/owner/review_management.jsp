@@ -17,11 +17,6 @@
 <div class="container border mb-3">
 	<div class="row">
 		<div class="col-3">
-			<div class="card p-3">
-				<ul class="list-group list-group-flush">
-				 <a href="${path}/owner/review2.do">리뷰보기</a>
-				</ul>
-			</div>
 		</div>
 		<div class="text-center" style="width:950px;">
 			<table class="table">
@@ -31,34 +26,23 @@
 						<th>방번호</th>
 						<th>작성자</th>
 						<th>내용</th>
-						<th>이미지</th>
 						<th>평점</th>
 						<th>등록일</th>
 						<th>&nbsp;</th>
 					</tr>
 				</thead>
-				<tbody>
-				<c:choose>
-					<c:when test="${empty review }">
-						<div class="alert text-center">
-							<p>등록된 리뷰가 없습니다.</p>
-						</div>
-					</c:when>
-					<c:otherwise>
-						<c:forEach var="review" items="${review }">
+				<tbody>				
+						<c:forEach var="row" items="${ list }">
 							<tr>
-								<td>${review.replyno }</td>
-								<td>${review.room_no }</td>
-								<td>${review.userid }</td>
-								<td>${review.content }</td>
-								<td>${review.point }</td>
-								<td><img src="/resources/images/review/${review.picture_url}"></td>
-								<td><fmt:formatDate value="${review.reg_date_review }" pattern="YYYY년 MM월 dd일"/></td>
+								<td>${row.replyno }</td>
+								<td>${row.room_no }</td>
+								<td>${row.userid }</td>
+								<td>${row.content }</td>
+								<td>${ roomAvgPoint }</td>
+								<td><fmt:formatDate value="${row.reg_date_review }" pattern="YYYY년 MM월 dd일"/></td>
 								<td><a href="#">삭제</a></td>
 							</tr>
-						</c:forEach>
-					</c:otherwise>
-				</c:choose>
+						</c:forEach>				
 				</tbody>
 			</table>
 		</div>

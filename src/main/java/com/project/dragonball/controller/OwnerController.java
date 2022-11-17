@@ -14,10 +14,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.dragonball.model.owner.dto.OwnerListDTO;
+import com.project.dragonball.model.roominfo.dto.RoomListDTO;
+import com.project.dragonball.model.roomreview.dto.RoomReviewDTO;
 import com.project.dragonball.service.owner.OwnerListService;
+import com.project.dragonball.service.roomdetail.RoomDetailService;
+import com.project.dragonball.service.roominfo.RoomInfoService;
+import com.project.dragonball.service.roomreview.RoomReviewService;
 
 @Controller
 @RequestMapping("owner/*")
@@ -26,6 +32,15 @@ public class OwnerController {
 	
 	@Inject
 	OwnerListService ownerListService;
+	
+	@Inject
+	RoomDetailService roomDetailService;
+	
+	@Inject
+	RoomInfoService roomInfoService;
+	
+	@Inject
+	RoomReviewService roomReviewService;
 	
 	@RequestMapping("list.do")
 	public ModelAndView list(
@@ -161,15 +176,25 @@ public class OwnerController {
 	}
 	
 	@RequestMapping("review.do")
-	public String review() {
-		return "owner/review_management";
+	public ModelAndView review(ModelAndView mav) {
+		
+		/*
+		 * double roomAvgPoint = roomReviewService.roomAvgPoint(building_code); //업소에
+		 * 해당되는 모든 평점의 평균을 계산 System.out.println("평균평점 : " + roomAvgPoint);
+		 * mav.addObject("roomAvgPoint", roomAvgPoint);
+		 */
+		
+		
+		List<RoomReviewDTO> list = roomReviewService.listReview();
+		
+		mav.addObject("list", list);
+		mav.setViewName("owner/review_management");
+		
+		return mav;
 		
 	}
 	
-	@RequestMapping("review2.do")
-	public String review2() {
-		return "roomdetail/roomdetail";
-	}
+	
 	
 	
 }

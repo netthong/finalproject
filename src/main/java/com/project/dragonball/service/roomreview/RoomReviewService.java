@@ -17,5 +17,8 @@ public interface RoomReviewService {
 	public void reviewReply(RoomReviewDTO dto); //리뷰의 답글을 등록함
 
 	public List<RoomReviewDTO> newRoomReviewList(int building_code); //업소에 해당하는 최신 리뷰 3개를 가져옴
+	
+	public List<RoomReviewDTO> listReview();
+
 
 }

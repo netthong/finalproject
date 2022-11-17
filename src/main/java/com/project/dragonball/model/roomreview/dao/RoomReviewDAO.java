@@ -15,4 +15,6 @@ public interface RoomReviewDAO {
 
 	public List<RoomReviewDTO> newRoomReviewList(int building_code); //해당 업소에 해당되는 최신 리뷰글 3개를 가져옴.
 	
+	public List<RoomReviewDTO> listReview(); //목록 보기
+	
 }

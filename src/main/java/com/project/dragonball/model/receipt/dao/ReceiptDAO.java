@@ -7,6 +7,6 @@ import com.project.dragonball.model.receipt.dto.ReceiptDTO;
 public interface ReceiptDAO {
 
 	List<ReceiptDTO> reservationList(String userid);
-	List<ReceiptDTO> listRoom(int ROOM_NO);
+	
 
 }

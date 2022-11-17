@@ -119,7 +119,6 @@ $("form").submit(function() {
 			$("#userid").focus();
 			return false;
 		}
-		
 		// ^시작, $끝, [문자,숫자형식지정]{숫자,숫자} 
 		var exp1 = /^[A-Za-z0-9]{4,10}$/;//(영문,숫자를 사용한 4~10자리로 입력)
 		if(!exp1.test(userid)){

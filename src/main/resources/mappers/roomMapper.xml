@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  <insert id="insert">
   insert into room_list (building_code,room_no,room_name,room_amount,room_price,room_size,picture_url)
    values
-   (#{building_code},#{room_no},#{room_name},#{room_amount},#{room_price},#{room_size},#{picture_url})
+   (#{building_code},room_no_seq.nextval,#{room_name},#{room_amount},#{room_price},#{room_size},#{picture_url})
  </insert>
  
  <select id="detail_room" resultType="com.project.dragonball.model.room.dto.RoomDTO">

@@ -153,6 +153,9 @@
 						<input type="text" id="demo" name="demo">
 						<script type="text/javascript">
 						$(function() {
+						               
+						
+							
 							var date = new Date();
 							var currentMonth = date.getMonth();
 							var currentDate = date.getDate();
@@ -200,11 +203,16 @@
 							    "endDate": moment(date).add(1,'days')
 							}, function(start, end, label) {
 							  console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
-							  sessionStorage.setItem("startdate", start);
-							  sessionStorage.setItem("enddate", end);
+							  
 							  var newstart = new Date(start);
 							  var newend = new Date(end);
 							  var section = newend.getDate() - newstart.getDate();
+							  
+							  $('input[name=startdate]').attr('value',start);
+							  $('input[name=enddate]').attr('value',end);
+							  $('input[name=section]').attr('value',section);
+							  
+							  
 							  sessionStorage.setItem("section", section);
 							  console.log(start + " + " + end);
 							  console.log(section);
@@ -228,10 +236,17 @@
 							<div class="col-7 p-3 d-flex flex-column justify-content-between">
 								<h5 class="text-dark fw-lighter">${roomd.ROOM_NAME}</h5>
 								<div class="pb-3 border-bottom text-dark fw-lighter">
-									가격<span class="float-end">1박 <span class="fw-bold text-dark">${roomd.ROOM_PRICE } 원</span></span>
+									가격<span class="float-end">1박 <span class="fw-bold text-dark">${roomd.ROOM_PRICE} 원</span></span>
 								</div>
-							</div>						
-							  <a href="${path}/pay/pay.do?ROOM_NO=${roomd.ROOM_NO}" class="btn-room-reserve btn btn-danger w-100">예약</a>						 
+							</div>
+							<form name="form1" action="${path}/pay/pay.do" method="post" >
+							 <input name="ROOM_NO" type="hidden" value="${roomd.ROOM_NO }">
+							 <input name="startdate" class="startdate" type="hidden" >
+							 <input name="enddate" class="enddate" type="hidden" >
+							 <input name="section" class="section" type="hidden" >
+							 <button class="btn-room-reserve btn btn-danger w-100" >예약</button>					
+							 <%--  <a href="${path}/pay/pay.do?ROOM_NO=${roomd.ROOM_NO}" class="btn-room-reserve btn btn-danger w-100">예약</a> --%>						 
+						  </form>
 						</div>
 					</div>
 				</c:forEach>

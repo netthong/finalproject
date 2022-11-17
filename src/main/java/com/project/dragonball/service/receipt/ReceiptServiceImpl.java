@@ -21,9 +21,5 @@ public class ReceiptServiceImpl implements ReceiptService {
 		return null;
 	}
 
-	@Override
-	public List<ReceiptDTO> listRoom(int ROOM_NO) {
-		return receiptDao.listRoom(ROOM_NO);
-	}
 
 }

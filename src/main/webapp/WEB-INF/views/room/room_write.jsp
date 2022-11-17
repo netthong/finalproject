@@ -120,10 +120,6 @@ function room_write(){
   <td><input name="room_name" id="room_name"> </td>
  </tr>
  <tr>
-  <td>방 번호</td>
-  <td><input name="room_no" id="room_no"> </td>
- </tr>
- <tr>
   <td>가격</td>
   <td><input name="room_price" id="room_price"> </td>
  </tr>
@@ -152,6 +148,7 @@ function room_write(){
   <td>
    <input type="file" name="file1" id="file1"> <br>
    <input type="hidden" id="building_code" name="building_code" value="${building_code}">
+   <%-- <input type="text" id="building_name" name="building_name" value="${building_name }"> --%>
   </td>
  </tr>
  <tr>

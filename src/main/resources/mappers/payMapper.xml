@@ -5,6 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
 <mapper namespace="pay">
+ <select id="roomlist" resultType="com.project.dragonball.model.pay.dto.PayDTO">
+	 select building_code, room_no, room_name, room_price, room_size, picture_url
+	 from room_list
+	 where room_no=#{ROOM_NO}
+	</select>
 	
 </mapper>
 

@@ -28,6 +28,7 @@ public class RoomController {
 	public ModelAndView list(HttpSession session, ModelAndView mav, @RequestParam("building_code") int building_code) {
 		
 		List<RoomDTO> list=roomService.listRoom(building_code);
+		System.out.println("building_code : " + building_code);
 		mav.setViewName("/room/room_list");
 		mav.addObject("list", list);
 		mav.addObject("count", list.size());
@@ -37,6 +38,8 @@ public class RoomController {
 	
 	@RequestMapping("write.do")
 	public ModelAndView write(ModelAndView mav, @RequestParam("building_code") int building_code) {
+		
+		
 		mav.addObject("building_code", building_code);
 		mav.setViewName("/room/room_write");
 		return mav;
@@ -98,7 +101,7 @@ public class RoomController {
 			try {
 				
 				String path="C:\\work\\.metadata\\.plugins\\org.eclipse.wst.server.core" 
-						+ "\\tmp0\\wtpwebapps\\finalproject\\WEB-INF\\views\\images";
+						+ "\\tmp0\\wtpwebapps\\finalproject\\resources\\images\\";
 				new File(path).mkdir();
 				dto.getFile1().transferTo(new File(path+filename));
 			} catch (Exception e) {
@@ -123,7 +126,7 @@ public class RoomController {
 		System.out.println("첨부파일 이름 : "+filename);
 		if(filename != null && !filename.equals("-")) {
 			String path="C:\\work\\.metadata\\.plugins\\org.eclipse.wst.server.core"
-					+ "\\tmp0\\wtpwebapps\\spring02\\WEB-INF\\views\\images";
+					+ "\\tmp0\\wtpwebapps\\spring02\\resources\\images\\";
 			File f=new File(path+filename);
 			System.out.println("파일존재여부 : "+f.exists());
 			if(f.exists()) { //파일이 존재하면

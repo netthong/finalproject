@@ -72,28 +72,50 @@
     color: rgba(0,0,0,0.38);
 	}
 	
+@font-face {
+    font-family: 'Happiness-Sans-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+	
 </style>
+
 <footer id="footer" class="mt-5">
-	<div class="footer-bottom-wrap">
+	<div class="footer-bottom-wrap" style="font-family: Happiness-Sans-Title; font-size: 12px;">
 	<div class="align">
 		<ul class="link">
-			<li class="footer-item"><a href="#" target="_blank">회사소개</a><span>|</span></li>
-			<li class="footer-item"><a href="#" data-default="term">이용약관</a><span>|</span></li>
-			<li class="footer-item"><a href="#" data-default="privacy">개인정보처리방침</a><span>|</span></li>
-			<li class="footer-item"><a href="#" data-default="consumer">소비자 분쟁해결 기준</a><span>|</span></li>
-			<li class="footer-item"><a href="#" data-default="consumer">사업자 정보확인</a></li><br>
-			<li class="footer-item"><a href="#" target="_blank">서울어때 마케팅센터</a><span>|</span></li>
-			<li class="footer-item"><a href="#" target="_blank">액티비티 호스트센터</a><span>|</span></li>
-			<li class="footer-item"><a href="#" target="_blank">HOTEL 서울어때</a><span>|</span></li>
+		
+			<li class="footer-item"><a href="#" target="_blank">회사소개 |</a></li>
+			<li class="footer-item"><a href="#" data-default="term">이용약관 |</a></li>
+			<li class="footer-item"><a href="#" data-default="privacy">개인정보처리방침 |</a></li>
+			<li class="footer-item"><a href="#" data-default="consumer">소비자 분쟁해결 기준 |</a></li>
+			<li class="footer-item"><a href="#" data-default="consumer">사업자 정보확인</a></li>
+			
+			<br>
+			
+			<li class="footer-item"><a href="#" target="_blank">거기어때 마케팅센터 | </a></li>
+			<li class="footer-item"><a href="#" target="_blank">액티비티 호스트센터 |</a></li>
+			<li class="footer-item"><a href="#" target="_blank">HOTEL 거기어때 |</a></li>
 			<li class="footer-item"><a href="#" target="_blank">콘텐츠산업진흥법에의한 표시</a></li>
+		
 		</ul>
-		<p><b>고객행복센터 1670-6250</b><span st서울특별시 종로구 율곡로10길 105 디아망 4F(봉익동 10-1 디아망 4F) style="margin-left: 1rem;">오전 9시 - 새벽 3시</span></p>
+		
+		<p>고객행복센터 1234-5678<span style="margin-left: 1rem;">09:00 - 18:00</span></p>
+		
 		<address class="address">
-			<span class="company">(주) 서울어때컴퍼니</span>
-			주소 : 서울특별시 종로구 율곡로10길 105 디아망 4F(봉익동 10-1 디아망 4F) | 대표이사 : 이응수 | 사업자등록번호: 742-86-00224<br>
-			통신판매번호 : 2017-서울종로-01779 | 관광사업자 등록번호: 제1026-24호 | 전화번호 : 1670-6250 | 전자우편주소 : eungsulee@hanmail.net<br>
-			<span class="order">(주) 서울어때컴퍼니는 통신판매중개자로서 통신판매의 당사자가 아니며, 상품의 예약, 이용 및 환불 등과 관련한 의무와 책임은 각 판매자에게 있습니다.</span><br>
-			Copyright NC COMPANY Corp. All rights reserved.
+			<span class="company">(주) 거기어때컴퍼니</span>
+			주소 : 서울특별시 강남구 테헤란로14길 6 남도빌딩 | 대표이사 : 강선구 김환진 박성현 홍민기  | 사업자등록번호: 123-45-67890<br>
+			숙박판매번호 : 2022-서울강남-01234 | 관광사업자 등록번호: 제1111-11호 | 전화번호 : 1234-5678 | 전자우편주소 : dominicgreen@naver.com<br>
+			<br>
+			Copyright &#169; TeamDragonball Corp. All rights reserved.
 		</address>
 	</div>
 	</div>

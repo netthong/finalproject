@@ -39,5 +39,10 @@ public class RoomReviewDAOImpl implements RoomReviewDAO {
 	public List<RoomReviewDTO> newRoomReviewList(int building_code) {
 		return sqlSession.selectList("review.threeNew", building_code);
 	}
+
+	@Override
+	public List<RoomReviewDTO> listReview() {
+		return sqlSession.selectList("review.just_list");
+	}
 	
 }

@@ -72,6 +72,7 @@ public class OwnerDAOImpl implements OwnerListDAO {
 		sqlSession.update("owner.permission", building_code);
 	}
 
+	@Override
 	public List<OwnerListDTO> getAllType() {
 		return sqlSession.selectList("ownerList.getAllType");
 	}

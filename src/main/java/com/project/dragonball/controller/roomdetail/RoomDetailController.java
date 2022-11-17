@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.project.dragonball.model.roomPhoto.dto.RoomPhotoDTO;
 import com.project.dragonball.model.owner.dto.OwnerListDTO;
 import com.project.dragonball.model.roominfo.dto.RoomListDTO;
 import com.project.dragonball.model.roomreview.dto.RoomReviewDTO;

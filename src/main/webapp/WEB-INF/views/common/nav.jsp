@@ -19,49 +19,69 @@
 		--bs-gutter-y: 0;
 		padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
 	}
+	
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    
+}
 </style>
 
 <nav class="navbar navbar-expand-md sticky-top bg-secondary navbar-dark">
 	<div class="nav-container px-3">
 		<!-- 홈버튼 -->
-		<a class="navbar-brand" href="${path}">
-			<img src="${path}/resources/images/dragonball_logo1.png" alt="" width="70" height="50">
+		<a class="navbar-brand" href="${path}" style="font-family: 'yg-jalnan';">
+			거기어때
 		</a>
 		<ul class="navbar-nav">			
-			<div class="container-fluid position-relative" style="width:700px;height:auto">
+			<div class="container-fluid position-relative" style="width:700px;height:auto;">
 				<form id="nav-form-search" class="d-flex justify-content-center my-auto" action="/acco" autocomplete="off">
-				<input class="form-control me-2" type="text" id="nav-search" name="keyword" placeholder="지역, 숙소명" style="max-width:600px;height:auto">
-				<button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
-				<!-- 최근 검색어 box -->
-				<ul id="nav-box-keywords" class="position-absolute list-group w-100 d-none" style="top:50px; left:0; z-index: 1000;">
-					<li class="list-group-item list-group-flush border">
-						<div class="d-flex justify-content-between py-1 align-items-middle">
-							<span class="fw-lighter">최근검색어</span>
-							<button id="nav-delete-all-keyword" type="button" class="float-end btn text-danger border-0 btn-sm">모두 지우기</button>
-						</div>
-					</li>
-						<div id="nav-list-group-keywords">
-						</div>
-				</ul>
+					<input class="form-control me-2" type="text" id="nav-search" name="keyword" placeholder="지역, 숙소명" style="max-width:600px;height:auto">
+					<button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+					<!-- 최근 검색어 box -->
+					<ul id="nav-box-keywords" class="position-absolute list-group w-100 d-none" style="top:50px; left:0; z-index: 1000;">
+						<li class="list-group-item list-group-flush border">
+							<div class="d-flex justify-content-between py-1 align-items-middle">
+								<span class="fw-lighter">최근검색어</span>
+								<button id="nav-delete-all-keyword" type="button" class="float-end btn text-danger border-0 btn-sm">모두 지우기</button>
+							</div>
+						</li>
+						
+						<li>
+							<div id="nav-list-group-keywords">
+							</div>
+						</li>
+						
+					</ul>
 				</form>
 			</div>
 			<!-- 로그인 상태 -->
 			<c:if test="${sessionScope.userid != null}">
-			<li class="nav-item" style="width:80px;height:auto"><a class="nav-link" href="#">내주변</a></li>
-			<li class="nav-item" style="width:90px;height:auto"><a class="nav-link" href="${path}/user/logout.do">로그아웃</a></li>
+			<li class="nav-item" style="width:80px;height:auto"><a class="nav-link" href="#" style="font-family: yg-jalnan; color: white;">내주변</a></li>
+			<li class="nav-item" style="width:90px;height:auto"><a class="nav-link" href="${path}/user/logout.do" style="font-family: yg-jalnan; color: white;">로그아웃</a></li>
 			<li class="nav-item dropdown" style="width:90px;height:auto">
-   			<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">마이페이지</a>
+   			<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="font-family: yg-jalnan; color: white;">마이페이지</a>
    				<ul class="dropdown-menu">
-     				<li><a class="dropdown-item" href="${path}/user/reservationList.do">예약내역</a></li>
-     				<li><a class="dropdown-item" href="${path}/user/userInfo.do">회원정보</a></li>
+    				<li><a class="dropdown-item" href="#" style="font-family: yg-jalnan; ">찜목록</a></li>
+     				<li><a class="dropdown-item" href="#" style="font-family: yg-jalnan; ">예약내역</a></li>
+     				<li><a class="dropdown-item" href="userInfo.do" style="font-family: yg-jalnan;">회원정보</a></li>
    				</ul>
 			</li>
 			
 			</c:if>
 			<!-- 로그아웃 상태 -->
 			<c:if test="${sessionScope.userid == null}">
-				<li class="nav-item" style="width:80px;height:auto"><a class="nav-link" href="#">내주변</a></li>
-				<li class="nav-item" style="width:80px;height:auto"><a class="nav-link" href="${path}/user/login.do">로그인</a></li>
+				<li class="nav-item" style="width:180px;height:auto; font-family: 'yg-jalnan"><a class="nav-link" href="#" >내주변</a></li>
+				<li class="nav-item" style="width:80px;height:auto; font-family: 'yg-jalnan"><a class="nav-link" href="${path}/user/login.do" >로그인</a></li>
 			</c:if>
 		</ul>
 	</div>

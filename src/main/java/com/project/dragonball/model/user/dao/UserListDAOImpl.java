@@ -9,7 +9,6 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.project.dragonball.model.receipt.dto.ReceiptDTO;
 import com.project.dragonball.model.user.dto.UserListDTO;
 
 @Repository

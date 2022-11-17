@@ -10,5 +10,6 @@ import com.project.dragonball.model.pay.dto.PayDTO;
 public interface PayDAO {
 	public List<PayDTO> listPay();
 	public void insertPay(PayDTO dto);
+	List<PayDTO> listRoom(int ROOM_NO);
 
 }
