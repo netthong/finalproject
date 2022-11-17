@@ -14,5 +14,9 @@ public interface RoomReviewDAO {
 	public void reviewReply(RoomReviewDTO dto); //리뷰의 답글을 등록함
 
 	public List<RoomReviewDTO> newRoomReviewList(int building_code); //해당 업소에 해당되는 최신 리뷰글 3개를 가져옴.
+
+	
+	
+	public Integer roomPointCount(int building_code); //업소의 평점 갯수를 가져옴
 	
 }

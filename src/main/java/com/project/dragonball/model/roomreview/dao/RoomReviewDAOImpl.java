@@ -40,4 +40,9 @@ public class RoomReviewDAOImpl implements RoomReviewDAO {
 		return sqlSession.selectList("review.threeNew", building_code);
 	}
 	
+	@Override
+	public Integer roomPointCount(int building_code) {
+		return sqlSession.selectOne("review.pointcount", building_code);
+	}
+	
 }

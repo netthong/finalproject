@@ -40,6 +40,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM OWNER_LIST
 		WHERE (BUILDING_TYPE=#{type1} OR BUILDING_TYPE=#{type2}) AND (ADDRESS1 LIKE '%'||#{keyword}||'%' OR ADDRESS2 LIKE '%'||#{keyword}||'%')
 	</select>
+	
+	
+	
+	<select id="getAllListDis" resultType="ownerListDTO">
+		SELECT *
+		FROM OWNER_LIST
+		ORDER BY BUILDING_CODE
+	</select>
 </mapper>
 
 

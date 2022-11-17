@@ -30,4 +30,8 @@ public interface OwnerListDAO {
 	public List<OwnerListDTO> getAllBuildingKeyword(String type, String keyword); //타입에 해당되며 주소가 포함되는 모든 업소를 가져옴
 
 	public List<OwnerListDTO> getAllBuildingKeyword(String type1, String type2, String keyword); //타입에 호텔 또는 리조트에 해당되며 주소가 포함되는 모든 업소를 가져옴
+	
+	
+	
+	public List<OwnerListDTO> getAllListDis(); //OWNER_LIST에 들어있는 모든 정보를 가져옴
 }
