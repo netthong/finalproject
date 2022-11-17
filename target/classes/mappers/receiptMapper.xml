@@ -11,6 +11,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	from receipt
 	where userid = #{userid}
 	</select>
+	
+	<update id="reviewUpdate">
+	update receipt set reply = 'Y'
+	where receipt_no = #{receipt_NO}
+	</update>
 </mapper>
 
 

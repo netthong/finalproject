@@ -20,4 +20,9 @@ public class ReceiptDAOImpl implements ReceiptDAO {
 		return sqlSession.selectList("receipt.reservationList", userid);
 	}
 
+	@Override
+	public void reviewUpdate(int receipt_NO) {
+		sqlSession.update("receipt.reviewUpdate", receipt_NO);
+	}
+
 }

@@ -176,21 +176,24 @@
 						<form id="form-name" action="upRoomReview.do">
 							<fieldset>
 								<span class="text-bold">별점을 선택해주세요</span>
-								<input type="radio" name="reviewStar" value="5" id="rate1"><label
+								<input type="radio" name="POINT" value="5" id="rate1"><label
 									for="rate1">★</label>
-								<input type="radio" name="reviewStar" value="4" id="rate2"><label
+								<input type="radio" name="POINT" value="4" id="rate2"><label
 									for="rate2">★</label>
-								<input type="radio" name="reviewStar" value="3" id="rate3"><label
+								<input type="radio" name="POINT" value="3" id="rate3"><label
 									for="rate3">★</label>
-								<input type="radio" name="reviewStar" value="2" id="rate4"><label
+								<input type="radio" name="POINT" value="2" id="rate4"><label
 									for="rate4">★</label>
-								<input type="radio" name="reviewStar" value="1" id="rate5"><label
+								<input type="radio" name="POINT" value="1" id="rate5"><label
 									for="rate5">★</label>
 							</fieldset>
 							<div>
-								<textarea class="col-auto form-control" name="#" id="reviewContents"
+								<textarea class="col-auto form-control" name="CONTENT" id="reviewContents"
 										  placeholder="내용을 입력해주세요."></textarea>
 							</div>
+							<input type="hidden" name="RECEIPT_NO" value="${dto.receipt_no}">
+							<input type="hidden" name="ROOM_NAME" value="${dto.room_name}">
+							<input type="hidden" name="BUILDING_CODE" value="${dto.building_code}">
 							<button type="submit" class="btn btn-primary" id="complete">리뷰남기기 </button>
 							<button type="button" class="btn btn-secondary" id="btn-hide-roomReview-form">취소 </button> 
 						</form>

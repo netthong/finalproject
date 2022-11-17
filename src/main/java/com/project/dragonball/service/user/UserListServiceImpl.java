@@ -112,4 +112,9 @@ public class UserListServiceImpl implements UserListService {
 		return receiptDao.reservationList(userid);
 	}
 
+	@Override
+	public void reviewUpdate(int receipt_NO) {
+		receiptDao.reviewUpdate(receipt_NO);
+	}
+
 }
