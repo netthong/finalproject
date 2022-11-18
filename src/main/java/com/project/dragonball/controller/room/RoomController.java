@@ -26,11 +26,14 @@ public class RoomController {
 	@RequestMapping("list.do")
 	@ResponseBody
 	public ModelAndView list(HttpSession session, ModelAndView mav, @RequestParam("building_code") int building_code
-			, @RequestParam("building_name") String building_name) {
+			, @RequestParam(defaultValue = "호스텔") String building_name) {
 		
 		List<RoomDTO> list=roomService.listRoom(building_code);
+	    
 		System.out.println("building_code : " + building_code);
+		System.out.println("building_name : " + building_name);
 		mav.setViewName("/room/room_list");
+		
 		mav.addObject("list", list);
 		mav.addObject("count", list.size());
 		return mav;
@@ -38,9 +41,9 @@ public class RoomController {
 	}
 	
 	@RequestMapping("write.do")
-	public ModelAndView write(ModelAndView mav, @RequestParam("building_code") int building_code) {
+	public ModelAndView write(ModelAndView mav,@RequestParam(defaultValue = "호스텔") String building_name, @RequestParam("building_code") int building_code) {
 		
-		
+		mav.addObject("building_name", building_name);
 		mav.addObject("building_code", building_code);
 		mav.setViewName("/room/room_write");
 		return mav;

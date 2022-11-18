@@ -1,6 +1,11 @@
 package com.project.dragonball.model.receipt.dao;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -30,8 +35,19 @@ public class ReceiptDAOImpl implements ReceiptDAO {
 
 
 	@Override
-	public void insertReceipt(String userid) {
-		sqlSession.insert("receipt.insert", userid);
+	public void insertReceipt(ReceiptDTO dto) throws ParseException {
+		Date date = new Date(Long.parseLong(dto.getDate_start()));
+		Date date2 = new Date(Long.parseLong(dto.getDate_end()));
+        
+        
+        Map<String, Object> map = new HashMap<>();
+        map.put("date", date);
+        map.put("date2", date2);
+        map.put("dto", dto);
+        System.out.println("date : " + date);
+        System.out.println("date2 : " + date2);
+		sqlSession.insert("receipt.insert", map);
+		
 		
 	}
 

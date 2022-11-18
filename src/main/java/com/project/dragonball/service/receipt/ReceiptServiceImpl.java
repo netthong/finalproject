@@ -1,5 +1,6 @@
 package com.project.dragonball.service.receipt;
 
+import java.text.ParseException;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -21,8 +22,8 @@ public class ReceiptServiceImpl implements ReceiptService {
 	}
 
 	@Override
-	public void insertReceipt(String userid) {
-		receiptDao.insertReceipt(userid);
+	public void insertReceipt(ReceiptDTO dto) throws ParseException  {
+		receiptDao.insertReceipt(dto);
 		
 	}
 

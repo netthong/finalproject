@@ -126,24 +126,29 @@
 							<li class="list-group-item py-3">
 								<div class="fw-bold mb-3 fs-5">상세조건</div>
 								<div class="btn-toolbar row g-2" role="toolbar" aria-label="Toolbar with button groups">
-									<div class="col">
-										<button type="button" id="btn-reset" class="btn btn-outline-primary w-100">초기화</button>
+									<div class="col-12 mb-3">
+										<input class="form-check-input" type="checkbox" name="types" value="고사양PC">
+										<label class="form-check-label">고사양PC</label>
 									</div>
-									<div class="col">
-										<button type="button" id="btn-apply" class="btn btn-secondary w-100">적용</button>
+									<div class="col-12 mb-3">
+										<input class="form-check-input" type="checkbox" name="types" value="파티룸 ">
+										<label class="form-check-label">파티룸</label>
 									</div>
-								</div>
-							</li>
-							<li class=" list-group-item py-3 border-bottom-0 text-muted">
-								<div class="row d-flex justify-content-center">
-									<div class="col-3 fw-bold text-muted my-auto">인원</div>
-									<!-- 인원 수 표시 input 대신 span 태그 사용, 이벤트 script에서 설정하는 것으로 변경 예정 -->
-									<div class="col-9 hstack gap-3">
-										<button type="button" class="form-control btn btn-sm btn-light fs-4"
-											onclick="this.parentNode.querySelector('input[type=number]').stepDown();">-</button>
-										<input type="number" class="form-control form-control-lg fs-6 mx-auto" min="1" name="capacity" value="1" max="20" />
-										<button type="button" class="form-control btn btn-sm btn-light fs-4"
-											onclick="this.parentNode.querySelector('input[type=number]').stepUp();">+</button>
+									<div class="col-12 mb-3">
+										<input class="form-check-input" type="checkbox" name="types" value="노래방 ">
+										<label class="form-check-label">노래방</label>
+									</div>
+									<div class="col-12 mb-3">
+										<input class="form-check-input" type="checkbox" name="types" value="사우나 ">
+										<label class="form-check-label">사우나</label>
+									</div>
+									<div class="col-12 mb-3">
+										<input class="form-check-input" type="checkbox" name="types" value="욕실 ">
+										<label class="form-check-label">욕실</label>
+									</div>
+									<div class="col-12 mb-3">
+										<input class="form-check-input" type="checkbox" name="types" value="거실">
+										<label class="form-check-label">거실</label>
 									</div>
 								</div>
 							</li>
@@ -153,17 +158,13 @@
 							</li>
 							<!-- 검색창으로 조회하는 경우 아래 옵션들이 카드에 표시된다. -->
 							<li class="list-group-item py-3 border-bottom-0 text-muted">
-								<div class="fw-bold mb-3">숙소 유형</div>
-								<div class="row">
-									<!-- 모든 숙소유형을 전달받아 반복문으로 출력 -->
-									<div class="col-12 mb-3">
+								<div class="btn-toolbar row g-2" role="toolbar" aria-label="Toolbar with button groups">
+									<div class="col">
+										<button type="button" id="btn-reset" class="btn btn-outline-primary w-100">초기화</button>
 									</div>
-									<c:forEach var="type" items="${ types }">
-										<div class="col-12 mb-3">
-											<input class="form-check-input" type="checkbox" name="types" value="${ type.building_type }">
-											<label class="form-check-label">${ type.building_type }</label>
-										</div>
-									</c:forEach>
+									<div class="col">
+										<button type="button" id="btn-apply" class="btn btn-secondary w-100">적용</button>
+									</div>
 								</div>
 							</li>
 						</ul>
@@ -181,7 +182,6 @@
 							<input type="radio" class="btn-check" id="btnradio4" name="sort" value="highprice">
 						  	<label class="btn btn-secondary" for="btnradio4">높은 가격 순</label>
 						</div>
-						<button type="button" class="btn btn-light my-auto" id="btn-open-modal-map"><i class="bi bi-map"></i></button>
 					</div>
 					<!-- 검색결과 조회 리스트 -->
 					<div id="accos-wrapper" class="row px-3 mx-auto">
@@ -189,23 +189,22 @@
 							<p class="my-5 text-center">조회된 결과가 없습니다.</p>
 						</c:if>
 						<c:forEach var="list" items="${ searchlist }">
-							<div id="card-acco-' + acco.id +'" class="card text-bg-light p-0 rounded-0">
-								<img src="" class="list-thumbnail card-img img-fluid rounded-0" alt="accommodation thumbnail">
+							<div id="card-acco-${ list.userid }" class="card text-bg-light p-0 rounded-0">
+								<img src="" class="list-thumbnail card-img img-fluid rounded-0" alt="accommodation thumbnail" style="height: 300px;">
 								<a href="${ pageContext.request.contextPath }/roomdetail/view/${ list.building_code }">
 									<div class="list-overlay card-img-overlay p-3 rounded-0 text-light d-flex justify-content-between">
 										<div class="my-auto">
-											<h5 class="fw-semibold">${ list.building_name }</h5>
+											<h5 class="fw-semibold" style="text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">${ list.building_name }</h5>
 											<p class="text-warning">
-												<span class="badge bg-warning">평점</span><strong class="ms-2">리뷰갯수</strong>
+												<span class="badge bg-warning">${ avgpoint[list.building_code] }</span><strong class="ms-2">${ pointcount[list.building_code] } 개</strong>
 											</p>
-											<small>${ list.accomodation }</small>
+											<small style="text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">${ list.accomodation }</small>
 										</div>
-										<p class="text-end fs-4 fw-semibold mt-auto">최소가격<span class="fs-5"> 원 ~</span></p>
+										<p class="text-end fs-4 fw-semibold mt-auto" style="text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">${ minprice[list.building_code] }<span class="fs-5" style="text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;"> 원 ~</span></p>
 									</div>
 								</a>
-							</div>	
+							</div>
 						</c:forEach>
-						<!-- 숙소 검색결과가 script를 통해 출력됨-->
 					</div>
 				</div>
 			</div>

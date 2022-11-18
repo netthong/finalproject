@@ -106,5 +106,10 @@ public class OwnerDAOImpl implements OwnerListDAO {
 		map.put("keyword", keyword);
 		return sqlSession.selectList("ownerList.getBuildingtwoKeyword", map);
 	}
+	
+	@Override
+	public List<OwnerListDTO> getAllListDis() {
+		return sqlSession.selectList("ownerList.getAllListDis");
+	}
 
 }

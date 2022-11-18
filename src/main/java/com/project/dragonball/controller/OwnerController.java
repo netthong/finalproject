@@ -195,6 +195,8 @@ public class OwnerController {
 	@RequestMapping("review/delete.do")
 	public String deleteReview(@RequestParam("building_code") int building_code) {
 		//첨부 파일 삭제					
+		
+		
 				
 				roomReviewService.deleteRoomReview(building_code);
 				//화면 이동

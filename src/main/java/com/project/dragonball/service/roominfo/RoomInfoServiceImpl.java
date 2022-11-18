@@ -25,4 +25,9 @@ public class RoomInfoServiceImpl implements RoomInfoService {
 		return roomListDao.replyinfo(building_code, room_name);
 	}
 
+	@Override
+	public Integer roomMinPrice(int building_code) {
+		return roomListDao.roomMinPrice(building_code);
+	}
+
 }

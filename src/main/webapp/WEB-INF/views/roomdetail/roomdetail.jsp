@@ -240,6 +240,7 @@
 								</div>
 							</div>
 							<form name="form1" action="${path}/pay/pay.do" method="post" >
+							 <input name="building_name" type="hidden" value="${detail.building_name}">
 							 <input name="ROOM_NO" type="hidden" value="${roomd.ROOM_NO }">
 							 <input name="startdate" class="startdate" type="hidden" >
 							 <input name="enddate" class="enddate" type="hidden" >

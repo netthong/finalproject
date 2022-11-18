@@ -79,4 +79,9 @@ public class RoomReviewServiceImpl implements RoomReviewService {
 	}
 
 	
+	@Override
+	public Integer roomPointCount(int building_code) {
+		return roomReviewDao.roomPointCount(building_code);
+	}
+	
 }

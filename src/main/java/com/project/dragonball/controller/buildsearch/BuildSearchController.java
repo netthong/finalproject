@@ -1,6 +1,12 @@
 package com.project.dragonball.controller.buildsearch;
 
+import java.util.HashMap;
+
+import java.util.List;
+import java.util.Map;
+
 import javax.inject.Inject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -8,7 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.project.dragonball.model.owner.dto.OwnerListDTO;
 import com.project.dragonball.service.roomdetail.RoomDetailService;
+import com.project.dragonball.service.roominfo.RoomInfoService;
+import com.project.dragonball.service.roomreview.RoomReviewService;
 
 @Controller
 @RequestMapping("building/*")
@@ -18,6 +27,12 @@ public class BuildSearchController {
 	
 	@Inject
 	RoomDetailService roomDetailService;
+
+	@Inject
+	RoomReviewService roomReviewService;
+	
+	@Inject
+	RoomInfoService roomInfoService;
 	
 	@RequestMapping("search.do")
 	public String search(
@@ -60,6 +75,19 @@ public class BuildSearchController {
 				model.addAttribute("type", "게스트하우스");
 			}
 		}
+		
+		Map<Integer, Double> avgpoint = new HashMap<Integer, Double>(); //건물등록번호와 평균평점을 map에 저장함
+		Map<Integer, Integer> pointcount = new HashMap<Integer, Integer>(); //건물등록번호의 평점의 갯수를 가져옴
+		Map<Integer, Integer> minprice = new HashMap<Integer, Integer>(); //건물등록번호에 해당되는 방들의 가격 중 가장 작은 값을 가져옴
+		List<OwnerListDTO> list = roomDetailService.getAllListDis();
+		for (int i=0; i<list.size(); i++) {
+			avgpoint.put(list.get(i).getBuilding_code(), roomReviewService.roomAvgPoint(list.get(i).getBuilding_code()));
+			pointcount.put(list.get(i).getBuilding_code(), roomReviewService.roomPointCount(list.get(i).getBuilding_code()));
+			minprice.put(list.get(i).getBuilding_code(), roomInfoService.roomMinPrice(list.get(i).getBuilding_code()));
+		}
+		model.addAttribute("avgpoint", avgpoint);
+		model.addAttribute("pointcount", pointcount);
+		model.addAttribute("minprice", minprice);
 		
 		return "roomdetail/roomsearch";
 	}

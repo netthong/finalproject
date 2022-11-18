@@ -45,4 +45,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 		<![CDATA[WHERE RANK <= 3]]>
 	</select>
+	
+	
+	
+	<select id="pointcount" resultType="int">
+		SELECT COUNT(*)
+		FROM ROOM_REVIEW
+		WHERE BUILDING_CODE=#{num}
+	</select>
 </mapper>

@@ -106,13 +106,15 @@
 				<tbody>				
 						<c:forEach var="row" items="${ list }">
 							<tr>
-								<td>${row.REPLYNO }</td>
+		            
+								<td>${row.REPLYNO }
+								</td>
 								<td>${row.ROOM_NAME }</td>
 								<td>${row.USERID }</td>
 								<td>${row.CONTENT }</td>
 								<td>${ ROOMAVERAGE }</td>
 								<td><fmt:formatDate value="${reg_date_review }" pattern="YYYY년 MM월 dd일"/></td>
-								<td><a href="${path}/owner/review/delete.do">삭제</a></td>
+								<td><a href="${path}/owner/review/delete.do?building_code=${row.BUILDING_CODE}">삭제</a></td>
 							</tr>
 						</c:forEach>				
 				</tbody>

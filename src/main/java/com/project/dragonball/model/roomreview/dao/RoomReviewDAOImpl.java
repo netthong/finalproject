@@ -51,4 +51,9 @@ public class RoomReviewDAOImpl implements RoomReviewDAO {
 		
 	}
 	
+	@Override
+	public Integer roomPointCount(int building_code) {
+		return sqlSession.selectOne("review.pointcount", building_code);
+	}
+	
 }

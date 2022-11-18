@@ -30,5 +30,10 @@ public class RoomListDAOImpl implements RoomListDAO {
 		map.put("room_name", room_name);
 		return sqlSession.selectOne("roomlist.replylist", map);
 	}
+	
+	@Override
+	public Integer roomMinPrice(int building_code) {
+		return sqlSession.selectOne("roomlist.roomMinPrice", building_code);
+	}
 
 }

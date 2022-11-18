@@ -93,18 +93,18 @@ $("form").submit(function() {
 								<dd id="checkOut"> <fmt:formatDate value="${enddate}"/>  12:00</dd>
 							</dl>
 							<hr>
-							<a><input name="building_name" id="building_name" type="text" value="${rooml.building_name}"></a>
-							<a><input name="building_code" id="building_code" type="text" value="${rooml.building_code}"></a>
-							<a><input name="room_name" id="room_name" type="text" value="${rooml.room_name }"></a>
-							<a><input name="room_no" id="room_no" type="text" value="${rooml.room_no}"></a>
-							<a><input name="room_price" id="room_price" type="text" value="${rooml.room_price}"></a>
-							<a><input name="room_size" id="room_size" type="text" value="${rooml.room_size}"></a>
-							<a><input name="picture_url" id="pciture_url" type="text" value="${rooml.picture_url}"></a>
+							<a><input name="building_name" id="building_name" type="text" value="${building_name}"></a>
+							<a><input name="building_code" id="building_code" type="hidden" value="${rooml.building_code}"></a>
+							<a><input name="room_name" id="room_name" type="hidden" value="${rooml.room_name }"></a>
+							<a><input name="room_no" id="room_no" type="hidden" value="${rooml.room_no}"></a>
+						  <a><input name="price" id="price" type="text" value="${rooml.room_price}"></a>
+							<a><input name="room_size" id="room_size" type="hidden" value="${rooml.room_size}"></a>
+							<a><input name="picture_url" id="pciture_url" type="hidden" value="${rooml.picture_url}"></a>
 							
-							<a><input name="startdate" id="startdate" type="text" value="<fmt:formatDate value="${startdate}"/>"></a>
-							<a><input name="enddate" id="enddate" type="text" value="<fmt:formatDate value="${enddate}"/>"></a>
-							<a><input name="secetion" id="section" type="text" value="${section}"></a>
-							<a><input name="userid" id="userid" type="text" value="${userid}"></a>
+							<a><input name="date_start" id="date_start" type="text" value="${long_startdate }"></a>
+							<a><input name="date_end" id="date_end" type="text" value="${long_enddate}"></a>
+							<a><input name="secetion" id="section" type="hidden" value="${section}"></a>
+							<a><input name="userid" id="userid" type="hidden" value="${userid}"></a>
 					</div>
 					<div class="my-3 mx-3">
 						<p><strong>총 결제 금액</strong><small>(VAT포함)</small></p>
@@ -116,7 +116,7 @@ $("form").submit(function() {
 					</div>						
 				</div>
 				<div class="row">
-					 <button type="submit" class="btn-room-reserve btn btn-secondary w-100">결제하기</button>
+					 <button type="submit" class="btn-room-reserve btn btn-secondary w-110">결제하기</button>
 				</div>
 			</div>
    </form>

@@ -49,5 +49,33 @@ public class RoomDetailServiceImpl implements RoomDetailService {
 	public List<OwnerListDTO> getAllBuildingKeyword(String type1, String type2, String keyword) {
 		return ownerListDao.getAllBuildingKeyword(type1, type2, keyword);
 	}
+	
+	@Override
+	public List<OwnerListDTO> getAllList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
+	@Override
+	public List<OwnerListDTO> getAllListDis() {
+		return ownerListDao.getAllListDis();
+	}
+
+	@Override
+	public List<OwnerListDTO> getAllBuildingHighPoint(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<OwnerListDTO> getAllBuildingLowPrice(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<OwnerListDTO> getAllBuildingHighPrice(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

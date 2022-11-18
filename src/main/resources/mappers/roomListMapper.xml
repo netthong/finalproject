@@ -25,6 +25,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE BUILDING_CODE=#{building_code} AND ROOM_NAME=#{room_name}
 	</select>
 
+	
+	<select id="roomMinPrice" resultType="int">
+		SELECT MIN(ROOM_PRICE)
+		FROM ROOM_LIST
+		WHERE BUILDING_CODE=#{building_code}
+	</select>
 </mapper>
 
 

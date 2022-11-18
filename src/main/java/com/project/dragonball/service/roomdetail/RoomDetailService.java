@@ -20,5 +20,16 @@ public interface RoomDetailService {
 
 	public List<OwnerListDTO> getAllBuildingKeyword(String type1, String type2, String keyword); //호텔, 리조트이며 주소를 포함하는 업소를 가져옴
 
+
 	
+	public List<OwnerListDTO> getAllList(); //모든 OWNER_LIST 테이블을 가져옴
+
+	public List<OwnerListDTO> getAllListDis(); //모든 OWNER_LIST 테이블을 건물등록번호 순서대로 나열
+
+	public List<OwnerListDTO> getAllBuildingHighPoint(String string); //모든 OWNMER_LIST 테이블을 평점 순서대로 나열
+
+	public List<OwnerListDTO> getAllBuildingLowPrice(String string); //모든 OWNER_LIST 테이블을 낮은 가격부터 정렬
+
+	public List<OwnerListDTO> getAllBuildingHighPrice(String string); //모든 OWNER_LIST 테이블을 높은 가격부터 정렬
+
 }

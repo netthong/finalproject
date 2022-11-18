@@ -23,4 +23,8 @@ public interface RoomReviewService {
 	public void deleteRoomReview(int building_code);
 
 
+	
+	
+	public Integer roomPointCount(int building_code); //업소에 해당하는 모든 평점의 갯수를 구함
+
 }

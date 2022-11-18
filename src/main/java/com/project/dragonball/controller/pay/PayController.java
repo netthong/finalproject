@@ -1,6 +1,7 @@
 package com.project.dragonball.controller.pay;
 
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -39,7 +41,7 @@ public class PayController {
 	
 	@RequestMapping("pay.do")
 	@ResponseBody
-	public ModelAndView pay(HttpSession session,
+	public ModelAndView pay(HttpSession session, @ModelAttribute RoomDTO dto2, @RequestParam("building_name") String building_name,
 							  @RequestParam("startdate") String startdate, @RequestParam("enddate") String
 							  enddate, @RequestParam("section") String section,
 							 ModelAndView mav, @RequestParam("ROOM_NO") int ROOM_NO) {	
@@ -52,13 +54,25 @@ public class PayController {
 		
 		Date date = new Date(Long.parseLong(startdate));
 		Date date2 = new Date(Long.parseLong(enddate));
-			
 		
-		RoomDTO dto = roomService.detailRoom(ROOM_NO);		
+		
+		
+		
+		
+		RoomDTO dto = roomService.detailRoom(ROOM_NO);
+		
+		 mav.addObject("long_startdate", startdate);
+		 mav.addObject("long_enddate", enddate);
 		 mav.addObject("userid", userid);
 		 mav.addObject("startdate", date);
 		 mav.addObject("enddate", date2);
 		 mav.addObject("section", Integer.parseInt(section));
+		 mav.addObject("building_name", building_name);
+		
+			/*
+			 * dto2 = roomService.detailRoom(ROOM_NO); mav.addObject("building_name",
+			 * dto2.getBuilding_name());
+			 */
 		 
 		
 		mav.addObject("rooml", dto);			
@@ -69,17 +83,20 @@ public class PayController {
 	}
 	
 	@RequestMapping("complete.do")
-	public ModelAndView complete(ModelAndView mav, HttpSession session, ReceiptDTO dto) {
+	public ModelAndView complete(ModelAndView mav, HttpSession session, @ModelAttribute ReceiptDTO dto) throws ParseException {
+		
+		System.out.println("실행 확인");
 		
 		String userid = (String)session.getAttribute("userid");
 		dto.setUserid(userid);
 		System.out.println("userid : " + userid);
 		
-		receiptService.insertReceipt(userid); //F4
+		receiptService.insertReceipt(dto); //F4
 		
 		List<ReceiptDTO> list = receiptService.reservationList(userid);
-		mav.addObject("list", list);
+		mav.addObject("list", list);		
 		mav.setViewName("user/reservationList");
+		
 		return mav;
 		
 	}

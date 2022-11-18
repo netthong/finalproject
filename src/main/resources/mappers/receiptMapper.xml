@@ -26,8 +26,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<insert id="insert">
-	  insert into receipt (userid,building_code,building_name,room_no,room_name,date_start,date_end,roomcount,price,picture_url) values
-    (#{userid},#{building_code},#{building_name},#{room_no},#{room_name},#{startdate},#{enddate},#{room_size},#{price},#{picture_url})
+	  insert into receipt (userid, building_code, building_name,price, date_start, date_end, room_no, room_name, picture_url) values
+    (#{dto.userid},#{dto.building_code},#{dto.building_name},#{dto.price},#{date},#{date2},#{dto.room_no},#{dto.room_name},#{dto.picture_url})
     
 	</insert>
 
