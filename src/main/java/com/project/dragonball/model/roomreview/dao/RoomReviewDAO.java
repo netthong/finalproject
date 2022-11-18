@@ -17,4 +17,6 @@ public interface RoomReviewDAO {
 	
 	public List<RoomReviewDTO> listReview(); //목록 보기
 	
+	public void deleteRoomReview(int building_code);
+	
 }

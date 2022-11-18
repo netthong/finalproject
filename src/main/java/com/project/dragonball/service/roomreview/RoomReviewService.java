@@ -19,6 +19,8 @@ public interface RoomReviewService {
 	public List<RoomReviewDTO> newRoomReviewList(int building_code); //업소에 해당하는 최신 리뷰 3개를 가져옴
 	
 	public List<RoomReviewDTO> listReview();
+	
+	public void deleteRoomReview(int building_code);
 
 
 }

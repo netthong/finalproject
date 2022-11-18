@@ -36,7 +36,9 @@ public class RoomReviewController {
 		//String writer = (String)session.getAttribute("userid");
 		
 		String writer = "유저22";
-		dto.setUserid(writer);
+
+		dto.setUSERID(writer);
+
 		
 		roomReviewService.reviewInsert(dto);
 		

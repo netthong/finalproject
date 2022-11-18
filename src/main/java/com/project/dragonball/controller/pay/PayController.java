@@ -10,23 +10,17 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.dragonball.controller.roomdetail.RoomDetailController;
-import com.project.dragonball.model.owner.dto.OwnerListDTO;
-import com.project.dragonball.model.pay.dto.PayDTO;
 import com.project.dragonball.model.receipt.dto.ReceiptDTO;
 import com.project.dragonball.model.room.dto.RoomDTO;
-import com.project.dragonball.model.roominfo.dto.RoomListDTO;
 import com.project.dragonball.service.pay.PayService;
 import com.project.dragonball.service.receipt.ReceiptService;
 import com.project.dragonball.service.room.RoomService;
-import com.project.dragonball.service.roomdetail.RoomDetailService;
-import com.project.dragonball.service.roominfo.RoomInfoService;
 
 @Controller
 @RequestMapping("pay/*")
@@ -39,6 +33,9 @@ public class PayController {
 	
 	@Inject
 	RoomService roomService;
+	
+	@Inject
+	ReceiptService receiptService;
 	
 	@RequestMapping("pay.do")
 	@ResponseBody
@@ -72,10 +69,17 @@ public class PayController {
 	}
 	
 	@RequestMapping("complete.do")
-	public ModelAndView complete(ModelAndView mav) {
+	public ModelAndView complete(ModelAndView mav, HttpSession session, ReceiptDTO dto) {
 		
+		String userid = (String)session.getAttribute("userid");
+		dto.setUserid(userid);
+		System.out.println("userid : " + userid);
 		
-		mav.setViewName("/room/room_detail");
+		receiptService.insertReceipt(userid); //F4
+		
+		List<ReceiptDTO> list = receiptService.reservationList(userid);
+		mav.addObject("list", list);
+		mav.setViewName("user/reservationList");
 		return mav;
 		
 	}

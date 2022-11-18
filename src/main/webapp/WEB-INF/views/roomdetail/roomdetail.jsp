@@ -323,7 +323,7 @@
 								<div class="col">
 									<strong class="text-dark"></strong>
 									<div class="text-warning">
-										<span class="text-muted mx-1">${ rep.ID }</span>
+										<span class="text-muted mx-1">${ rep.USERID }</span>
 									</div>
 									<p class="my-1">
 										<small>${ rep.POINT }점</small> / <small>${ rep.ROOM_NAME } 이용</small><br/>

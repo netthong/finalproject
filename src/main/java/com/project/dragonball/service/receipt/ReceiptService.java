@@ -7,6 +7,8 @@ import com.project.dragonball.model.receipt.dto.ReceiptDTO;
 public interface ReceiptService {
 	public List<ReceiptDTO> reservationList(String userid);
 	
+	void insertReceipt(String userid);
+	
 	
 
 }

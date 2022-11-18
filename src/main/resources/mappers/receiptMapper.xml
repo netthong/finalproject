@@ -12,12 +12,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	where userid = #{userid}
 	</select>
 	
+
 	<select id="roomlist" resultType="com.project.dragonball.model.receipt.dto.ReceiptDTO">
 	 select room_no,building_code,building_name,room_name,room_price,room_size,picture_url
 	 from room_list
 	 where room_no=#{ROOM_NO}
 	</select>
 	
+
+	<update id="reviewUpdate">
+	update receipt set reply = 'Y'
+	where receipt_no = #{receipt_NO}
+	</update>
+	
+	<insert id="insert">
+	  insert into receipt (userid,building_code,building_name,room_no,room_name,date_start,date_end,roomcount,price,picture_url) values
+    (#{userid},#{building_code},#{building_name},#{room_no},#{room_name},#{startdate},#{enddate},#{room_size},#{price},#{picture_url})
+    
+	</insert>
+
 </mapper>
 
 

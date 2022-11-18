@@ -72,5 +72,11 @@ public class RoomReviewServiceImpl implements RoomReviewService {
 		return roomReviewDao.listReview();
 	}
 
+	@Override
+	public void deleteRoomReview(int building_code) {
+		roomReviewDao.deleteRoomReview(building_code);
+		
+	}
+
 	
 }

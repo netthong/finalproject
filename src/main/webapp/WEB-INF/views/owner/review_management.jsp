@@ -11,14 +11,86 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>리뷰</title>
+<style type="text/css">
+
+.aside {
+	display: flex;
+	flex-wrap: inherit;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: auto;
+	
+}
+
+.navbar-a {
+	display: flex;
+	flex-wrap: inherit;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding-right: calc(var(- -bs-gutter-x)* .5);
+	padding-left: calc(var(- -bs-gutter-x)* .5);
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1320px; -
+	-bs-gutter-x: 1.5rem; -
+	-bs-gutter-y: 0;
+	padding: var(- -bs-navbar-padding-y) var(- -bs-navbar-padding-x);
+	text-decoration: none;
+	color: white;
+	font-size: 30px;
+	font: bold;
+}
+
+.navbar-a:link {
+	color: white;
+}
+
+.navbar-a:visited {
+	color: white;
+}
+
+.navbar-a:hover {
+	color: white;
+}
+
+
+
+.move {
+   display: flex;
+	flex-wrap: inherit;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	-bs-gutter-x: 1.5rem; -
+	-bs-gutter-y: 0;
+	padding: var(- -bs-navbar-padding-y) var(- -bs-navbar-padding-x);
+	text-decoration: none;
+
+}
+
+</style>
+
 </head>
 <body>
 <%@ include file="../common/nav.jsp" %>
+<nav class="navbar navbar-expand-md bg-secondary">&nbsp;</nav>
+<nav class="navbar navbar-expand-md bg-secondary">
+<a class="navbar-a">&nbsp;리뷰 관리</a></nav>
+
+<aside class="aside">
+			<jsp:include page="../common/ownersidebar.jsp" />
+	</aside>
+
 <div class="container border mb-3">
 	<div class="row">
 		<div class="col-3">
 		</div>
-		<div class="text-center" style="width:950px;">
+		<div class="text-center" style="width:100%;">
 			<table class="table">
 				<thead>
 					<tr>
@@ -34,13 +106,13 @@
 				<tbody>				
 						<c:forEach var="row" items="${ list }">
 							<tr>
-								<td>${row.replyno }</td>
-								<td>${row.room_no }</td>
-								<td>${row.userid }</td>
-								<td>${row.content }</td>
-								<td>${ roomAvgPoint }</td>
-								<td><fmt:formatDate value="${row.reg_date_review }" pattern="YYYY년 MM월 dd일"/></td>
-								<td><a href="#">삭제</a></td>
+								<td>${row.REPLYNO }</td>
+								<td>${row.ROOM_NAME }</td>
+								<td>${row.USERID }</td>
+								<td>${row.CONTENT }</td>
+								<td>${ ROOMAVERAGE }</td>
+								<td><fmt:formatDate value="${reg_date_review }" pattern="YYYY년 MM월 dd일"/></td>
+								<td><a href="${path}/owner/review/delete.do">삭제</a></td>
 							</tr>
 						</c:forEach>				
 				</tbody>

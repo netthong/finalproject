@@ -44,5 +44,11 @@ public class RoomReviewDAOImpl implements RoomReviewDAO {
 	public List<RoomReviewDTO> listReview() {
 		return sqlSession.selectList("review.just_list");
 	}
+
+	@Override
+	public void deleteRoomReview(int building_code) {
+		sqlSession.delete("review.delete", building_code);
+		
+	}
 	
 }

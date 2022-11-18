@@ -22,4 +22,17 @@ public class ReceiptDAOImpl implements ReceiptDAO {
 	
 	
 
+	@Override
+	public void reviewUpdate(int receipt_NO) {
+		sqlSession.update("receipt.reviewUpdate", receipt_NO);
+	}
+
+
+
+	@Override
+	public void insertReceipt(String userid) {
+		sqlSession.insert("receipt.insert", userid);
+		
+	}
+
 }

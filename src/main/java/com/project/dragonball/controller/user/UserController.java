@@ -4,6 +4,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.dragonball.model.roomreview.dto.RoomReviewDTO;
 import com.project.dragonball.model.user.dto.UserListDTO;
+import com.project.dragonball.service.roomreview.RoomReviewService;
 import com.project.dragonball.service.user.UserListService;
 
 @Controller
@@ -20,6 +23,9 @@ public class UserController {
 	
 	@Inject
 	UserListService userService;
+	
+	@Inject
+	RoomReviewService roomReviewService;
 	
 	@RequestMapping("login.do")
 	public String login() {
@@ -165,6 +171,19 @@ public class UserController {
 	@RequestMapping("reservationList.do")
 	public ModelAndView reservationList(HttpSession session, ModelAndView mav) {
 		String userid = (String)session.getAttribute("userid");
+		mav.addObject("list", userService.reservationList(userid));
+		mav.setViewName("user/reservationList");
+		return mav;
+	}
+	
+	@Transactional
+	@RequestMapping("upRoomReview.do")
+	@ResponseBody
+	public ModelAndView upRoomReview(ModelAndView mav, HttpSession session, @ModelAttribute RoomReviewDTO dto) {
+		String userid = (String)session.getAttribute("userid");
+		dto.setUSERID(userid);
+		roomReviewService.reviewInsert(dto);
+		userService.reviewUpdate(dto.getRECEIPT_NO());
 		mav.addObject("list", userService.reservationList(userid));
 		mav.setViewName("user/reservationList");
 		return mav;

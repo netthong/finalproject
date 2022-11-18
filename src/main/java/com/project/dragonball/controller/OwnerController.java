@@ -14,11 +14,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.dragonball.model.owner.dto.OwnerListDTO;
-import com.project.dragonball.model.roominfo.dto.RoomListDTO;
 import com.project.dragonball.model.roomreview.dto.RoomReviewDTO;
 import com.project.dragonball.service.owner.OwnerListService;
 import com.project.dragonball.service.roomdetail.RoomDetailService;
@@ -192,6 +190,15 @@ public class OwnerController {
 		
 		return mav;
 		
+	}
+	
+	@RequestMapping("review/delete.do")
+	public String deleteReview(@RequestParam("building_code") int building_code) {
+		//첨부 파일 삭제					
+				
+				roomReviewService.deleteRoomReview(building_code);
+				//화면 이동
+				return "redirect:/owner/review.do";
 	}
 	
 	

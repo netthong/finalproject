@@ -34,11 +34,6 @@ span.sub { color:#C0C0C0; font-size:14px; }
 			<li class="mb-4">
 				<a href="${path}/owner/review.do" class="text-decoration-none"><span class="main">리뷰 관리</span></a>
 			</li>
-
-			<li class="mb-4">
-				<a href="${path}/pay/pay.do" class="text-decoration-none"><span class="main">결제상세</span></a>
-			</li>
-			
 		</ul>
 	</div>
 </div>

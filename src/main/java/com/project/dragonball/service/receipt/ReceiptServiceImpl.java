@@ -17,8 +17,13 @@ public class ReceiptServiceImpl implements ReceiptService {
 
 	@Override
 	public List<ReceiptDTO> reservationList(String userid) {
-		// TODO Auto-generated method stub
-		return null;
+		return receiptDao.reservationList(userid);
+	}
+
+	@Override
+	public void insertReceipt(String userid) {
+		receiptDao.insertReceipt(userid);
+		
 	}
 
 

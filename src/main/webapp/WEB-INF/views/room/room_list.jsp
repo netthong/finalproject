@@ -153,7 +153,8 @@ $(function(){
 <c:forEach var="row" items="${list}">
 	<tr>
 	  <td>${row.room_no} <br>
-	   <input type="hidden" value="${row.building_code}">
+	   <input type="text" value="${row.building_code}">
+	   <input type="text" value="${row.building_name }">
 	  </td>
 		<td>${row.room_name}</td>
 		<td><img src="${path}/resources/images/${row.picture_url}"

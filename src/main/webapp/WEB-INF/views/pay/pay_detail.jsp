@@ -17,16 +17,14 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 <script type="text/javascript">
+$("form").submit(function() {
+	var userid=$("#userid").val();
+	if (userid == ""){
+		alert("아이디는 필수 입력입니다.");
+		$("#userid").focus();
+		return false;
+	}
 
-
-<script type="text/javascript">
-$("form1").submit(function() {
-		var reserName=$("#reserName").val();
-		if (userid == ""){
-			alert("예약자 이름은 필수 입력입니다.");
-			$("#reserName").focus();
-			return false;
-		}
 
 </script>
 
@@ -39,14 +37,14 @@ $("form1").submit(function() {
 		<div class="col-8">
 				<div class="my-3">
 					<p><strong>예약자 정보</strong></p>
-					<label class="form-label" name="reserName">예약자 이름</label>
-					<input class="form-control" type="text" placeholder="체크인시 필요한 정보입니다." name="reserName" id="reserName" value="${user.name }">
+					<label class="form-label" name="reserid">예약자 아이디</label><br>
+					<label class="form-label" name="userid" style="font-size: 22px;">${userid}</label>
 				</div>
 				<div class="my-3">
 					<p class="form-label">휴대폰 번호</p>
 					<p class="form-text">개인 정보 보호를 위해 안심번호로 숙소에 전송됩니다.</p>
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="010-0000-0000" name="reserTel" id="reserTel" value="${user.tel }">
+						<input type="text" class="form-control" placeholder="010-3653-4716" name="reserTel" id="reserTel"">
 						<span class="input-group-btn">
 						</span>
 					</div>
@@ -57,7 +55,7 @@ $("form1").submit(function() {
 					<p><strong>결제수단 선택</strong></p>
 					<select class="form-select" id="payType">
 						<option value="kakaopay" selected >카카오페이</option>
-						<option value="tosspay" >현장결제</option>
+						<option value="payday" >현장결제</option>
 					</select>	
 				</div>
 
@@ -81,32 +79,32 @@ $("form1").submit(function() {
 				</div>
 			</div>
 			
-	 <form method="post" action="${path}/pay/complete.do" id="form-reserv">
 			
+	 <form method="post" action="${path}/pay/complete.do" id="form-reserv">
 				<div class="row bg-light">
 					<div class="col mx-2">
 						<div class="my-5 mx-3">
 							<dl>
 								<dt id="bilding_name">${rooml.room_name}</dt>
-								<dd id="room_name">${rooml.room_price} / <span id="days">1박</span>
+								<dd id="room_name"><fmt:formatNumber>${rooml.room_price}</fmt:formatNumber>원 / <span id="days">1박</span>
 								<dt class="col-3 form-text">체크인</dt>
 								<dd id="checkIn" > <fmt:formatDate value="${startdate}"/> 15:00</dd>
 								<dd class="form-text">체크아웃</dd>
 								<dd id="checkOut"> <fmt:formatDate value="${enddate}"/>  12:00</dd>
 							</dl>
 							<hr>
-							<a><input type="hidden" value=" ${rooml.building_name }"></a>
-							<a><input type="hidden" value=" ${rooml.building_code }"></a>
-							<a><input type="hidden" value=" ${rooml.room_name }"></a>
-							<a><input type="hidden" value=" ${rooml.room_no }"></a>
-							<a><input type="hidden" value=" ${rooml.room_price }"></a>
-							<a><input type="hidden" value=" ${rooml.room_size }"></a>
-							<a><input type="hidden" value=" ${rooml.picture_url }"></a>
+							<a><input name="building_name" id="building_name" type="text" value="${rooml.building_name}"></a>
+							<a><input name="building_code" id="building_code" type="text" value="${rooml.building_code}"></a>
+							<a><input name="room_name" id="room_name" type="text" value="${rooml.room_name }"></a>
+							<a><input name="room_no" id="room_no" type="text" value="${rooml.room_no}"></a>
+							<a><input name="room_price" id="room_price" type="text" value="${rooml.room_price}"></a>
+							<a><input name="room_size" id="room_size" type="text" value="${rooml.room_size}"></a>
+							<a><input name="picture_url" id="pciture_url" type="text" value="${rooml.picture_url}"></a>
 							
-							<a><input type="hidden" value="${startdate}"></a>
-							<a><input type="hidden" value="${enddate}"></a>
-							<a><input type="hidden" value="${section}"></a>
-							<a><input type="hidden" value="${userid}"></a>
+							<a><input name="startdate" id="startdate" type="text" value="<fmt:formatDate value="${startdate}"/>"></a>
+							<a><input name="enddate" id="enddate" type="text" value="<fmt:formatDate value="${enddate}"/>"></a>
+							<a><input name="secetion" id="section" type="text" value="${section}"></a>
+							<a><input name="userid" id="userid" type="text" value="${userid}"></a>
 					</div>
 					<div class="my-3 mx-3">
 						<p><strong>총 결제 금액</strong><small>(VAT포함)</small></p>
@@ -118,17 +116,18 @@ $("form1").submit(function() {
 					</div>						
 				</div>
 				<div class="row">
-					  <a href="${path}/pay/complete.do?room_no=${rooml.room_no}" class="btn-room-reserve btn btn-secondary w-100">결제하기</a>
+					 <button type="submit" class="btn-room-reserve btn btn-secondary w-100">결제하기</button>
 				</div>
 			</div>
-
-</form>
+   </form>
 	</div>
 </div>
 
 
 
-</body>
 
+
+
+</body>
 <%@ include file="../common/footer.jsp" %>
 </html>

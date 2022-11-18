@@ -24,4 +24,5 @@ public interface UserListService {
 	public void updateTel(String userid, String tel);
 	public void updateEmail(String userid, String email);
 	public List<ReceiptDTO> reservationList(String userid);
+	public void reviewUpdate(int receipt_NO);
 }

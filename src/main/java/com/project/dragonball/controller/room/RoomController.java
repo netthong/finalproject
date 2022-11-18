@@ -25,7 +25,8 @@ public class RoomController {
 	
 	@RequestMapping("list.do")
 	@ResponseBody
-	public ModelAndView list(HttpSession session, ModelAndView mav, @RequestParam("building_code") int building_code) {
+	public ModelAndView list(HttpSession session, ModelAndView mav, @RequestParam("building_code") int building_code
+			, @RequestParam("building_name") String building_name) {
 		
 		List<RoomDTO> list=roomService.listRoom(building_code);
 		System.out.println("building_code : " + building_code);
@@ -66,6 +67,7 @@ public class RoomController {
 		
 		
 		dto.setPicture_url(filename);
+		
 		roomService.insertRoom(dto); //F4
 		
 		List<RoomDTO> list=roomService.listRoom(dto.getBuilding_code());
