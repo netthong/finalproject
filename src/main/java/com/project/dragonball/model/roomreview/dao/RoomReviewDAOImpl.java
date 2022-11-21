@@ -46,14 +46,16 @@ public class RoomReviewDAOImpl implements RoomReviewDAO {
 	}
 
 	@Override
-	public void deleteRoomReview(int building_code) {
-		sqlSession.delete("review.delete", building_code);
-		
+	   public void deleteRoomReview(int replyno) {
+	      sqlSession.delete("review.delete", replyno);
 	}
+	   
 	
 	@Override
 	public Integer roomPointCount(int building_code) {
 		return sqlSession.selectOne("review.pointcount", building_code);
 	}
+	
+	
 	
 }

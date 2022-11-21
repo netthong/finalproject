@@ -24,7 +24,7 @@ span.sub { color:#C0C0C0; font-size:14px; }
 			</li>
 			
 			<li class="mb-4">
-				<a href="${path}/reservation/list.do" class="text-decoration-none"><span class="main">예약 현황</span></a>
+				<a href="${path}/owner/reser_list.do" class="text-decoration-none"><span class="main">예약 현황</span></a>
 				<div class="collapse" id="cat01">
 					<ul class="btn-toggle-nav list-unstyled">
 					</ul>

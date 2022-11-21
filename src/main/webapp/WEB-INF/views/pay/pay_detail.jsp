@@ -15,7 +15,27 @@
 <title>owner_write</title>
 <%@ include file="../include/header.jsp" %>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<style>
+a{
+	text-decoration: none;
+}
 
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    
+}
+
+</style>
 <script type="text/javascript">
 $("form").submit(function() {
 	var userid=$("#userid").val();
@@ -93,16 +113,16 @@ $("form").submit(function() {
 								<dd id="checkOut"> <fmt:formatDate value="${enddate}"/>  12:00</dd>
 							</dl>
 							<hr>
-							<a><input name="building_name" id="building_name" type="text" value="${building_name}"></a>
+							<a><input name="building_name" id="building_name" type="hidden" value="${building_name}"></a>
 							<a><input name="building_code" id="building_code" type="hidden" value="${rooml.building_code}"></a>
 							<a><input name="room_name" id="room_name" type="hidden" value="${rooml.room_name }"></a>
 							<a><input name="room_no" id="room_no" type="hidden" value="${rooml.room_no}"></a>
-						  <a><input name="price" id="price" type="text" value="${rooml.room_price}"></a>
+						  <a><input name="price" id="price" type="hidden" value="${rooml.room_price}"></a>
 							<a><input name="room_size" id="room_size" type="hidden" value="${rooml.room_size}"></a>
 							<a><input name="picture_url" id="pciture_url" type="hidden" value="${rooml.picture_url}"></a>
 							
-							<a><input name="date_start" id="date_start" type="text" value="${long_startdate }"></a>
-							<a><input name="date_end" id="date_end" type="text" value="${long_enddate}"></a>
+							<a><input name="date_start" id="date_start" type="hidden" value="${long_startdate }"></a>
+							<a><input name="date_end" id="date_end" type="hidden" value="${long_enddate}"></a>
 							<a><input name="secetion" id="section" type="hidden" value="${section}"></a>
 							<a><input name="userid" id="userid" type="hidden" value="${userid}"></a>
 					</div>

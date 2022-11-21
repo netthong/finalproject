@@ -15,5 +15,10 @@ public interface ReceiptDAO {
 
 	public void reviewUpdate(int receipt_NO);
 
+	public void cancleReservation(int receipt_no);
 
+	public List<ReceiptDTO> reservationAll();
+	
+	
+	
 }

@@ -79,29 +79,29 @@
 		object-fit: cover;
 	}
 	
-	#form-name fieldset{
+	.form_star fieldset{
     display: inline-block;
     direction: rtl;
     border:0;
 	}
-	#form-name fieldset legend{
+	.form_star fieldset legend{
 	    text-align: right;
 	}
-	#form-name input[type=radio]{
+	.form_star input[type=radio]{
 	    display: none;
 	}
-	#form-name label{
+	.form_star label{
 	    font-size: 3em;
 	    color: transparent;
 	    text-shadow: 0 0 0 #f0f0f0;
 	}
-	#form-name label:hover{
+	.form_star label:hover{
 	    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 	}
-	#form-name label:hover ~ label{
+	.form_star label:hover ~ label{
 	    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 	}
-	#form-name input[type=radio]:checked ~ label{
+	.form_star input[type=radio]:checked ~ label{
 	    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 	}
 	#reviewContents {
@@ -167,25 +167,25 @@
 					리뷰작성완료!
 					</c:if>
 					<c:if test="${fn:contains(dto.reply, 'N')}">
-					<button class="btn btn-outline-secondary" id="btn-show-roomReview-form">리뷰 쓰기</button>
+					<button class="btn btn-outline-secondary" id="btn-show-roomReview-form${dto.receipt_no}">리뷰 쓰기</button>
 					</c:if>
 					</div>
 				</div>
-				<div class="row mb-3 d-none" id="box-roomReview-update">
+				<div class="row mb-3 d-none" id="box-roomReview-update${dto.receipt_no}">
 					<div class="col-8">
-						<form id="form-name" action="upRoomReview.do">
+						<form id="form-name" class="form_star" action="${path}/user/upRoomReview.do">
 							<fieldset>
 								<span class="text-bold">별점을 선택해주세요</span>
-								<input type="radio" name="POINT" value="5" id="rate1"><label
-									for="rate1">★</label>
-								<input type="radio" name="POINT" value="4" id="rate2"><label
-									for="rate2">★</label>
-								<input type="radio" name="POINT" value="3" id="rate3"><label
-									for="rate3">★</label>
-								<input type="radio" name="POINT" value="2" id="rate4"><label
-									for="rate4">★</label>
-								<input type="radio" name="POINT" value="1" id="rate5"><label
-									for="rate5">★</label>
+								<input type="radio" name="POINT" value="5" id="rate${dto.receipt_no}-1"><label
+									for="rate${dto.receipt_no}-1">★</label>
+								<input type="radio" name="POINT" value="4" id="rate${dto.receipt_no}-2"><label
+									for="rate${dto.receipt_no}-2">★</label>
+								<input type="radio" name="POINT" value="3" id="rate${dto.receipt_no}-3"><label
+									for="rate${dto.receipt_no}-3">★</label>
+								<input type="radio" name="POINT" value="2" id="rate${dto.receipt_no}-4"><label
+									for="rate${dto.receipt_no}-4">★</label>
+								<input type="radio" name="POINT" value="1" id="rate${dto.receipt_no}-5"><label
+									for="rate${dto.receipt_no}-5">★</label>
 							</fieldset>
 							<div>
 								<textarea class="col-auto form-control" name="CONTENT" id="reviewContents"
@@ -195,7 +195,7 @@
 							<input type="hidden" name="ROOM_NAME" value="${dto.room_name}">
 							<input type="hidden" name="BUILDING_CODE" value="${dto.building_code}">
 							<button type="submit" class="btn btn-primary" id="complete">리뷰남기기 </button>
-							<button type="button" class="btn btn-secondary" id="btn-hide-roomReview-form">취소 </button> 
+							<button type="button" class="btn btn-secondary" id="btn-hide-roomReview-form${dto.receipt_no}">취소 </button> 
 						</form>
 					</div>
 				</div>
@@ -203,19 +203,21 @@
 	</div>
 </div>
 <%@ include file="../common/footer.jsp" %>
+<c:forEach var="dto" items="${list}">
 <script type="text/javascript">
 $(document).ready(function(){
-$("#btn-show-roomReview-form").click(function() {
-	$("#box-roomReview-update").removeClass('d-none');
-	$("#box-roomReview-btn").addClass('d-none')
+$("#btn-show-roomReview-form${dto.receipt_no}").click(function() {
+	$("#box-roomReview-update${dto.receipt_no}").removeClass('d-none');
+	$("#box-roomReview-btn${dto.receipt_no}").addClass('d-none')
 })
 
-$("#btn-hide-roomReview-form").click(function() {
-	$("#box-roomReview-update").addClass('d-none');
-	$("#box-roomReview-btn").removeClass('d-none');
+$("#btn-hide-roomReview-form${dto.receipt_no}").click(function() {
+	$("#box-roomReview-update${dto.receipt_no}").addClass('d-none');
+	$("#box-roomReview-btn${dto.receipt_no}").removeClass('d-none');
 })
 
 })
 </script>
+</c:forEach>
 </body>
 </html>

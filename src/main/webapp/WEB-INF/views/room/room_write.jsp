@@ -147,8 +147,8 @@ function room_write(){
   <td>방 사진</td>
   <td>
    <input type="file" name="file1" id="file1"> <br>
-   <input type="text" id="building_code" name="building_code" value="${building_code}">
-   <input type="text" id="building_name" name="building_name" value="${building_name }">
+   <input type="hidden" id="building_code" name="building_code" value="${building_code}">
+   <input type="hidden" id="building_name" name="building_name" value="${building_name }">
   </td>
  </tr>
  <tr>

@@ -40,7 +40,7 @@
 		<!-- 홈버튼 -->
 		<div style="text-align: center; width: 235px; font-family: yg-jalnan; font-size: 30px; ">
 			<a class="navbar-brand" href="${path}/admin/userList.do">
-				거기어때
+				거기어때 관리자
 			</a>
 		</div>
 		<ul class="navbar-nav">			

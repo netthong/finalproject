@@ -58,7 +58,7 @@ public class RoomController {
 			filename=dto.getFile1().getOriginalFilename();
 			try {
 				String path="C:\\work\\.metadata\\.plugins\\org.eclipse.wst.server.core"
-						+ "\\tmp0\\wtpwebapps\\finalproject\\resources\\images\\";
+			               + "\\tmp0\\wtpwebapps\\finalproject\\resources\\images\\";
 				//디렉토리가 존재하지 않으면 생성
 				new File(path).mkdir();
 				dto.getFile1().transferTo(new File(path+filename));
@@ -105,8 +105,8 @@ public class RoomController {
 			filename=dto.getFile1().getOriginalFilename();
 			try {
 				
-				String path="C:\\work\\.metadata\\.plugins\\org.eclipse.wst.server.core" 
-						+ "\\tmp0\\wtpwebapps\\finalproject\\resources\\images\\";
+				String path="C:\\work\\.metadata\\.plugins\\org.eclipse.wst.server.core"
+			               + "\\tmp0\\wtpwebapps\\finalproject\\resources\\images\\";
 				new File(path).mkdir();
 				dto.getFile1().transferTo(new File(path+filename));
 			} catch (Exception e) {
@@ -131,7 +131,7 @@ public class RoomController {
 		System.out.println("첨부파일 이름 : "+filename);
 		if(filename != null && !filename.equals("-")) {
 			String path="C:\\work\\.metadata\\.plugins\\org.eclipse.wst.server.core"
-					+ "\\tmp0\\wtpwebapps\\spring02\\resources\\images\\";
+		               + "\\tmp0\\wtpwebapps\\finalproject\\resources\\images\\";
 			File f=new File(path+filename);
 			System.out.println("파일존재여부 : "+f.exists());
 			if(f.exists()) { //파일이 존재하면

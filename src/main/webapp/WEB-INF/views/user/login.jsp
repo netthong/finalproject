@@ -37,6 +37,30 @@ li {
 	display: inline-block;
 }
 
+a{
+	text-decoration: none;
+}   
+   
+@font-face {
+    font-family: 'Happiness-Sans-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+} 
 </style>
 	<title>로그인</title>
 </head>
@@ -45,9 +69,9 @@ li {
 <div class="login">
 	<div id="content">
 		<!-- 로고 -->
-        <div id="logo">
-            <a class="navbar-brand" href="${path}">
-      			<img src="../resources/images/dragonball_logo1.png" alt="거기어때" width="80" height="auto">
+        <div id="logo" style="margin-bottom: 10px;">
+            <a class="navbar-brand" href="${path}" style="font-family: 'yg-jalnan'; font-size: 40px; color: #FF9898;">
+      			거기어때
     		</a>
         </div>
             
@@ -70,6 +94,7 @@ li {
     					로그아웃 되었습니다.
     				</div>
     			</c:if>
+    			
     			<form class="login p-3" method="post" action="login_check.do">
     				<div class="mb-2">
     					<input type="text" class="form-control" name="userid" placeholder="아이디를 입력하세요."/>

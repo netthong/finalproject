@@ -27,5 +27,16 @@ public class ReceiptServiceImpl implements ReceiptService {
 		
 	}
 
+	@Override
+	public List<ReceiptDTO> reservationAll() {
+	      return receiptDao.reservationAll();
 
+	}
+
+	@Override
+	public void cancleReservation(int receipt_no) {
+	      receiptDao.cancleReservation(receipt_no);
+	      
+	}
+	   
 }

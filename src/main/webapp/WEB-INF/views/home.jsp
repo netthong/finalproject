@@ -49,6 +49,29 @@
         overflow: hidden;
       }
       
+a{
+	text-decoration: none;
+}      
+@font-face {
+    font-family: 'Happiness-Sans-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}      
 </style>
 <script type="text/javascript"></script>
 </head>
@@ -58,7 +81,7 @@
 <div class="container">
     <div class="slider">
 	    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-			  <div class="carousel-inner">
+			  <div class="carousel-inner" style="margin-top: 40px;">
 			  <c:forEach var="dto" items="${list}" varStatus="status">
 			  	<c:if test="${status.count != 1}"></c:if>
 				  	<div class="carousel-item">
@@ -85,22 +108,20 @@
 			<!-- 숙소유형별 조회 -->
 				<div class="text-center my-auto">
 					<a href="${path}/building/search.do?buildingtype=m"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_001.png" style="width:100px;height:auto;"></a><br/>
-			    <a href="${path}/building/search.do?buildingtype=m" class="text-decoration-none text-dark fw-light">모텔</a>
+			    <a href="${path}/building/search.do?buildingtype=m" class="text-decoration-none text-dark fw-light" style="font-family: 'Happiness-Sans-Title'; font-weight: bold; ">모텔</a>
 				</div>
 				<div class="text-center my-auto">
 					<a href="${path}/building/search.do?buildingtype=h"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_002.png" style="width:100px;height:auto;"></a><br/>
-			    <a href="${path}/building/search.do?buildingtype=h" class="text-decoration-none text-dark fw-light">호텔 리조트</a>
+			    <a href="${path}/building/search.do?buildingtype=h" class="text-decoration-none text-dark fw-light" style="font-family: 'Happiness-Sans-Title'; font-weight: bold; ">호텔 리조트</a>
 				</div>
 				<div class="text-center my-auto">
 					<a href="${path}/building/search.do?buildingtype=p"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_003.png" style="width:100px;height:auto;"></a><br/>
-
-			    <a href="#" class="text-decoration-none text-dark fw-light">펜션</a>
-
-			    <a href="${path}/building/search.do?buildingtype=p" class="text-decoration-none text-dark fw-light">펜션</a>
+				    <a href="${path}/building/search.do?buildingtype=p" class="text-decoration-none text-dark fw-light" style="font-family: 'Happiness-Sans-Title'; font-weight: bold; ">펜션</a>
 				</div>
+	
 				<div class="text-center my-auto">
 					<a href="${path}/building/search.do?buildingtype=g"><img class="img-fluid" src="${path}/resources/images/homeicons/TYPE_004.png" style="width:100px;height:auto;"></a><br/>
-			    <a href="${path}/building/search.do?buildingtype=g" class="text-decoration-none text-dark fw-light">게스트하우스</a>
+			    <a href="${path}/building/search.do?buildingtype=g" class="text-decoration-none text-dark fw-light" style="font-family: 'Happiness-Sans-Title'; font-weight: bold; ">게스트하우스</a>
 				</div>
 		</div>
 		<div class="row my-5 mx-auto" style="max-width: 950px;">
@@ -109,12 +130,12 @@
 				<div class="card flex-fill p-1 mb-3 me-3">
 					<div class="row g-0">
 			  			<div class="col-md-4">
-			    			<img src="${path}/resources/images/logo.png" style="width:170px;" class="img-fluid rounded-start" alt="...">
+			    			<a href="#"><img src="resources/images/commerce.png" style="width:170px; height: 130px;" class="img-fluid rounded-start" alt="..."></a>
 			  			</div>
 			  			<div class="col-md-8">
 			    			<div class="card-body">
-			      				<h5 class="card-title">거기어때 비즈니스</h5>
-			      				<p class="card-text">출장부터 복지까지<br>거기어때 비즈니스로 서마터하게</p>
+			      				<h5 class="card-title" style="font-weight: bold;">거기어때<br> 광고 신청하기</h5>
+			      				<p class="card-text">고정고객 확보<br>신규 회원 유치 가능합니다!</p>
 			    			</div>
 			  			</div>
 					</div>
@@ -122,12 +143,12 @@
 				<div class="card flex-fill p-1 mb-3">
 					<div class="row g-0">
 						<div class="col-md-4">
-				    		<img src="${path}/resources/images/logo.png" style="width:170px;" class="img-fluid rounded-start" alt="...">
+				    		<a href="#"><img src="resources/images/guesthouse.png" style="width:170px; height: 130px;" class="img-fluid rounded-start" alt="..."></a>
 				  		</div>
 				  		<div class="col-md-8">
 				    		<div class="card-body">
-				      			<h5 class="card-title">거기어때 서체 출시</h5>
-				      			<p class="card-text">젊고 당당한 거기어때 잘난체<br>지금 다운로드 받으세요!</p>
+				      			<h5 class="card-title" style="font-weight: bold;">게스트하우스<br>숙소 등록하기</h5>
+				      			<p class="card-text">숙소 등록하고<br>더 많은 고객 확보하세요!</p>
 				    		</div>
 				  		</div>
 					</div>

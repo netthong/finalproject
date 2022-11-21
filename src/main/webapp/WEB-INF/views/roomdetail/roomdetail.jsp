@@ -116,12 +116,21 @@
 			</div>
 			
 			<p>${ detail.address1 } ${ detail.address2 }</p>
+		
 			<div class="bg-light p-3">
 				<div class="fw-bold text-dark mb-3">사장님 한마디</div>
 				<p>
 					${ detail.owner_comment }
+					
 				</p>
-			</div>
+				
+				
+				<div class="fw-bold text-dark mb-3">편의시설</div>
+				<p>
+					${ detail.accomodation }
+				</p>
+		
+			
 		</div>
 	</div>
 	<!-- 상세 정보 탭 -->
@@ -132,11 +141,7 @@
 					data-bs-target="#room-tab-pane" type="button" role="tab"
 					aria-controls="room-tab-pane" aria-selected="true">객실안내/예약</button>
 			</li>
-			<li class="nav-item" role="presentation">
-				<button class="nav-link text-muted" id="info-tab" data-bs-toggle="tab"
-					data-bs-target="#info-tab-pane" type="button" role="tab"
-					aria-controls="info-tab-pane" aria-selected="true">숙소정보</button>
-			</li>
+			
 			<li class="nav-item" role="presentation">
 				<button class="nav-link text-muted" id="review-tab" data-bs-toggle="tab"
 					data-bs-target="#review-tab-pane" type="button" role="tab"
@@ -351,7 +356,6 @@
 		<i class="bi bi-arrow-up-circle fs-2 p-5" onclick="javscript:(function(){window.scrollTo(0,0);})();" style="cursor: pointer;"></i>
 	</div>
 </div>
-<%@ include file="../common/footer.jsp" %>
 
 <!-- 객실 정보 모달 -->
 <div class="modal fade" id="link-room-info" tabindex="-1" aria-labelledby="roomInfoModalLabel" aria-hidden="true">
@@ -391,9 +395,14 @@
 					</ul>
 				</div>
 			</div>
+			
 		</div>
+		
 	</div>
+	
 </div>
+
+<%@ include file="../common/footer.jsp" %>
 <script type="text/javascript">
 $(function () {
 /**

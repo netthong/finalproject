@@ -10,6 +10,8 @@ public interface ReceiptService {
 	
 	void insertReceipt(ReceiptDTO dto) throws ParseException ;
 	
+	public List<ReceiptDTO> reservationAll();	
 	
+	public void cancleReservation(int receipt_no);
 
 }

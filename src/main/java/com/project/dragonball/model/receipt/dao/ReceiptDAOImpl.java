@@ -47,8 +47,22 @@ public class ReceiptDAOImpl implements ReceiptDAO {
         System.out.println("date : " + date);
         System.out.println("date2 : " + date2);
 		sqlSession.insert("receipt.insert", map);
+	
+	}
+	
+	
+	@Override
+		  public List<ReceiptDTO> reservationAll() {
+		     return sqlSession.selectList("receipt.reservationAll");
+	   }
+		
+	@Override
+		  public void cancleReservation(int receipt_no) {
+		     sqlSession.delete("receipt.cancle", receipt_no);
+		      
+	   }
 		
 		
 	}
 
-}
+

@@ -71,6 +71,10 @@
 	#footer a {
     color: rgba(0,0,0,0.38);
 	}
+
+a{
+	text-decoration: none;
+}
 	
 @font-face {
     font-family: 'Happiness-Sans-Title';

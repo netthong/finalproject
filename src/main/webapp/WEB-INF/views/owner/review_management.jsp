@@ -77,7 +77,7 @@
 
 </head>
 <body>
-<%@ include file="../common/nav.jsp" %>
+<%@ include file="../common/owner_nav.jsp" %>
 <nav class="navbar navbar-expand-md bg-secondary">&nbsp;</nav>
 <nav class="navbar navbar-expand-md bg-secondary">
 <a class="navbar-a">&nbsp;리뷰 관리</a></nav>
@@ -99,24 +99,22 @@
 						<th>작성자</th>
 						<th>내용</th>
 						<th>평점</th>
-						<th>등록일</th>
 						<th>&nbsp;</th>
 					</tr>
 				</thead>
 				<tbody>				
 						<c:forEach var="row" items="${ list }">
-							<tr>
 		            
+   						<tr>
 								<td>${row.REPLYNO }
 								</td>
 								<td>${row.ROOM_NAME }</td>
 								<td>${row.USERID }</td>
 								<td>${row.CONTENT }</td>
-								<td>${ ROOMAVERAGE }</td>
-								<td><fmt:formatDate value="${reg_date_review }" pattern="YYYY년 MM월 dd일"/></td>
-								<td><a href="${path}/owner/review/delete.do?building_code=${row.BUILDING_CODE}">삭제</a></td>
-							</tr>
-						</c:forEach>				
+								<td>${row.POINT}</td>
+								<td><a href="${path}/owner/review/delete.do?REPLYNO=${row.REPLYNO}">삭제</a></td>
+   						</tr>
+						</c:forEach>
 				</tbody>
 			</table>
 		</div>

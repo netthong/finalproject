@@ -39,7 +39,7 @@
 <nav class="navbar navbar-expand-md sticky-top bg-secondary navbar-dark">
 	<div class="nav-container px-3">
 		<!-- 홈버튼 -->
-		<a class="navbar-brand" href="${path}" style="font-family: 'yg-jalnan';">
+		<a class="navbar-brand" href="${path}" style="font-family: 'yg-jalnan'; ">
 			거기어때
 		</a>
 		<ul class="navbar-nav">			
@@ -66,21 +66,21 @@
 			</div>
 			<!-- 로그인 상태 -->
 			<c:if test="${sessionScope.userid != null}">
-			<li class="nav-item" style="width:80px;height:auto"><a class="nav-link" href="#" style="font-family: yg-jalnan; color: white;">내주변</a></li>
+			<div style="width: 40px;"></div>
 			<li class="nav-item" style="width:90px;height:auto"><a class="nav-link" href="${path}/user/logout.do" style="font-family: yg-jalnan; color: white;">로그아웃</a></li>
 			<li class="nav-item dropdown" style="width:90px;height:auto">
    			<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="font-family: yg-jalnan; color: white;">마이페이지</a>
    				<ul class="dropdown-menu">
-    				<li><a class="dropdown-item" href="#" style="font-family: yg-jalnan; ">찜목록</a></li>
-     				<li><a class="dropdown-item" href="#" style="font-family: yg-jalnan; ">예약내역</a></li>
-     				<li><a class="dropdown-item" href="userInfo.do" style="font-family: yg-jalnan;">회원정보</a></li>
+    				
+     				<li><a class="dropdown-item" href="${path}/user/reservationList.do" style="font-family: yg-jalnan; ">예약내역</a></li>
+     				<li><a class="dropdown-item" href="${path}/user/userInfo.do" style="font-family: yg-jalnan;">회원정보</a></li>
    				</ul>
 			</li>
 			
 			</c:if>
 			<!-- 로그아웃 상태 -->
 			<c:if test="${sessionScope.userid == null}">
-				<li class="nav-item" style="width:180px;height:auto; font-family: 'yg-jalnan"><a class="nav-link" href="#" >내주변</a></li>
+				<div style="width: 141px;"></div>
 				<li class="nav-item" style="width:80px;height:auto; font-family: 'yg-jalnan"><a class="nav-link" href="${path}/user/login.do" >로그인</a></li>
 			</c:if>
 		</ul>

@@ -19,13 +19,32 @@
 		--bs-gutter-y: 0;
 		padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
 	}
+	
+a{
+	text-decoration: none;
+}
+
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    
+}
 </style>
 
 <nav class="navbar navbar-expand-md sticky-top bg-secondary navbar-dark">
 	<div class="nav-container px-3">
 		<!-- 홈버튼 -->
-		<a class="navbar-brand" href="${path}/owner/write.do">
-			<img src="${path}/resources/images/dragonball_logo2.png" alt="" width="70" height="50">
+		<a class="navbar-brand" href="${path}/owner/write.do" style="font-family: 'yg-jalnan'; ">
+			거기어때 사장님
 		</a>
 		<ul class="navbar-nav">			
 			<div class="container-fluid position-relative" style="width:700px;height:auto">
@@ -47,14 +66,14 @@
 			</div>
 			<!-- 로그인 상태 -->
 			<c:if test="${sessionScope.userid != null}">
-			<li class="nav-item" style="width:90px;height:auto"><a class="nav-link" href="${path}/user/logout.do">로그아웃</a></li>
+			<div style="width: 80px;"></div>
+			<li class="nav-item" style="width:90px;height:auto"><a class="nav-link" href="${path}/user/logout.do" style="font-family: yg-jalnan; color: white;">로그아웃</a></li>
 			<li class="nav-item dropdown" style="width:90px;height:auto">
 			</li>
 			
 			</c:if>
 			<!-- 로그아웃 상태 -->
 			<c:if test="${sessionScope.userid == null}">
-				<li class="nav-item" style="width:80px;height:auto"><a class="nav-link" href="#">내주변</a></li>
 				<li class="nav-item" style="width:80px;height:auto"><a class="nav-link" href="${path}/user/login.do">로그인</a></li>
 			</c:if>
 		</ul>

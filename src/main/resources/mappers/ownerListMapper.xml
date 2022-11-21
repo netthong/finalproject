@@ -21,6 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT *
 		FROM OWNER_LIST
 		WHERE BUILDING_TYPE=#{type}
+		AND PERMISSION = 'Y'
 	</select>
 	
 	<select id="getBuildingtwo" resultType="ownerListDTO">

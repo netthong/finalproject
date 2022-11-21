@@ -41,6 +41,31 @@ display: none;
 color:#6A82FB; 
 display: none;
 }
+
+a{
+	text-decoration: none;
+}   
+   
+@font-face {
+    font-family: 'Happiness-Sans-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+} 
 </style>
 
 	<title>회원가입</title>
@@ -49,11 +74,11 @@ display: none;
 <div class="register">
 	<div id="content">
 		<!-- 로고 -->
-        <div id="logo">
-            <a class="navbar-brand" href="${path}">
-      			<img src="../resources/images/dragonball_logo1.png" alt="거기어때" width="80" height="auto">
+        <div id="logo" style="margin-bottom: 20px;">
+            <a class="navbar-brand" href="${path}" style="font-family: 'yg-jalnan'; font-size: 40px; color: #FF9898;">
+      			거기어때
     		</a>
-        </div>
+    	</div>
     	<form name="form1" class="border p-3" method="post" action="write.do">
     		<div class="mb-3">
     			<label class="form-label">회원 구분</label><br>
@@ -87,7 +112,7 @@ display: none;
     			<label class="form-label">이메일</label>
     			<input class="form-control" id="email" name="email" placeholder="이메일을 입력해주세요."/>
     		</div>
-    		<div class="mb-1 text-end" id="join">
+    		<div class="mb-1 text-end" id="join" style="width: 325px;">
     			<input type="submit" class="btn btn-primary" name="signUp" onclick="check()" value="가입하기" />
     		</div>
     	</form>

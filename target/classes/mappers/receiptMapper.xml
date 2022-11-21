@@ -5,20 +5,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
 <mapper namespace="receipt">
-	<select id="reservationList"
-	resultType="com.project.dragonball.model.receipt.dto.ReceiptDTO">
-	select receipt_no, userid, building_code, building_name, room_no, room_name, date_start, date_end, price, reply
-	from receipt
-	where userid = #{userid}
-	</select>
 	
-
+   <select id="reservationList"
+   resultType="com.project.dragonball.model.receipt.dto.ReceiptDTO">
+   select receipt_no, userid, building_code, building_name, room_no, room_name, date_start, date_end, price, reply, picture_url
+   from receipt
+   where userid = #{userid}
+   </select>
+	
 	<select id="roomlist" resultType="com.project.dragonball.model.receipt.dto.ReceiptDTO">
 	 select room_no,building_code,building_name,room_name,room_price,room_size,picture_url
 	 from room_list
 	 where room_no=#{ROOM_NO}
 	</select>
-	
 
 	<update id="reviewUpdate">
 	update receipt set reply = 'Y'
@@ -26,11 +25,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<insert id="insert">
-	  insert into receipt (userid, building_code, building_name,price, date_start, date_end, room_no, room_name, picture_url) values
-    (#{dto.userid},#{dto.building_code},#{dto.building_name},#{dto.price},#{date},#{date2},#{dto.room_no},#{dto.room_name},#{dto.picture_url})
-    
-	</insert>
+	  insert into receipt (receipt_no, userid, building_code, building_name,price, date_start, date_end, room_no, room_name, picture_url) values
+    (receipt_no_seq.nextval, #{dto.userid},#{dto.building_code},#{dto.building_name},#{dto.price},#{date},#{date2},#{dto.room_no},#{dto.room_name},#{dto.picture_url})
+    </insert>
 
+   <select id="reservationAll"
+   resultType="com.project.dragonball.model.receipt.dto.ReceiptDTO">
+   select receipt_no, userid, building_code, building_name, room_no, room_name, date_start, date_end, price, reply
+   from receipt
+   </select>
+   
+   <delete id="cancle">
+    delete from receipt 
+    where receipt_no=#{receipt_no}
+   </delete>
+		
 </mapper>
 
 

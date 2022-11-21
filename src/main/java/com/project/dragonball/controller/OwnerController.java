@@ -19,9 +19,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.project.dragonball.model.owner.dto.OwnerListDTO;
 import com.project.dragonball.model.roomreview.dto.RoomReviewDTO;
 import com.project.dragonball.service.owner.OwnerListService;
+import com.project.dragonball.service.receipt.ReceiptService;
 import com.project.dragonball.service.roomdetail.RoomDetailService;
 import com.project.dragonball.service.roominfo.RoomInfoService;
 import com.project.dragonball.service.roomreview.RoomReviewService;
+import com.project.dragonball.service.user.UserListService;
 
 @Controller
 @RequestMapping("owner/*")
@@ -39,6 +41,12 @@ public class OwnerController {
 	
 	@Inject
 	RoomReviewService roomReviewService;
+	
+	@Inject
+	UserListService userService;
+	
+	@Inject
+	ReceiptService receiptService;
 	
 	@RequestMapping("list.do")
 	public ModelAndView list(
@@ -81,7 +89,7 @@ public class OwnerController {
 				// 디렉토리 구분자 : 윈도우즈는 \, 유닉스(리눅스)는 /
 				// " "안에 \를 쓰면 특수문자로 알아듣기 때문에 \를 하나 더 써야 인식가능하다.
 				String path="C:\\work\\.metadata\\.plugins\\org.eclipse.wst.server.core"
-						+ "\\tmp0\\wtpwebapps\\finalproject\\WEB-INF\\views\\images";
+						+ "\\tmp0\\wtpwebapps\\finalproject\\resources\\images\\";
 				//디렉토리가 존재하지 않으면 생성
 				new File(path).mkdir();
 				//임시 디렉토리에 저장 된 첨부파일을 이동
@@ -132,8 +140,8 @@ public class OwnerController {
 			filename=dto.getFile1().getOriginalFilename();
 			try {
 				
-				String path="C:\\work\\.metadata\\.plugins\\org.eclipse.wst.server.core" 
-						+ "\\tmp0\\wtpwebapps\\finalproject\\WEB-INF\\views\\images";
+				String path="C:\\work\\.metadata\\.plugins\\org.eclipse.wst.server.core"
+						+ "\\tmp0\\wtpwebapps\\finalproject\\resources\\images\\";
 				new File(path).mkdir();
 				dto.getFile1().transferTo(new File(path+filename));
 			} catch (Exception e) {
@@ -158,7 +166,7 @@ public class OwnerController {
 		System.out.println("첨부파일 이름 : "+filename);
 		if(filename != null && !filename.equals("-")) { //파일이 있으면
 			String path="C:\\work\\.metadata\\.plugins\\org.eclipse.wst.server.core"
-					+ "\\tmp0\\wtpwebapps\\spring02\\WEB-INF\\views\\images";
+					+ "\\tmp0\\wtpwebapps\\finalproject\\resources\\images\\";
 			File f=new File(path+filename);
 			System.out.println("파일존재여부 : "+f.exists());
 			if(f.exists()) { //파일이 존재하면
@@ -182,6 +190,16 @@ public class OwnerController {
 		 * mav.addObject("roomAvgPoint", roomAvgPoint);
 		 */
 		
+		/*
+		 * List<RoomReviewDTO> roomreview =
+		 * roomReviewService.roomReviewListDesc(building_code); //업소에 해당하는 모든 리뷰를 가져옴
+		 * mav.addObject("review", roomreview);
+		 * 
+		 * List<RoomReviewDTO> newRoomReview =
+		 * roomReviewService.newRoomReviewList(building_code); //업소에 해당하는 최근 리뷰 3개를 가져옴
+		 * mav.addObject("newReview", newRoomReview);
+		 */
+		
 		
 		List<RoomReviewDTO> list = roomReviewService.listReview();
 		
@@ -193,14 +211,32 @@ public class OwnerController {
 	}
 	
 	@RequestMapping("review/delete.do")
-	public String deleteReview(@RequestParam("building_code") int building_code) {
-		//첨부 파일 삭제					
+	public String deleteReview(@RequestParam("REPLYNO") int REPLYNO) {				
 		
 		
 				
-				roomReviewService.deleteRoomReview(building_code);
+				roomReviewService.deleteRoomReview(REPLYNO);
 				//화면 이동
 				return "redirect:/owner/review.do";
+	}
+	
+	@RequestMapping("reser_list.do")
+	public ModelAndView reservationList(ModelAndView mav) {
+		
+		
+		mav.addObject("list", receiptService.reservationAll());
+		mav.setViewName("reservation/reservation_list");
+		return mav;
+	}
+	
+	@RequestMapping("reser_cancle.do")
+	public String cancleReser(@RequestParam("receipt_no") int receipt_no) {
+	
+		
+	receiptService.cancleReservation(receipt_no);
+	
+	return "redirect:/owner/reser_list.do";
+	
 	}
 	
 	

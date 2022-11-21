@@ -23,8 +23,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<delete id="delete">
-	 delete from room_review where building_code=#{building_code}
-	</delete>
+    delete from room_review where replyno=#{replyno}
+   </delete>
 	
 	<insert id="reviewInsert">
 		INSERT INTO ROOM_REVIEW (REPLYNO, USERID, COMMENTNO, POINT, CONTENT, ROOM_NAME, BUILDING_CODE, SHOW)

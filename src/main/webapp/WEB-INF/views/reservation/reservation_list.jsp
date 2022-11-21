@@ -53,8 +53,7 @@
     	padding-top: 20px;
     	display: block;
     	position: relative;
-    	float: right;
-    	width: 800px;
+    	width: 1000px;
     	margin: auto;
 	}
 	
@@ -174,9 +173,15 @@
 }
 </style>
 
+<script type="text/javascript">
+
+
+
+</script>
+
 </head>
 <body>
-<%@ include file="../common/nav.jsp" %>
+<%@ include file="../common/owner_nav.jsp" %>
 <nav class="navbar navbar-expand-md bg-secondary">&nbsp;</nav>
 <nav class="navbar navbar-expand-md bg-secondary">
 <a class="navbar-a">&nbsp;예약 현황</a></nav>
@@ -185,14 +190,15 @@
 <aside class="aside">
 			<jsp:include page="../common/ownersidebar.jsp" />
 	</aside>
-	
+	<form name="form1" method="post">
 		<div id="content">
-			<!-- CAT_001 내 정보 수정 -->
 				<c:forEach var="dto" items="${list}">
 				<div class="col-10">
+				<a href="${path}/owner/reser_cancle.do?receipt_no=${dto.receipt_no}">예약거부</a>
 				<table class="table table-striped table-hover">
 					<tr>
-					<td><img src="${path}/resources/images/${dto.picture_url}"></td>
+					<td>예약자</td>
+					<td>${dto.userid}</td>
 					</tr>
 					<tr>
 						<td>예약번호</td>
@@ -215,10 +221,14 @@
 						<td>${dto.price}</td> 
 					</tr>
 				</table>
+				
+				<br>
 				</div>
-			</c:forEach>
+				
+				</c:forEach>
 	</div>
-</div>
+</form>
+
 <%@ include file="../common/footer.jsp" %>
 <script type="text/javascript">
 $(document).ready(function(){

@@ -190,7 +190,7 @@
 						</c:if>
 						<c:forEach var="list" items="${ searchlist }">
 							<div id="card-acco-${ list.userid }" class="card text-bg-light p-0 rounded-0">
-								<img src="" class="list-thumbnail card-img img-fluid rounded-0" alt="accommodation thumbnail" style="height: 300px;">
+								<img src="${ pageContext.request.contextPath }/resources/images/${ list.picture_url }" class="list-thumbnail card-img img-fluid rounded-0" alt="accommodation thumbnail" style="height: 300px;">
 								<a href="${ pageContext.request.contextPath }/roomdetail/view/${ list.building_code }">
 									<div class="list-overlay card-img-overlay p-3 rounded-0 text-light d-flex justify-content-between">
 										<div class="my-auto">

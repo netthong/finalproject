@@ -129,13 +129,14 @@ $(function(){
 	<c:when test="${map.count == 0}">
 		<p class="content-1">숙소 목록이 비었습니다.</p>
 	</c:when>
+
 	<c:otherwise>
 	${map.count}개의 건물이 있습니다.
 	</c:otherwise>
 </c:choose>
 	</div>
 	
-<div class="tb-container">
+<div class="tb-container" style="width: 61%;">
 <table border="1" style="width: 100%;">
 	<tr>
 		<th>건물번호</th>
@@ -151,15 +152,12 @@ $(function(){
 	<tr>
 		<td>${row.building_code}</td>
 		
-	 
-		<td>
+	 	<td>
 	 	 <a>${row.building_name}</a> <br>
 		 <a href="${path}/room/write.do?building_code=${row.building_code}"><input type="submit" value="방 등록"></a>  
 		 <a href="${path}/room/list.do?building_code=${row.building_code}"><input type="submit" value="방 목록"></a>
 		</td>
 
-	 
-	 
 		<td>${row.building_type }</td>
 		
 		<td><img src="${path}/resources/images/${row.picture_url}"
